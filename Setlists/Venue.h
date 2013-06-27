@@ -1,5 +1,5 @@
 //
-//  Band.h
+//  Venue.h
 //  Setlists
 //
 //  Created by Phil Christensen on 6/27/13.
@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Event, Song;
+@class Event;
 
-@interface Band : NSManagedObject
+@interface Venue : NSManagedObject
 
-@property (nonatomic, retain) NSString * creationDate;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) Event *events;
-@property (nonatomic, retain) Song *songs;
 
 @end

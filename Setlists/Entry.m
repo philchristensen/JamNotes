@@ -8,6 +8,7 @@
 
 #import "Entry.h"
 #import "Event.h"
+#import "Song.h"
 
 
 @implementation Entry

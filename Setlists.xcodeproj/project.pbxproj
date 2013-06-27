@@ -28,10 +28,11 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
-		42960808177CB60200F7DF13 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960807177CB60200F7DF13 /* Event.m */; };
-		4296080B177CB60300F7DF13 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4296080A177CB60300F7DF13 /* Entry.m */; };
-		4296080E177CB60300F7DF13 /* Band.m in Sources */ = {isa = PBXBuildFile; fileRef = 4296080D177CB60300F7DF13 /* Band.m */; };
-		42960811177CB61500F7DF13 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960810177CB61500F7DF13 /* Song.m */; };
+		4296082D177CC67D00F7DF13 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4296082C177CC67D00F7DF13 /* Entry.m */; };
+		42960830177CC67E00F7DF13 /* Band.m in Sources */ = {isa = PBXBuildFile; fileRef = 4296082F177CC67E00F7DF13 /* Band.m */; };
+		42960833177CC67E00F7DF13 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960832177CC67E00F7DF13 /* Venue.m */; };
+		42960836177CC67E00F7DF13 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960835177CC67E00F7DF13 /* Event.m */; };
+		42960839177CC67E00F7DF13 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960838177CC67E00F7DF13 /* Song.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,14 +73,16 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
-		42960806177CB60200F7DF13 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		42960807177CB60200F7DF13 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		42960809177CB60300F7DF13 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		4296080A177CB60300F7DF13 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
-		4296080C177CB60300F7DF13 /* Band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Band.h; sourceTree = "<group>"; };
-		4296080D177CB60300F7DF13 /* Band.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Band.m; sourceTree = "<group>"; };
-		4296080F177CB61500F7DF13 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		42960810177CB61500F7DF13 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		4296082B177CC67D00F7DF13 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		4296082C177CC67D00F7DF13 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		4296082E177CC67E00F7DF13 /* Band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Band.h; sourceTree = "<group>"; };
+		4296082F177CC67E00F7DF13 /* Band.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Band.m; sourceTree = "<group>"; };
+		42960831177CC67E00F7DF13 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		42960832177CC67E00F7DF13 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		42960834177CC67E00F7DF13 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		42960835177CC67E00F7DF13 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		42960837177CC67E00F7DF13 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		42960838177CC67E00F7DF13 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +148,11 @@
 				429607D0177CB39800F7DF13 /* HPBAppDelegate.h */,
 				429607D1177CB39800F7DF13 /* HPBAppDelegate.m */,
 				429607D9177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard */,
-				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				429607E2177CB39800F7DF13 /* HPBMasterViewController.h */,
 				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
 				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
 				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
+				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				42960812177CB62700F7DF13 /* Data Model */,
 				429607C8177CB39800F7DF13 /* Supporting Files */,
 			);
@@ -193,14 +196,16 @@
 			isa = PBXGroup;
 			children = (
 				429607DF177CB39800F7DF13 /* Setlists.xcdatamodeld */,
-				4296080C177CB60300F7DF13 /* Band.h */,
-				4296080D177CB60300F7DF13 /* Band.m */,
-				42960809177CB60300F7DF13 /* Entry.h */,
-				4296080A177CB60300F7DF13 /* Entry.m */,
-				42960806177CB60200F7DF13 /* Event.h */,
-				42960807177CB60200F7DF13 /* Event.m */,
-				4296080F177CB61500F7DF13 /* Song.h */,
-				42960810177CB61500F7DF13 /* Song.m */,
+				42960837177CC67E00F7DF13 /* Song.h */,
+				42960838177CC67E00F7DF13 /* Song.m */,
+				42960834177CC67E00F7DF13 /* Event.h */,
+				42960835177CC67E00F7DF13 /* Event.m */,
+				42960831177CC67E00F7DF13 /* Venue.h */,
+				42960832177CC67E00F7DF13 /* Venue.m */,
+				4296082E177CC67E00F7DF13 /* Band.h */,
+				4296082F177CC67E00F7DF13 /* Band.m */,
+				4296082B177CC67D00F7DF13 /* Entry.h */,
+				4296082C177CC67D00F7DF13 /* Entry.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -322,10 +327,11 @@
 				429607E1177CB39800F7DF13 /* Setlists.xcdatamodeld in Sources */,
 				429607E4177CB39800F7DF13 /* HPBMasterViewController.m in Sources */,
 				429607E7177CB39800F7DF13 /* HPBDetailViewController.m in Sources */,
-				42960808177CB60200F7DF13 /* Event.m in Sources */,
-				4296080B177CB60300F7DF13 /* Entry.m in Sources */,
-				4296080E177CB60300F7DF13 /* Band.m in Sources */,
-				42960811177CB61500F7DF13 /* Song.m in Sources */,
+				4296082D177CC67D00F7DF13 /* Entry.m in Sources */,
+				42960830177CC67E00F7DF13 /* Band.m in Sources */,
+				42960833177CC67E00F7DF13 /* Venue.m in Sources */,
+				42960836177CC67E00F7DF13 /* Event.m in Sources */,
+				42960839177CC67E00F7DF13 /* Song.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +453,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Setlists/Setlists-Prefix.pch";
 				INFOPLIST_FILE = "Setlists/Setlists-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -458,7 +466,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Setlists/Setlists-Prefix.pch";
 				INFOPLIST_FILE = "Setlists/Setlists-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -516,6 +526,7 @@
 				42960802177CB39900F7DF13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42960803177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "SetlistsTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +535,7 @@
 				42960805177CB39900F7DF13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

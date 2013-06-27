@@ -28,7 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (HPBDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -39,8 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)insertNewObject:(id)sender
-//{
+//- (void)insertNewObject:(id)sender {
 //    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
 //    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
 //    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];

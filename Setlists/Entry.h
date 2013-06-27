@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Event;
+@class Event, Song;
 
 @interface Entry : NSManagedObject
 
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) Event *event;
-@property (nonatomic, retain) NSManagedObject *song;
+@property (nonatomic, retain) Song *song;
 
 @end

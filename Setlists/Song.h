@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Band;
+@class Band, Entry;
 
 @interface Song : NSManagedObject
 
 @property (nonatomic, retain) NSDate * creationDate;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Band *band;
+@property (nonatomic, retain) Entry *entries;
 
 @end

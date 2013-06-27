@@ -36,7 +36,12 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"creationDate"] description];
+        //self.bandNameLabel.text = [[self.detailItem valueForKey:@"band"] valueForKey:@"name"];
+        //self.venueNameLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
+
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"MMM dd, yyyy"];
+        self.dateLabel.text = [format stringFromDate:[self.detailItem valueForKey:@"creationDate"]];
     }
 }
 
@@ -51,6 +56,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(section == 0) {
+        return 3;
+    }
+    else{
+        return 1;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [NSString stringWithFormat:@"Set %d", section + 1];
 }
 
 #pragma mark - Split view

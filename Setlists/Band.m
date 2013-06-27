@@ -7,10 +7,15 @@
 //
 
 #import "Band.h"
+#import "Event.h"
+#import "Song.h"
 
 
 @implementation Band
 
 @dynamic creationDate;
+@dynamic name;
+@dynamic events;
+@dynamic songs;
 
 @end

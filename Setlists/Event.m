@@ -7,11 +7,17 @@
 //
 
 #import "Event.h"
+#import "Band.h"
+#import "Entry.h"
+#import "Venue.h"
 
 
 @implementation Event
 
 @dynamic creationDate;
+@dynamic name;
 @dynamic band;
+@dynamic entries;
+@dynamic venue;
 
 @end

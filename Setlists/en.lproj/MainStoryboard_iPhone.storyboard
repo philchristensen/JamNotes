@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEH-4q-ZsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="746"/>
+            <point key="canvasLocation" x="902" y="737"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -97,18 +97,18 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Ii-rFo">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Hob-Mh-jlq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="July 6th, 2013" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlo-yY-bWI">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="cOV-MP-nd5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -124,10 +124,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FNX-nR-TPA">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="387" id="ldW-CF-ceI"/>
+                                    <constraint firstAttribute="height" constant="504" id="6fk-cB-fUM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="nzn-R0-wVK" style="IBUITableViewCellStyleDefault" id="kB8-lB-Bk2">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="nzn-R0-wVK" style="IBUITableViewCellStyleDefault" id="kB8-lB-Bk2">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -176,51 +176,38 @@
                                         </view>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="21" id="EY7-eL-AfR"/>
+                                    <outlet property="delegate" destination="21" id="R17-EO-agQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Nrw-Ii-rFo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9R9-7R-Xl2"/>
+                            <constraint firstItem="Nrw-Ii-rFo" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="18" id="6Qk-cD-L3X"/>
+                            <constraint firstItem="FNX-nR-TPA" firstAttribute="top" secondItem="kB7-6y-0rB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6Ud-CC-oKK"/>
                             <constraint firstItem="FNX-nR-TPA" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="BCp-xV-af3"/>
                             <constraint firstItem="kB7-6y-0rB" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Cu4-kD-Qi4"/>
-                            <constraint firstItem="nlo-yY-bWI" firstAttribute="top" secondItem="22" secondAttribute="top" constant="41" id="MEb-pg-Ofg"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstAttribute="bottom" secondItem="FNX-nR-TPA" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Wgp-EM-bYl"/>
-                            <constraint firstItem="Nrw-Ii-rFo" firstAttribute="top" secondItem="22" secondAttribute="top" constant="12" id="fTF-fV-WmX"/>
+                            <constraint firstItem="FNX-nR-TPA" firstAttribute="top" secondItem="22" secondAttribute="top" constant="84" id="YxD-Xy-V6L"/>
                             <constraint firstItem="FNX-nR-TPA" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="kPW-tQ-nQS"/>
-                            <constraint firstItem="nlo-yY-bWI" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mbk-iT-VXi"/>
-                            <constraint firstAttribute="trailing" secondItem="nlo-yY-bWI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nGf-p8-l5z"/>
-                            <constraint firstItem="Nrw-Ii-rFo" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ndd-sd-Grb"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
+                            <constraint firstItem="nlo-yY-bWI" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="19" id="nKg-YY-vix"/>
+                            <constraint firstItem="Nrw-Ii-rFo" firstAttribute="top" secondItem="22" secondAttribute="top" constant="10" id="sxe-cn-JSy"/>
                             <constraint firstAttribute="trailing" secondItem="kB7-6y-0rB" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vXy-ch-HBJ"/>
-                            <constraint firstItem="27" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="wSP-el-9hm"/>
-                            <constraint firstItem="kB7-6y-0rB" firstAttribute="top" secondItem="22" secondAttribute="top" constant="60" id="zPR-7w-Chi"/>
+                            <constraint firstItem="nlo-yY-bWI" firstAttribute="top" secondItem="22" secondAttribute="top" constant="37" id="zSz-Sg-t1y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
+                        <outlet property="bandNameLabel" destination="Nrw-Ii-rFo" id="vFs-s8-hvs"/>
+                        <outlet property="dateLabel" destination="nlo-yY-bWI" id="f9S-Dr-ILM"/>
+                        <outlet property="venueNameLabel" destination="kB7-6y-0rB" id="QoU-pQ-2ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="1048" y="64"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="HPBDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="HPBMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBMasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

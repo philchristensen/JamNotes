@@ -1,21 +1,19 @@
 //
-//  Song.m
+//  Venue.m
 //  Setlists
 //
 //  Created by Phil Christensen on 6/27/13.
 //  Copyright (c) 2013 Phil Christensen. All rights reserved.
 //
 
-#import "Song.h"
-#import "Band.h"
-#import "Entry.h"
+#import "Venue.h"
+#import "Event.h"
 
 
-@implementation Song
+@implementation Venue
 
-@dynamic creationDate;
 @dynamic name;
-@dynamic band;
-@dynamic entries;
+@dynamic creationDate;
+@dynamic events;
 
 @end
