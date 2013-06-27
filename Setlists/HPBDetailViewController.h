@@ -11,8 +11,8 @@
 @interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *bandNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *venueNameLabel;
+
+@property (weak, nonatomic) IBOutlet UITableView *formTableView;
+@property (weak, nonatomic) IBOutlet UITableView *songTableView;
 
 @end
