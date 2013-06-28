@@ -33,6 +33,11 @@
 		42960833177CC67E00F7DF13 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960832177CC67E00F7DF13 /* Venue.m */; };
 		42960836177CC67E00F7DF13 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960835177CC67E00F7DF13 /* Event.m */; };
 		42960839177CC67E00F7DF13 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960838177CC67E00F7DF13 /* Song.m */; };
+		4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */; };
+		4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */; };
+		4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */; };
+		4AA60498177D104F00A1AC47 /* trey-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA60497177D104F00A1AC47 /* trey-57.png */; };
+		4AA6049A177D105500A1AC47 /* trey-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA60499177D105500A1AC47 /* trey-114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +88,14 @@
 		42960835177CC67E00F7DF13 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		42960837177CC67E00F7DF13 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		42960838177CC67E00F7DF13 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		4AA6048E177D0A9F00A1AC47 /* HPBBandSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBBandSearchViewController.h; sourceTree = "<group>"; };
+		4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBBandSearchViewController.m; sourceTree = "<group>"; };
+		4AA60491177D0C7800A1AC47 /* HPBVenueSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBVenueSearchViewController.h; sourceTree = "<group>"; };
+		4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBVenueSearchViewController.m; sourceTree = "<group>"; };
+		4AA60494177D0DDF00A1AC47 /* HPBSongSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBSongSearchViewController.h; sourceTree = "<group>"; };
+		4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBSongSearchViewController.m; sourceTree = "<group>"; };
+		4AA60497177D104F00A1AC47 /* trey-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "trey-57.png"; path = "../trey-57.png"; sourceTree = "<group>"; };
+		4AA60499177D105500A1AC47 /* trey-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "trey-114.png"; path = "../trey-114.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +165,12 @@
 				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
 				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
 				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
+				4AA6048E177D0A9F00A1AC47 /* HPBBandSearchViewController.h */,
+				4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */,
+				4AA60491177D0C7800A1AC47 /* HPBVenueSearchViewController.h */,
+				4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */,
+				4AA60494177D0DDF00A1AC47 /* HPBSongSearchViewController.h */,
+				4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */,
 				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				42960812177CB62700F7DF13 /* Data Model */,
 				429607C8177CB39800F7DF13 /* Supporting Files */,
@@ -166,6 +185,8 @@
 				429607CA177CB39800F7DF13 /* InfoPlist.strings */,
 				429607CD177CB39800F7DF13 /* main.m */,
 				429607CF177CB39800F7DF13 /* Setlists-Prefix.pch */,
+				4AA60499177D105500A1AC47 /* trey-114.png */,
+				4AA60497177D104F00A1AC47 /* trey-57.png */,
 				429607D3177CB39800F7DF13 /* Default.png */,
 				429607D5177CB39800F7DF13 /* Default@2x.png */,
 				429607D7177CB39800F7DF13 /* Default-568h@2x.png */,
@@ -288,6 +309,8 @@
 				429607D8177CB39800F7DF13 /* Default-568h@2x.png in Resources */,
 				429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */,
 				429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */,
+				4AA60498177D104F00A1AC47 /* trey-57.png in Resources */,
+				4AA6049A177D105500A1AC47 /* trey-114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +355,9 @@
 				42960833177CC67E00F7DF13 /* Venue.m in Sources */,
 				42960836177CC67E00F7DF13 /* Event.m in Sources */,
 				42960839177CC67E00F7DF13 /* Song.m in Sources */,
+				4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */,
+				4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */,
+				4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
