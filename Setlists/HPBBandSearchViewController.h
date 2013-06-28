@@ -10,6 +10,9 @@
 
 @interface HPBBandSearchViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @property NSString* searchText;
+@property NSArray* results;
 
 @end

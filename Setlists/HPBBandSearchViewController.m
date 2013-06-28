@@ -7,6 +7,7 @@
 //
 
 #import "HPBBandSearchViewController.h"
+#import "HPBAppDelegate.h"
 
 @interface HPBBandSearchViewController ()
 
@@ -32,6 +33,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,14 +50,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return [self.results count] + ([self.searchBar.text length] ? 1 : 0);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell;
+    if(indexPath.item < [self.results count]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"defaultCell" forIndexPath:indexPath];
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"addBandCell" forIndexPath:indexPath];
+        cell.textLabel.text = [NSString stringWithFormat:@"Add new band \"%@\"...", self.searchBar.text];
+    }
     
     return cell;
 }
@@ -114,7 +120,29 @@
 #pragma mark - Search bar delegate
 
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text {
-    self.searchText = text;
+    HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Band" inManagedObjectContext:appDelegate.managedObjectContext];
+    [request setEntity:entity];
+    
+    if([text length] > 0){
+        // Set example predicate and sort orderings...
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[c] '%@'", text];
+        [request setPredicate:predicate];
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    
+    NSError *error = nil;
+    self.results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    if (self.results == nil) {
+        // Handle the error.
+        NSLog(@"error in fetch all bands");
+    }
+
     [self.tableView reloadData];
 }
 @end
