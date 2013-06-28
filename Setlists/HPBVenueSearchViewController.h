@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Venue.h"
+
+@protocol HPBVenueSearchViewControllerDelegate <NSObject>
+@optional
+- (void)venueSelected:(Venue*)selectedVenue;
+@end
 
 @interface HPBVenueSearchViewController : UITableViewController
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet id<HPBVenueSearchViewControllerDelegate> delegate;
+
+@property NSString* searchText;
+@property NSArray* results;
 
 @end

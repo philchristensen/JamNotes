@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "HPBBandSearchViewController.h"
+#import "HPBVenueSearchViewController.h"
+#import "HPBSongSearchViewController.h"
 
-@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,HPBBandSearchViewControllerDelegate>
+@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;

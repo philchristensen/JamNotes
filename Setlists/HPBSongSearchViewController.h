@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Song.h"
+
+@protocol HPBSongSearchViewControllerDelegate <NSObject>
+@optional
+- (void)songSelected:(Song*)selectedVenue;
+@end
 
 @interface HPBSongSearchViewController : UITableViewController
 

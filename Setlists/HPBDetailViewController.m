@@ -40,6 +40,11 @@
     self.context = appDelegate.managedObjectContext;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.formTableView deselectRowAtIndexPath:[self.formTableView indexPathForSelectedRow] animated:animated];
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -93,6 +98,7 @@
         }
         else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
+            cell.textLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
         }
     }
     else if(tableView == self.songTableView){
@@ -147,6 +153,10 @@
         HPBBandSearchViewController* popupController = [segue destinationViewController];
         popupController.delegate = self;
     }
+    else if ([[segue identifier] isEqualToString:@"selectVenue"]) {
+        HPBVenueSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+    }
 }
 
 //- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -156,6 +166,13 @@
 #pragma mark - HPBBandSearchViewControllerDelegate
 -(void)bandSelected:(Band *)selectedBand {
     [self.detailItem setValue:selectedBand forKey:@"band"];
+    [self.context save:nil];
+    [self.formTableView reloadData];
+}
+
+#pragma mark - HPBVenueSearchViewControllerDelegate
+-(void)venueSelected:(Venue *)selectedVenue {
+    [self.detailItem setValue:selectedVenue forKey:@"venue"];
     [self.context save:nil];
     [self.formTableView reloadData];
 }

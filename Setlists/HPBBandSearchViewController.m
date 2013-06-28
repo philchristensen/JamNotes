@@ -63,7 +63,7 @@
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"addBandCell" forIndexPath:indexPath];
-        cell.textLabel.text = [NSString stringWithFormat:@"Add new band \"%@\"...", self.searchBar.text];
+        cell.textLabel.text = [NSString stringWithFormat:@"Add \"%@\"...", self.searchBar.text];
     }
     
     return cell;
@@ -111,15 +111,16 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Band* selectedBand;
     if(indexPath.item < [self.results count]){
-        self.selectedBand = self.results[indexPath.item];
+        selectedBand = self.results[indexPath.item];
     }
     else {
         HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
-        self.selectedBand = [NSEntityDescription
+        selectedBand = [NSEntityDescription
                              insertNewObjectForEntityForName:@"Band"
                              inManagedObjectContext:appDelegate.managedObjectContext];
-        self.selectedBand.name = self.searchBar.text;
+        selectedBand.name = self.searchBar.text;
         
         NSError *error = nil;
         [appDelegate.managedObjectContext save:nil];
@@ -127,7 +128,7 @@
             NSLog(@"Error in save new item: %@", error);
         }
     }
-    [self.delegate bandSelected:self.selectedBand];
+    [self.delegate bandSelected:selectedBand];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -142,7 +143,7 @@
     
     if([text length] > 0){
         // Set example predicate and sort orderings...
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS '%@'", text];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", text];
         [request setPredicate:predicate];
     }
     

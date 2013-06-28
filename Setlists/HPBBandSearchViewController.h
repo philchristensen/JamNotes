@@ -21,6 +21,5 @@
 
 @property NSString* searchText;
 @property NSArray* results;
-@property Band* selectedBand;
 
 @end
