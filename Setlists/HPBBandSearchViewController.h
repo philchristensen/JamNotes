@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Band.h"
+
+@protocol HPBBandSearchViewControllerDelegate <NSObject>
+@optional
+- (void)bandSelected:(Band*)selectedBand;
+@end
 
 @interface HPBBandSearchViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet id<HPBBandSearchViewControllerDelegate> delegate;
 
 @property NSString* searchText;
 @property NSArray* results;
+@property Band* selectedBand;
 
 @end

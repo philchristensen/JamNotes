@@ -7,6 +7,10 @@
 //
 
 #import "HPBDetailViewController.h"
+#import "HPBBandSearchViewController.h"
+#import "HPBSongSearchViewController.h"
+#import "HPBVenueSearchViewController.h"
+#import "HPBAppDelegate.h"
 
 @interface HPBDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -31,6 +35,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.context = appDelegate.managedObjectContext;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +78,7 @@
     if(tableView == self.formTableView){
         if(indexPath.item == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"bandCell" forIndexPath:indexPath];
+            cell.textLabel.text = [[self.detailItem valueForKey:@"band"] valueForKey:@"name"];
         }
         else if(indexPath.item == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
@@ -131,6 +139,25 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+#pragma mark - Segue control
+-(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
+    if ([[segue identifier] isEqualToString:@"selectBand"]) {
+        HPBBandSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+    }
+}
+
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+//
+//}
+
+#pragma mark - HPBBandSearchViewControllerDelegate
+-(void)bandSelected:(Band *)selectedBand {
+    [self.detailItem setValue:selectedBand forKey:@"band"];
+    [self.context save:nil];
+    [self.formTableView reloadData];
 }
 
 @end

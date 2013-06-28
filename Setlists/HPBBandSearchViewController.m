@@ -8,6 +8,7 @@
 
 #import "HPBBandSearchViewController.h"
 #import "HPBAppDelegate.h"
+#import "Band.h"
 
 @interface HPBBandSearchViewController ()
 
@@ -34,6 +35,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    [self searchBar:self.searchBar textDidChange:@""];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +59,7 @@
     UITableViewCell *cell;
     if(indexPath.item < [self.results count]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"defaultCell" forIndexPath:indexPath];
+        cell.textLabel.text = [self.results[indexPath.item] name];
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"addBandCell" forIndexPath:indexPath];
@@ -108,13 +111,24 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if(indexPath.item < [self.results count]){
+        self.selectedBand = self.results[indexPath.item];
+    }
+    else {
+        HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+        self.selectedBand = [NSEntityDescription
+                             insertNewObjectForEntityForName:@"Band"
+                             inManagedObjectContext:appDelegate.managedObjectContext];
+        self.selectedBand.name = self.searchBar.text;
+        
+        NSError *error = nil;
+        [appDelegate.managedObjectContext save:nil];
+        if(error){
+            NSLog(@"Error in save new item: %@", error);
+        }
+    }
+    [self.delegate bandSelected:self.selectedBand];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Search bar delegate
@@ -128,7 +142,7 @@
     
     if([text length] > 0){
         // Set example predicate and sort orderings...
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[c] '%@'", text];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS '%@'", text];
         [request setPredicate:predicate];
     }
     

@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Setlists" id="36">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uPC-uM-jyR">
                             <connections>
-                                <segue destination="21" kind="push" id="0Pf-mM-EJw"/>
+                                <segue destination="21" kind="push" identifier="addShow" id="0Pf-mM-EJw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -197,7 +197,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Xs4-F6-Njj" kind="push" id="15m-Fa-AqR"/>
+                                            <segue destination="Xs4-F6-Njj" kind="push" identifier="selectBand" id="15m-Fa-AqR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateCell" textLabel="99z-Hr-ZbS" rowHeight="33" style="IBUITableViewCellStyleDefault" id="ALZ-Lk-hBk">
@@ -232,7 +232,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="ptM-Tx-XlF" kind="push" id="g6P-WR-NcQ"/>
+                                            <segue destination="ptM-Tx-XlF" kind="push" identifier="selectVenue" id="g6P-WR-NcQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -257,7 +257,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="26">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LPT-5I-DGc">
                             <connections>
-                                <segue destination="VuM-Px-GmZ" kind="push" id="zZM-oO-JC8"/>
+                                <segue destination="VuM-Px-GmZ" kind="push" identifier="selectSong" id="zZM-oO-JC8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -354,6 +354,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jZb-fq-zAk"/>
+        <segue reference="0Pf-mM-EJw"/>
     </inferredMetricsTieBreakers>
 </document>

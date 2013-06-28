@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HPBBandSearchViewController.h"
 
-@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,HPBBandSearchViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) NSManagedObjectContext* context;
 
-@property (weak, nonatomic) IBOutlet UITableView *formTableView;
-@property (weak, nonatomic) IBOutlet UITableView *songTableView;
+@property (weak, nonatomic) IBOutlet UITableView* formTableView;
+@property (weak, nonatomic) IBOutlet UITableView* songTableView;
 
 @end
