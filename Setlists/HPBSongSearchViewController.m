@@ -9,6 +9,7 @@
 #import "HPBSongSearchViewController.h"
 #import "HPBAppDelegate.h"
 #import "Song.h"
+#import "Event.h"
 
 @interface HPBSongSearchViewController ()
 

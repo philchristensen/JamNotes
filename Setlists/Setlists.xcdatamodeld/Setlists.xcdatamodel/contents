@@ -8,6 +8,9 @@
     </entity>
     <entity name="Entry" representedClassName="Entry" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="is_encore" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="entries" inverseEntity="Event" syncable="YES"/>
         <relationship name="song" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Song" inverseName="entries" inverseEntity="Song" syncable="YES"/>
     </entity>
@@ -34,7 +37,7 @@
     </entity>
     <elements>
         <element name="Band" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Entry" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Entry" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Event" positionX="261" positionY="189" width="128" height="120"/>
         <element name="Song" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Venue" positionX="160" positionY="192" width="128" height="90"/>

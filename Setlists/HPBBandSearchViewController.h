@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Band.h"
+
+@class Band, Event;
 
 @protocol HPBBandSearchViewControllerDelegate <NSObject>
 @optional
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet id<HPBBandSearchViewControllerDelegate> delegate;
 
-@property id detailItem;
+@property Event* detailItem;
 @property NSString* searchText;
 @property NSArray* results;
 

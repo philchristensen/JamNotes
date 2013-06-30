@@ -19,4 +19,9 @@
 @property (nonatomic, retain) Entry *entries;
 @property (nonatomic, retain) Venue *venue;
 
+- (int)totalSets;
+- (int)totalSongs;
+- (int)totalSongsInSet:(int)setNumber;
+- (Entry*)getEntryAtIndex:(int)index;
+
 @end

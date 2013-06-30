@@ -28,7 +28,6 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
-		4296082D177CC67D00F7DF13 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4296082C177CC67D00F7DF13 /* Entry.m */; };
 		42960830177CC67E00F7DF13 /* Band.m in Sources */ = {isa = PBXBuildFile; fileRef = 4296082F177CC67E00F7DF13 /* Band.m */; };
 		42960833177CC67E00F7DF13 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960832177CC67E00F7DF13 /* Venue.m */; };
 		42960836177CC67E00F7DF13 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 42960835177CC67E00F7DF13 /* Event.m */; };
@@ -38,6 +37,7 @@
 		4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */; };
 		4AA60498177D104F00A1AC47 /* trey-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA60497177D104F00A1AC47 /* trey-57.png */; };
 		4AA6049A177D105500A1AC47 /* trey-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA60499177D105500A1AC47 /* trey-114.png */; };
+		4ADA58C71780A3B40021CF59 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58C61780A3B40021CF59 /* Entry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +78,6 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
-		4296082B177CC67D00F7DF13 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		4296082C177CC67D00F7DF13 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		4296082E177CC67E00F7DF13 /* Band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Band.h; sourceTree = "<group>"; };
 		4296082F177CC67E00F7DF13 /* Band.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Band.m; sourceTree = "<group>"; };
 		42960831177CC67E00F7DF13 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
@@ -96,6 +94,8 @@
 		4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBSongSearchViewController.m; sourceTree = "<group>"; };
 		4AA60497177D104F00A1AC47 /* trey-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "trey-57.png"; path = "../trey-57.png"; sourceTree = "<group>"; };
 		4AA60499177D105500A1AC47 /* trey-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "trey-114.png"; path = "../trey-114.png"; sourceTree = "<group>"; };
+		4ADA58C51780A3B40021CF59 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		4ADA58C61780A3B40021CF59 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,12 +165,7 @@
 				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
 				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
 				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
-				4AA6048E177D0A9F00A1AC47 /* HPBBandSearchViewController.h */,
-				4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */,
-				4AA60491177D0C7800A1AC47 /* HPBVenueSearchViewController.h */,
-				4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */,
-				4AA60494177D0DDF00A1AC47 /* HPBSongSearchViewController.h */,
-				4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */,
+				4ADA58C117809D2D0021CF59 /* Search */,
 				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				42960812177CB62700F7DF13 /* Data Model */,
 				429607C8177CB39800F7DF13 /* Supporting Files */,
@@ -216,6 +211,8 @@
 		42960812177CB62700F7DF13 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				4ADA58C51780A3B40021CF59 /* Entry.h */,
+				4ADA58C61780A3B40021CF59 /* Entry.m */,
 				429607DF177CB39800F7DF13 /* Setlists.xcdatamodeld */,
 				42960837177CC67E00F7DF13 /* Song.h */,
 				42960838177CC67E00F7DF13 /* Song.m */,
@@ -225,10 +222,21 @@
 				42960832177CC67E00F7DF13 /* Venue.m */,
 				4296082E177CC67E00F7DF13 /* Band.h */,
 				4296082F177CC67E00F7DF13 /* Band.m */,
-				4296082B177CC67D00F7DF13 /* Entry.h */,
-				4296082C177CC67D00F7DF13 /* Entry.m */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		4ADA58C117809D2D0021CF59 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4AA6048E177D0A9F00A1AC47 /* HPBBandSearchViewController.h */,
+				4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */,
+				4AA60491177D0C7800A1AC47 /* HPBVenueSearchViewController.h */,
+				4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */,
+				4AA60494177D0DDF00A1AC47 /* HPBSongSearchViewController.h */,
+				4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,7 +358,6 @@
 				429607E1177CB39800F7DF13 /* Setlists.xcdatamodeld in Sources */,
 				429607E4177CB39800F7DF13 /* HPBMasterViewController.m in Sources */,
 				429607E7177CB39800F7DF13 /* HPBDetailViewController.m in Sources */,
-				4296082D177CC67D00F7DF13 /* Entry.m in Sources */,
 				42960830177CC67E00F7DF13 /* Band.m in Sources */,
 				42960833177CC67E00F7DF13 /* Venue.m in Sources */,
 				42960836177CC67E00F7DF13 /* Event.m in Sources */,
@@ -358,6 +365,7 @@
 				4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */,
 				4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */,
 				4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */,
+				4ADA58C71780A3B40021CF59 /* Entry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

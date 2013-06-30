@@ -11,9 +11,11 @@
 #import "HPBVenueSearchViewController.h"
 #import "HPBSongSearchViewController.h"
 
+@class Event;
+
 @interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;
 
 @property (weak, nonatomic) IBOutlet UITableView* formTableView;

@@ -2,7 +2,7 @@
 //  Entry.m
 //  Setlists
 //
-//  Created by Phil Christensen on 6/27/13.
+//  Created by Phil Christensen on 6/30/13.
 //  Copyright (c) 2013 Phil Christensen. All rights reserved.
 //
 
@@ -14,6 +14,9 @@
 @implementation Entry
 
 @dynamic creationDate;
+@dynamic set_index;
+@dynamic is_encore;
+@dynamic order;
 @dynamic event;
 @dynamic song;
 

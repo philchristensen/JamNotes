@@ -9,6 +9,8 @@
 #import "HPBMasterViewController.h"
 
 #import "HPBDetailViewController.h"
+#import "Band.h"
+#import "Event.h"
 
 @interface HPBMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -88,7 +90,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        Event* object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = object;
     }
 }
@@ -97,13 +99,13 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        Event* object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
     }
     else if([[segue identifier] isEqualToString:@"addShow"]){
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        Event* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
         
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.

@@ -12,6 +12,10 @@
 #import "HPBVenueSearchViewController.h"
 #import "HPBAppDelegate.h"
 
+#import "Event.h"
+#import "Entry.h"
+#import "Song.h":
+
 @interface HPBDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
@@ -58,7 +62,7 @@
         return 1;
     }
     else if(tableView == self.songTableView){
-        return 2;
+        return [self.detailItem totalSets];
     }
     return 0;
 }
@@ -68,12 +72,7 @@
         return 3;
     }
     else if(tableView == self.songTableView){
-        if(section == 0) {
-            return 3;
-        }
-        else{
-            return 1;
-        }
+        return [self.detailItem totalSongsInSet:section+1];
     }
     return 0;
 }
@@ -103,6 +102,8 @@
     }
     else if(tableView == self.songTableView){
         cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
+        Entry* entry = [self.detailItem getEntryAtIndex:indexPath.item];
+        cell.textLabel.text = entry.song.name;
     }
 
     return cell;
@@ -182,6 +183,32 @@
     [self.detailItem setValue:selectedVenue forKey:@"venue"];
     [self.context save:nil];
     [self.formTableView reloadData];
+}
+
+#pragma mark - HPBSongSearchViewControllerDelegate
+-(void)songSelected:(Song *)selectedSong {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.context];
+    [request setEntity:entity];
+    
+    Entry* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:self.context];
+    newManagedObject.song = selectedSong;
+    newManagedObject.event = self.detailItem;
+    newManagedObject.set_index = @([self.detailItem totalSets] - 1);
+    newManagedObject.order = @([self.detailItem totalSongs]);
+    newManagedObject.is_encore = NO;
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![self.context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+
+    
+    [self.songTableView reloadData];
 }
 
 @end
