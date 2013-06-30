@@ -17,6 +17,8 @@
 
 @implementation HPBSongSearchViewController
 
+@synthesize isSetOpener;
+
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
@@ -35,6 +37,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     [self searchBar:self.searchBar textDidChange:@""];
+    if(self.isSetOpener){
+        self.title = @"Select Set Opener";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,7 +133,7 @@
             NSLog(@"Error in save new item: %@", error);
         }
     }
-    [self.delegate songSelected:selectedSong];
+    [self.delegate songSelected:selectedSong asSetOpener:self.isSetOpener];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

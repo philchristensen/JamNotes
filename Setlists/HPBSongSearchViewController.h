@@ -12,7 +12,7 @@
 
 @protocol HPBSongSearchViewControllerDelegate <NSObject>
 @optional
-- (void)songSelected:(Song*)selectedVenue;
+- (void)songSelected:(Song*)selectedVenue asSetOpener:(BOOL)isSetOpener;
 @end
 
 @interface HPBSongSearchViewController : UITableViewController
@@ -23,5 +23,7 @@
 @property Event* detailItem;
 @property NSString* searchText;
 @property NSArray* results;
+
+@property BOOL isSetOpener;
 
 @end

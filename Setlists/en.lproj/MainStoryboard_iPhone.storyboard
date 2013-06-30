@@ -66,13 +66,16 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Setlists" id="36">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uPC-uM-jyR">
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fCa-5Q-wAS"/>
+                        <barButtonItem systemItem="add" id="uPC-uM-jyR">
                             <connections>
                                 <segue destination="21" kind="push" identifier="addShow" id="0Pf-mM-EJw"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Setlists" id="36"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,14 +256,20 @@
                             <constraint firstItem="Mcl-xF-viO" firstAttribute="top" secondItem="22" secondAttribute="top" type="default" id="vJM-0h-Pr5"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="26">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LPT-5I-DGc">
+                    <toolbarItems>
+                        <barButtonItem title="New Set" id="GOz-5d-oWl">
+                            <connections>
+                                <segue destination="VuM-Px-GmZ" kind="push" identifier="selectSetOpener" id="3ut-ei-k97"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Y3r-UR-p0P"/>
+                        <barButtonItem systemItem="add" id="LPT-5I-DGc">
                             <connections>
                                 <segue destination="VuM-Px-GmZ" kind="push" identifier="selectSong" id="zZM-oO-JC8"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Detail" id="26"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="formTableView" destination="Mcl-xF-viO" id="75I-fa-o6B"/>
@@ -406,6 +415,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Pf-mM-EJw"/>
+        <segue reference="jZb-fq-zAk"/>
+        <segue reference="3ut-ei-k97"/>
     </inferredMetricsTieBreakers>
 </document>

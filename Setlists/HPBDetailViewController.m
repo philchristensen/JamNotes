@@ -14,7 +14,7 @@
 
 #import "Event.h"
 #import "Entry.h"
-#import "Song.h":
+#import "Song.h"
 
 @interface HPBDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -42,6 +42,8 @@
 
     HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.context = appDelegate.managedObjectContext;
+
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -53,6 +55,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.songTableView setEditing:editing animated:animated];
 }
 
 #pragma mark - Table view
@@ -165,6 +172,12 @@
         popupController.delegate = self;
         popupController.detailItem = self.detailItem;
     }
+    else if ([[segue identifier] isEqualToString:@"selectSetOpener"]) {
+        HPBSongSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+        popupController.detailItem = self.detailItem;
+        popupController.isSetOpener = YES;
+    }
 }
 
 //- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -186,15 +199,20 @@
 }
 
 #pragma mark - HPBSongSearchViewControllerDelegate
--(void)songSelected:(Song *)selectedSong {
+-(void)songSelected:(Song *)selectedSong asSetOpener:(BOOL)isSetOpener {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.context];
     [request setEntity:entity];
     
+    int setNumber = [self.detailItem totalSongs];
+    if(isSetOpener){
+        setNumber++;
+    }
+    
     Entry* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:self.context];
     newManagedObject.song = selectedSong;
     newManagedObject.event = self.detailItem;
-    newManagedObject.set_index = @([self.detailItem totalSets] - 1);
+    newManagedObject.set_index = @(setNumber - 1);
     newManagedObject.order = @([self.detailItem totalSongs]);
     newManagedObject.is_encore = NO;
     
