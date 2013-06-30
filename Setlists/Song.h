@@ -2,7 +2,7 @@
 //  Song.h
 //  Setlists
 //
-//  Created by Phil Christensen on 6/27/13.
+//  Created by Phil Christensen on 6/30/13.
 //  Copyright (c) 2013 Phil Christensen. All rights reserved.
 //
 
@@ -16,6 +16,14 @@
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Band *band;
-@property (nonatomic, retain) Entry *entries;
+@property (nonatomic, retain) NSSet *entries;
+@end
+
+@interface Song (CoreDataGeneratedAccessors)
+
+- (void)addEntriesObject:(Entry *)value;
+- (void)removeEntriesObject:(Entry *)value;
+- (void)addEntries:(NSSet *)values;
+- (void)removeEntries:(NSSet *)values;
 
 @end

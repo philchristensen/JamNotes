@@ -2,7 +2,7 @@
 //  Venue.h
 //  Setlists
 //
-//  Created by Phil Christensen on 6/27/13.
+//  Created by Phil Christensen on 6/30/13.
 //  Copyright (c) 2013 Phil Christensen. All rights reserved.
 //
 
@@ -13,8 +13,16 @@
 
 @interface Venue : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * creationDate;
-@property (nonatomic, retain) Event *events;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSSet *events;
+@end
+
+@interface Venue (CoreDataGeneratedAccessors)
+
+- (void)addEventsObject:(Event *)value;
+- (void)removeEventsObject:(Event *)value;
+- (void)addEvents:(NSSet *)values;
+- (void)removeEvents:(NSSet *)values;
 
 @end
