@@ -153,7 +153,7 @@
     self.results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
     if (self.results == nil) {
         // Handle the error.
-        NSLog(@"error in fetch all bands");
+        NSLog(@"error in fetch all venues");
     }
     
     [self.tableView reloadData];

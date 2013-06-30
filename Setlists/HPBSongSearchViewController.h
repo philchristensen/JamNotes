@@ -16,4 +16,11 @@
 
 @interface HPBSongSearchViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet id<HPBSongSearchViewControllerDelegate> delegate;
+
+@property id detailItem;
+@property NSString* searchText;
+@property NSArray* results;
+
 @end

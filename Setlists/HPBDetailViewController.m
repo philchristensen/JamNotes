@@ -152,10 +152,17 @@
     if ([[segue identifier] isEqualToString:@"selectBand"]) {
         HPBBandSearchViewController* popupController = [segue destinationViewController];
         popupController.delegate = self;
+        popupController.detailItem = self.detailItem;
     }
     else if ([[segue identifier] isEqualToString:@"selectVenue"]) {
         HPBVenueSearchViewController* popupController = [segue destinationViewController];
         popupController.delegate = self;
+        popupController.detailItem = self.detailItem;
+    }
+    else if ([[segue identifier] isEqualToString:@"selectSong"]) {
+        HPBSongSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+        popupController.detailItem = self.detailItem;
     }
 }
 
