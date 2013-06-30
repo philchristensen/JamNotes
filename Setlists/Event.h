@@ -27,4 +27,9 @@
 - (void)addEntries:(NSSet *)values;
 - (void)removeEntries:(NSSet *)values;
 
+- (int)totalSets;
+- (int)totalSongs;
+- (int)totalSongsInSet:(int)setNumber;
+- (Entry*)getEntryAtIndex:(int)index;
+
 @end
