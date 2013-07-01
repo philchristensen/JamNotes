@@ -155,7 +155,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.detailItem deleteSongAtIndexPath:indexPath];
-        if([tableView numberOfRowsInSection:indexPath.section] > 2){
+        if([tableView numberOfRowsInSection:indexPath.section] < 2){
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] 
                      withRowAnimation:UITableViewRowAnimationFade];
         }

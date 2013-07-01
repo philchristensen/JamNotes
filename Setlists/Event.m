@@ -28,7 +28,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"event == %@", self];
     [request setPredicate:predicate];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"set_index" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:sortDescriptors];
     
@@ -141,10 +141,33 @@
         [self.managedObjectContext deleteObject:results[indexPath.row]];
         [self.managedObjectContext save:nil];
     }
-    else{
+    
+    if([results count] < 2){
         // update all following sets by subtracting one from set_index
+        [self decrementSets:indexPath.section + 1];
     }
+}
 
+
+- (void)decrementSets:(int)startSet {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index >= %d)", self, startSet];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"error in fetch all bands");
+    }
+    
+    for(Entry* entry in results){
+        entry.set_index = @([entry.set_index intValue] - 1);
+    }
+    [self.managedObjectContext save:nil];
 }
 
 @end
