@@ -82,12 +82,12 @@
     return [results count];
 }
 
-- (Entry*)getEntryAtIndex:(int)index {
+- (Entry*)getEntryAtIndexPath:(NSIndexPath*)indexPath {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"event == %@", self];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self , indexPath.section];
     [request setPredicate:predicate];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
@@ -101,20 +101,16 @@
         NSLog(@"error in fetch all bands");
     }
     
-    return results[index];
+    return results[indexPath.row];
 }
 
-- (BOOL)wouldBeEmptySet:(int)index {
+- (BOOL)wouldBeEmptySet:(NSIndexPath*)indexPath {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"event == %@", self];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self, indexPath.section];
     [request setPredicate:predicate];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:sortDescriptors];
     
     NSError *error = nil;
     NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
@@ -123,16 +119,7 @@
         NSLog(@"error in fetch all bands");
     }
     
-    if(index > 0){
-        Entry* lastSong = (Entry*)results[index - 1];
-        Entry* song = (Entry*)results[index];
-        int thisSet = [song.set_index intValue];
-        int lastSet = [lastSong.set_index intValue];
-        if(thisSet - lastSet > 1){
-            return YES;
-        }
-    }
-    return NO;
+    return [results count] == 0;
 }
 
 @end

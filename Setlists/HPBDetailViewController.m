@@ -110,12 +110,13 @@
         }
     }
     else if(tableView == self.songTableView){
-        if([self.detailItem wouldBeEmptySet:indexPath.item]){
+        if([self.detailItem wouldBeEmptySet:indexPath]){
             cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell" forIndexPath:indexPath];
         }
         else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
-            Entry* entry = [self.detailItem getEntryAtIndex:indexPath.item];
+
+            Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
             cell.textLabel.text = entry.song.name;
         }
     }
@@ -211,7 +212,10 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.context];
     [request setEntity:entity];
     
-    int setNumber = [self.detailItem totalSongs];
+    int setNumber = [self.detailItem totalSets];
+    if(setNumber == 0){
+        isSetOpener = YES;
+    }
     if(isSetOpener){
         setNumber++;
     }
