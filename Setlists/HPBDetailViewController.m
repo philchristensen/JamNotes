@@ -24,8 +24,7 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
+- (void)setDetailItem:(id)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
     }
@@ -35,8 +34,7 @@
     }        
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
@@ -51,15 +49,15 @@
     [super viewWillAppear:animated];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void) setEditing:(BOOL)editing animated:(BOOL)animated {
+- (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.songTableView setEditing:editing animated:animated];
+    [self.songTableView reloadData];
 }
 
 #pragma mark - Table view
@@ -79,7 +77,11 @@
         return 3;
     }
     else if(tableView == self.songTableView){
-        return [self.detailItem totalSongsInSet:section+1];
+        int total = [self.detailItem totalSongsInSet:section+1];
+        if(total == 0 && self.editing){
+            total = 1;
+        }
+        return total;
     }
     return 0;
 }
@@ -108,9 +110,14 @@
         }
     }
     else if(tableView == self.songTableView){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
-        Entry* entry = [self.detailItem getEntryAtIndex:indexPath.item];
-        cell.textLabel.text = entry.song.name;
+        if([self.detailItem wouldBeEmptySet:indexPath.item]){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell" forIndexPath:indexPath];
+        }
+        else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
+            Entry* entry = [self.detailItem getEntryAtIndex:indexPath.item];
+            cell.textLabel.text = entry.song.name;
+        }
     }
 
     return cell;

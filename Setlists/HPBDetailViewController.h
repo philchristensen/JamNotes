@@ -20,8 +20,5 @@
 
 @property (weak, nonatomic) IBOutlet UITableView* formTableView;
 @property (weak, nonatomic) IBOutlet UITableView* songTableView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem* editButton;
-
-- (IBAction) editSetlist:(id)sender;
 
 @end

@@ -104,4 +104,35 @@
     return results[index];
 }
 
+- (BOOL)wouldBeEmptySet:(int)index {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"event == %@", self];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    
+    NSError *error = nil;
+    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (results == nil) {
+        // Handle the error.
+        NSLog(@"error in fetch all bands");
+    }
+    
+    if(index > 0){
+        Entry* lastSong = (Entry*)results[index - 1];
+        Entry* song = (Entry*)results[index];
+        int thisSet = [song.set_index intValue];
+        int lastSet = [lastSong.set_index intValue];
+        if(thisSet - lastSet > 1){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end

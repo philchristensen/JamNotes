@@ -31,5 +31,6 @@
 - (int)totalSongs;
 - (int)totalSongsInSet:(int)setNumber;
 - (Entry*)getEntryAtIndex:(int)index;
+- (BOOL)wouldBeEmptySet:(int)index;
 
 @end
