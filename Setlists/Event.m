@@ -122,4 +122,29 @@
     return [results count] == 0;
 }
 
+- (void)deleteSongAtIndexPath:(NSIndexPath*)indexPath {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self, indexPath.section];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"error in fetch all bands");
+    }
+    
+    if([results count]){
+        [self.managedObjectContext deleteObject:results[indexPath.row]];
+        [self.managedObjectContext save:nil];
+    }
+    else{
+        // update all following sets by subtracting one from set_index
+    }
+
+}
+
 @end

@@ -32,5 +32,6 @@
 - (int)totalSongsInSet:(int)setNumber;
 - (Entry*)getEntryAtIndexPath:(NSIndexPath*)indexPath;
 - (BOOL)wouldBeEmptySet:(NSIndexPath*)indexPath;
+- (void)deleteSongAtIndexPath:(NSIndexPath*)indexPath;
 
 @end
