@@ -16,6 +16,7 @@
 			<array>
 				<string>trey-57.png</string>
 				<string>trey-114.png</string>
+				<string>trey-57.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -47,6 +48,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>
