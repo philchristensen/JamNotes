@@ -32,6 +32,7 @@
         HPBMasterViewController *controller = (HPBMasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    [application setStatusBarHidden:NO];
     return YES;
 }
 							
