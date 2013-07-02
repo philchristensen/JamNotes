@@ -11,6 +11,7 @@
 		420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */; };
 		420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */; };
 		420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420A1AF1178332D9004FB944 /* TDDatePickerController.xib */; };
+		420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */; };
 		4214C33217820D3F0077FB0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32D17820D3F0077FB0A /* Default-568h@2x.png */; };
 		4214C33317820D3F0077FB0A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32E17820D3F0077FB0A /* Default.png */; };
 		4214C33417820D3F0077FB0A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32F17820D3F0077FB0A /* Default@2x.png */; };
@@ -63,6 +64,8 @@
 		420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemiModalViewController.m; path = TDSemiModal/Source/TDSemiModalViewController.m; sourceTree = SOURCE_ROOT; };
 		420A1AF5178332D9004FB944 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+TDSemiModalExtension.h"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.h"; sourceTree = SOURCE_ROOT; };
 		420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TDSemiModalExtension.m"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.m"; sourceTree = SOURCE_ROOT; };
+		420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBEntryDetailViewController.h; sourceTree = "<group>"; };
+		420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBEntryDetailViewController.m; sourceTree = "<group>"; };
 		4214C32D17820D3F0077FB0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4214C32E17820D3F0077FB0A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4214C32F17820D3F0077FB0A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
 				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
 				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
+				420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */,
+				420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */,
 				4ADA58C117809D2D0021CF59 /* Search */,
 				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				42960812177CB62700F7DF13 /* Data Model */,
@@ -399,6 +404,7 @@
 				420A1AFC178338FE004FB944 /* TDDatePickerController.m in Sources */,
 				420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */,
 				420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */,
+				420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
