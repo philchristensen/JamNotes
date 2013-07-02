@@ -1,3 +1,6 @@
 [submodule "ReorderingTableViewController"]
 	path = ReorderingTableViewController
 	url = https://github.com/shusta/ReorderingTableViewController.git
+[submodule "TDSemiModal"]
+	path = TDSemiModal
+	url = https://github.com/reednj/TDSemiModal.git

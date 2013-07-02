@@ -16,6 +16,8 @@
 #import "Entry.h"
 #import "Song.h"
 
+#import "TDDatePickerController.h"
+
 @interface HPBDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
@@ -57,6 +59,32 @@
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.songTableView setEditing:editing animated:animated];
+}
+
+#pragma mark - Date Picker
+
+- (IBAction) showDatePicker:(id)sender {
+    self.datePickerController = [[TDDatePickerController alloc]
+                                              initWithNibName:@"TDDatePickerController"
+                                              bundle:nil];
+    self.datePickerController.delegate = self;
+    self.datePickerController.datePicker.date = self.detailItem.creationDate;
+    [self presentSemiModalViewController:self.datePickerController];
+}
+
+- (void)datePickerSetDate:(TDDatePickerController*)viewController {
+    self.detailItem.creationDate = viewController.datePicker.date;
+    [self.context save:nil];
+    [self.formTableView reloadData];
+    [self dismissSemiModalViewController:viewController];
+}
+
+- (void)datePickerClearDate:(TDDatePickerController*)viewController {
+    [self.datePickerController.datePicker setDate:self.detailItem.creationDate animated:YES];
+}
+
+- (void)datePickerCancel:(TDDatePickerController*)viewController {
+    [self dismissSemiModalViewController:viewController];
 }
 
 #pragma mark - Table view
@@ -102,6 +130,9 @@
                 date = [[NSDate alloc] init];
             }
             cell.textLabel.text = [format stringFromDate:date];
+            
+            UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDatePicker:)];
+            [cell addGestureRecognizer:recognizer];
         }
         else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];

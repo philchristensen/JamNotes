@@ -10,6 +10,7 @@
 #import "HPBBandSearchViewController.h"
 #import "HPBVenueSearchViewController.h"
 #import "HPBSongSearchViewController.h"
+#import "TDDatePickerController.h"
 
 @class Event;
 
@@ -17,8 +18,15 @@
 
 @property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;
+@property (strong, nonatomic) TDDatePickerController* datePickerController;
 
 @property (weak, nonatomic) IBOutlet UITableView* formTableView;
 @property (weak, nonatomic) IBOutlet UITableView* songTableView;
+
+- (IBAction) showDatePicker:(id)sender;
+
+- (void)datePickerSetDate:(TDDatePickerController*)viewController;
+- (void)datePickerClearDate:(TDDatePickerController*)viewController;
+- (void)datePickerCancel:(TDDatePickerController*)viewController;
 
 @end

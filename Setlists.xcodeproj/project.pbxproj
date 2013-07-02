@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420A1AFC178338FE004FB944 /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF0178332D9004FB944 /* TDDatePickerController.m */; };
+		420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */; };
+		420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */; };
+		420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420A1AF1178332D9004FB944 /* TDDatePickerController.xib */; };
 		4214C33217820D3F0077FB0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32D17820D3F0077FB0A /* Default-568h@2x.png */; };
 		4214C33317820D3F0077FB0A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32E17820D3F0077FB0A /* Default.png */; };
 		4214C33417820D3F0077FB0A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32F17820D3F0077FB0A /* Default@2x.png */; };
@@ -51,6 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420A1AEF178332D9004FB944 /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDDatePickerController.h; path = TDSemiModal/Source/TDDatePickerController.h; sourceTree = SOURCE_ROOT; };
+		420A1AF0178332D9004FB944 /* TDDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDatePickerController.m; path = TDSemiModal/Source/TDDatePickerController.m; sourceTree = SOURCE_ROOT; };
+		420A1AF1178332D9004FB944 /* TDDatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDDatePickerController.xib; path = TDSemiModal/Source/TDDatePickerController.xib; sourceTree = SOURCE_ROOT; };
+		420A1AF2178332D9004FB944 /* TDSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSemiModal.h; path = TDSemiModal/Source/TDSemiModal.h; sourceTree = SOURCE_ROOT; };
+		420A1AF3178332D9004FB944 /* TDSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSemiModalViewController.h; path = TDSemiModal/Source/TDSemiModalViewController.h; sourceTree = SOURCE_ROOT; };
+		420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemiModalViewController.m; path = TDSemiModal/Source/TDSemiModalViewController.m; sourceTree = SOURCE_ROOT; };
+		420A1AF5178332D9004FB944 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+TDSemiModalExtension.h"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.h"; sourceTree = SOURCE_ROOT; };
+		420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TDSemiModalExtension.m"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.m"; sourceTree = SOURCE_ROOT; };
 		4214C32D17820D3F0077FB0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4214C32E17820D3F0077FB0A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4214C32F17820D3F0077FB0A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -124,11 +136,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420A1AFB178332E0004FB944 /* TDSemiModelController */ = {
+			isa = PBXGroup;
+			children = (
+				420A1AEF178332D9004FB944 /* TDDatePickerController.h */,
+				420A1AF0178332D9004FB944 /* TDDatePickerController.m */,
+				420A1AF1178332D9004FB944 /* TDDatePickerController.xib */,
+				420A1AF2178332D9004FB944 /* TDSemiModal.h */,
+				420A1AF3178332D9004FB944 /* TDSemiModalViewController.h */,
+				420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */,
+				420A1AF5178332D9004FB944 /* UIViewController+TDSemiModalExtension.h */,
+				420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */,
+			);
+			name = TDSemiModelController;
+			path = SetlistsTests;
+			sourceTree = "<group>";
+		};
 		429607B3177CB39800F7DF13 = {
 			isa = PBXGroup;
 			children = (
 				429607C7177CB39800F7DF13 /* Setlists */,
 				429607F5177CB39900F7DF13 /* SetlistsTests */,
+				420A1AFB178332E0004FB944 /* TDSemiModelController */,
 				429607BE177CB39800F7DF13 /* Frameworks */,
 				429607BD177CB39800F7DF13 /* Products */,
 			);
@@ -319,6 +348,7 @@
 				4214C33417820D3F0077FB0A /* Default@2x.png in Resources */,
 				4214C33517820D3F0077FB0A /* trey-57.png in Resources */,
 				4214C33617820D3F0077FB0A /* trey-114.png in Resources */,
+				420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +396,9 @@
 				4ADA58D01780F22A0021CF59 /* Event.m in Sources */,
 				4ADA58D31780F22A0021CF59 /* Song.m in Sources */,
 				4ADA58D61780F22A0021CF59 /* Band.m in Sources */,
+				420A1AFC178338FE004FB944 /* TDDatePickerController.m in Sources */,
+				420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */,
+				420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
