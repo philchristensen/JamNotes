@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Entry.h"
 
 @interface HPBEntryDetailViewController : UITableViewController
 
@@ -14,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell* nameCell;
 @property (weak, nonatomic) IBOutlet UISwitch* segueSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch* encoreSwitch;
+
+@property Event* entryEvent;
+@property Entry* detailItem;
 
 @end

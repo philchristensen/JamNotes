@@ -9,6 +9,7 @@
 #import "HPBDetailViewController.h"
 #import "HPBBandSearchViewController.h"
 #import "HPBSongSearchViewController.h"
+#import "HPBEntryDetailViewController.h"
 #import "HPBVenueSearchViewController.h"
 #import "HPBAppDelegate.h"
 
@@ -250,11 +251,12 @@
         popupController.detailItem = self.detailItem;
         popupController.isSetOpener = YES;
     }
+    else if ([[segue identifier] isEqualToString:@"editEntry"]) {
+        HPBEntryDetailViewController* popupController = [segue destinationViewController];
+        popupController.detailItem = [self.detailItem getEntryAtIndexPath:self.songTableView.indexPathForSelectedRow];
+        popupController.entryEvent = self.detailItem;
+    }
 }
-
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-//
-//}
 
 #pragma mark - HPBBandSearchViewControllerDelegate
 -(void)bandSelected:(Band *)selectedBand {
