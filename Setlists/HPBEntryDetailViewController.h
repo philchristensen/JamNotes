@@ -19,4 +19,7 @@
 @property Event* entryEvent;
 @property Entry* detailItem;
 
+- (IBAction)toggleSegue:(UISwitch*)sender;
+- (IBAction)toggleEncore:(UISwitch*)sender;
+
 @end

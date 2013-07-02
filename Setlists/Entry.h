@@ -16,8 +16,10 @@
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSNumber * set_index;
 @property (nonatomic, retain) NSNumber * is_encore;
+@property (nonatomic, retain) NSNumber * is_segue;
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) Event *event;
 @property (nonatomic, retain) Song *song;
+@property (nonatomic, retain) NSString* notes;
 
 @end

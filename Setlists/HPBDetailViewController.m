@@ -148,7 +148,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
 
             Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
-            cell.textLabel.text = entry.song.name;
+            cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
         }
     }
 

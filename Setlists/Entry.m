@@ -16,8 +16,10 @@
 @dynamic creationDate;
 @dynamic set_index;
 @dynamic is_encore;
+@dynamic is_segue;
 @dynamic order;
 @dynamic event;
 @dynamic song;
+@dynamic notes;
 
 @end
