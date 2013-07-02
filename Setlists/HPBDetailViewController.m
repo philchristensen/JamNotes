@@ -57,7 +57,6 @@
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.songTableView setEditing:editing animated:animated];
-    [self.songTableView reloadData];
 }
 
 #pragma mark - Table view

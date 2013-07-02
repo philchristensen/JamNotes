@@ -20,7 +20,7 @@
         </attribute>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="band" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Band" inverseName="events" inverseEntity="Band" syncable="YES"/>
-        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="event" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Entry" inverseName="event" inverseEntity="Entry" syncable="YES"/>
         <relationship name="venue" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Venue" inverseName="events" inverseEntity="Venue" syncable="YES"/>
         <userInfo/>
     </entity>
