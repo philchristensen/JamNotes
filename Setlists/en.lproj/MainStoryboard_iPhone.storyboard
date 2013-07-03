@@ -442,7 +442,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <textView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1rG-bA-Yvz">
-                            <rect key="frame" x="0.0" y="154" width="320" height="306"/>
+                            <rect key="frame" x="0.0" y="154" width="320" height="349"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -482,10 +482,10 @@
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Segue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6L-Bd-djq">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Segues into next song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6L-Bd-djq">
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="153" id="4b2-ue-vWJ"/>
                                                         <constraint firstAttribute="height" constant="21" id="iqu-Ol-fSg"/>
-                                                        <constraint firstAttribute="width" constant="42" id="pBM-TL-6Ay"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -500,8 +500,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="U6L-Bd-djq" firstAttribute="leading" secondItem="WML-Og-wAS" secondAttribute="leading" constant="30" id="Fdb-Lm-oAk"/>
                                             <constraint firstAttribute="trailing" secondItem="Oho-0j-5hy" secondAttribute="trailing" constant="30" id="Nd4-UE-64I"/>
+                                            <constraint firstItem="U6L-Bd-djq" firstAttribute="leading" secondItem="WML-Og-wAS" secondAttribute="leading" constant="20" type="default" id="fFj-Ss-lmS"/>
                                             <constraint firstItem="Oho-0j-5hy" firstAttribute="centerY" secondItem="U6L-Bd-djq" secondAttribute="centerY" type="default" id="rmt-Ba-8vG"/>
                                             <constraint firstItem="Oho-0j-5hy" firstAttribute="top" secondItem="WML-Og-wAS" secondAttribute="top" constant="8" id="ypf-tb-2Mc"/>
                                         </constraints>
@@ -513,10 +513,10 @@
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Encore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrL-4X-duW">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Part of an encore set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrL-4X-duW">
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="136" id="DJg-nC-txS"/>
                                                         <constraint firstAttribute="height" constant="21" id="hGh-z6-gIT"/>
-                                                        <constraint firstAttribute="width" constant="42" id="l27-M7-Ky0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -531,8 +531,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="vrL-4X-duW" firstAttribute="leading" secondItem="Gau-Ag-shD" secondAttribute="leading" constant="30" id="9no-6Q-v4J"/>
                                             <constraint firstAttribute="trailing" secondItem="7YF-Mr-bwt" secondAttribute="trailing" constant="30" id="Gg6-kw-lhc"/>
+                                            <constraint firstItem="vrL-4X-duW" firstAttribute="leading" secondItem="Gau-Ag-shD" secondAttribute="leading" constant="20" type="default" id="MvR-NS-83G"/>
                                             <constraint firstItem="7YF-Mr-bwt" firstAttribute="top" secondItem="Gau-Ag-shD" secondAttribute="top" constant="8" id="vdg-yB-23F"/>
                                             <constraint firstItem="7YF-Mr-bwt" firstAttribute="centerY" secondItem="vrL-4X-duW" secondAttribute="centerY" type="default" id="zZK-ws-G4P"/>
                                         </constraints>
