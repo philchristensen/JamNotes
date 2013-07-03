@@ -56,6 +56,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)textViewDidChange:(UITextView *)textView {
+    self.detailItem.notes = self.notesView.text;
+    
+    HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.managedObjectContext save:nil];
+}
+
 - (IBAction)toggleSegue:(UISwitch*)sender {
     self.detailItem.is_segue = @(sender.isOn);
     
