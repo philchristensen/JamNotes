@@ -44,11 +44,12 @@
     HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.context = appDelegate.managedObjectContext;
 
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [self.formTableView deselectRowAtIndexPath:[self.formTableView indexPathForSelectedRow] animated:animated];
+    [self.songTableView deselectRowAtIndexPath:[self.songTableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
 }
 
@@ -124,7 +125,7 @@
         else if(indexPath.item == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
             NSDateFormatter* format = [[NSDateFormatter alloc] init];
-            [format setDateFormat:@"MMM dd, yyyy"];
+            [format setDateFormat:@"MMMM d, yyyy"];
             
             NSDate* date = [self.detailItem valueForKey:@"creationDate"];
             if(date == nil){
@@ -229,6 +230,29 @@
 }
 
 #pragma mark - Segue control
+- (IBAction)addNewItem:(id)sender {
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"New Item"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"New Song", @"New Set", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
+                                                             bundle: nil];
+    
+    HPBSongSearchViewController *popupController = (HPBSongSearchViewController*)[mainStoryboard
+                                                       instantiateViewControllerWithIdentifier: @"songSearchViewController"];
+    popupController.delegate = self;
+    popupController.detailItem = self.detailItem;
+    popupController.isSetOpener = (buttonIndex == 1);
+
+    [self.navigationController pushViewController:popupController animated:YES];
+}
+
+
 -(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
     if ([[segue identifier] isEqualToString:@"selectBand"]) {
         HPBBandSearchViewController* popupController = [segue destinationViewController];
@@ -239,17 +263,6 @@
         HPBVenueSearchViewController* popupController = [segue destinationViewController];
         popupController.delegate = self;
         popupController.detailItem = self.detailItem;
-    }
-    else if ([[segue identifier] isEqualToString:@"selectSong"]) {
-        HPBSongSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.detailItem;
-    }
-    else if ([[segue identifier] isEqualToString:@"selectSetOpener"]) {
-        HPBSongSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.detailItem;
-        popupController.isSetOpener = YES;
     }
     else if ([[segue identifier] isEqualToString:@"editEntry"]) {
         HPBEntryDetailViewController* popupController = [segue destinationViewController];

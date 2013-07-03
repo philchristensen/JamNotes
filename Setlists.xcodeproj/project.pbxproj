@@ -71,7 +71,7 @@
 		4214C32F17820D3F0077FB0A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4214C33017820D3F0077FB0A /* trey-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trey-57.png"; sourceTree = "<group>"; };
 		4214C33117820D3F0077FB0A /* trey-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trey-114.png"; sourceTree = "<group>"; };
-		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
+		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
 		429607BC177CB39800F7DF13 /* Setlists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Setlists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		429607BF177CB39800F7DF13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		429607C1177CB39800F7DF13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };

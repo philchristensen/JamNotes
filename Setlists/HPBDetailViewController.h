@@ -14,7 +14,7 @@
 
 @class Event;
 
-@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
+@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
 
 @property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;
@@ -24,9 +24,12 @@
 @property (weak, nonatomic) IBOutlet UITableView* songTableView;
 
 - (IBAction) showDatePicker:(id)sender;
+- (IBAction)addNewItem:(id)sender;
 
 - (void)datePickerSetDate:(TDDatePickerController*)viewController;
 - (void)datePickerClearDate:(TDDatePickerController*)viewController;
 - (void)datePickerCancel:(TDDatePickerController*)viewController;
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.detailViewController = (HPBDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
@@ -228,7 +228,7 @@
     cell.textLabel.text = [[object valueForKey:@"band"] valueForKey:@"name"];
 
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"MMM dd, yyyy"];
+    [format setDateFormat:@"MMMM d, yyyy"];
     cell.detailTextLabel.text = [format stringFromDate:[object valueForKey:@"creationDate"]];
 }
 
