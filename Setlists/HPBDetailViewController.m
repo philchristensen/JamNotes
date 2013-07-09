@@ -156,11 +156,16 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if(tableView == self.songTableView){
-        return [NSString stringWithFormat:@"Set %d", section + 1];
+        UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 32)];
+        [headerView setBackgroundColor:hex2UIColor(@"372172", 1.0)];
+        [headerView setText:[NSString stringWithFormat:@" Set %d", section + 1]];
+        [headerView setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
+        [headerView setTextColor:[UIColor lightGrayColor]];
+        return headerView;
     }
-    else {
+    else{
         return nil;
     }
 }
