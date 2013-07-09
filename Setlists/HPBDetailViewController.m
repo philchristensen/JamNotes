@@ -121,6 +121,10 @@
         if(indexPath.item == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"bandCell" forIndexPath:indexPath];
             cell.textLabel.text = [[self.detailItem valueForKey:@"band"] valueForKey:@"name"];
+            if(! cell.textLabel.text){
+                cell.textLabel.text = @"Select Band...";
+                cell.textLabel.textColor = hex2UIColor(@"ffffff", 0.15);
+            }
         }
         else if(indexPath.item == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
@@ -139,6 +143,10 @@
         else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
             cell.textLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
+            if(! cell.textLabel.text){
+                cell.textLabel.text = @"Select Venue...";
+                cell.textLabel.textColor = [UIColor grayColor];
+            }
         }
     }
     else if(tableView == self.songTableView){
@@ -166,14 +174,14 @@
         return headerView;
     }
     else{
-        return nil;
+        return [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 0)];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(tableView == self.formTableView){
         if (indexPath.row == 0) {
-            return 66;
+            return 55;
         }
         else {
             return 33;
