@@ -10,6 +10,29 @@
 
 #import "HPBMasterViewController.h"
 
+NSArray* hex2RGBArray(NSString* hexcolor){
+    NSScanner* scanner = [NSScanner scannerWithString:hexcolor];
+    unsigned int hex;
+    int r = 0, g = 0, b = 0;
+    if ([scanner scanHexInt:&hex]) {
+        // Parsing successful. We have a big int representing the 0xBD8F60 value
+        r = (hex >> 16) & 0xFF; // get the first byte
+        g = (hex >>  8) & 0xFF; // get the middle byte
+        b = (hex      ) & 0xFF; // get the last byte
+    } else {
+        NSLog(@"Parsing error: no hex value found in string");
+    }
+    return @[@(r), @(g), @(b)];
+}
+
+UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
+    NSArray* rgb = hex2RGBArray(hexcolor);
+    return [UIColor colorWithRed: [rgb[0] floatValue] / 255
+                           green: [rgb[1] floatValue] / 255
+                            blue: [rgb[2] floatValue] / 255
+                           alpha: alpha];
+}
+
 @implementation HPBAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -32,7 +55,17 @@
         HPBMasterViewController *controller = (HPBMasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
     [application setStatusBarHidden:NO];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setColor:[UIColor whiteColor]];
+    [[UITableView appearance] setBackgroundColor:hex2UIColor(@"222222", 1.0)];
+    [[UITableView appearance] setSeparatorColor:hex2UIColor(@"111111", 1.0)];
+    
     return YES;
 }
 							

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha);
+
 @interface HPBAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

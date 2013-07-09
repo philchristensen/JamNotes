@@ -38,6 +38,9 @@
 		4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */; };
 		4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */; };
 		4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */; };
+		4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AACFE07178C817D008A9521 /* NavigationBar.png */; };
+		4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AACFE08178C817D008A9521 /* NavigationBar@2x.png */; };
+		4AACFE0D178C847F008A9521 /* BarButtonItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AACFE0C178C847F008A9521 /* BarButtonItem.png */; };
 		4ADA58CA1780F2290021CF59 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58C91780F2290021CF59 /* Venue.m */; };
 		4ADA58CD1780F22A0021CF59 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58CC1780F22A0021CF59 /* Entry.m */; };
 		4ADA58D01780F22A0021CF59 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58CF1780F22A0021CF59 /* Event.m */; };
@@ -102,6 +105,9 @@
 		4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBVenueSearchViewController.m; sourceTree = "<group>"; };
 		4AA60494177D0DDF00A1AC47 /* HPBSongSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBSongSearchViewController.h; sourceTree = "<group>"; };
 		4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBSongSearchViewController.m; sourceTree = "<group>"; };
+		4AACFE07178C817D008A9521 /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
+		4AACFE08178C817D008A9521 /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBar@2x.png"; sourceTree = "<group>"; };
+		4AACFE0C178C847F008A9521 /* BarButtonItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButtonItem.png; sourceTree = "<group>"; };
 		4ADA58C81780F2290021CF59 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		4ADA58C91780F2290021CF59 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		4ADA58CB1780F22A0021CF59 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
@@ -211,6 +217,9 @@
 		429607C8177CB39800F7DF13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4AACFE0C178C847F008A9521 /* BarButtonItem.png */,
+				4AACFE07178C817D008A9521 /* NavigationBar.png */,
+				4AACFE08178C817D008A9521 /* NavigationBar@2x.png */,
 				4214C32D17820D3F0077FB0A /* Default-568h@2x.png */,
 				4214C32E17820D3F0077FB0A /* Default.png */,
 				4214C32F17820D3F0077FB0A /* Default@2x.png */,
@@ -355,6 +364,9 @@
 				4214C33517820D3F0077FB0A /* trey-57.png in Resources */,
 				4214C33617820D3F0077FB0A /* trey-114.png in Resources */,
 				420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */,
+				4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */,
+				4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */,
+				4AACFE0D178C847F008A9521 /* BarButtonItem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
