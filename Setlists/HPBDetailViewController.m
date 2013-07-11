@@ -145,7 +145,7 @@
             cell.textLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
             if(! cell.textLabel.text){
                 cell.textLabel.text = @"Select Venue...";
-                cell.textLabel.textColor = [UIColor grayColor];
+                cell.textLabel.textColor = hex2UIColor(@"ffffff", 0.15);
             }
         }
     }
@@ -169,13 +169,20 @@
         UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 32)];
         [headerView setBackgroundColor:hex2UIColor(@"372172", 1.0)];
         [headerView setText:[NSString stringWithFormat:@" Set %d", section + 1]];
-        [headerView setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
+        [headerView setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
         [headerView setTextColor:[UIColor lightGrayColor]];
         return headerView;
     }
     else{
-        return [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 0)];
+        return nil;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section == 0 && tableView == self.formTableView){
+        return 0;
+    }
+    return tableView == self.formTableView ? 10 : 22;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
