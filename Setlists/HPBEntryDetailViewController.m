@@ -15,9 +15,9 @@
 @end
 
 @implementation HPBEntryDetailViewController
+@synthesize parentController;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -25,8 +25,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -34,7 +33,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self reloadViewData];
+}
 
+- (void) reloadViewData {
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"MMMM d"];
     
@@ -43,6 +45,13 @@
     NSString* datedVenueText = [NSString stringWithFormat:@"%@ - %@", date, venue];
     
     self.nameCell.textLabel.text = [[self.detailItem valueForKey:@"song"] valueForKey:@"name"];
+    if([[self.detailItem valueForKey:@"is_segue"] boolValue]){
+        self.nameCell.textLabel.text = [self.nameCell.textLabel.text stringByAppendingString:@" >"];
+    }
+    if([[self.detailItem valueForKey:@"is_encore"] boolValue]){
+        self.nameCell.textLabel.text = [@"E: " stringByAppendingString:self.nameCell.textLabel.text];
+    }
+    
     self.nameCell.detailTextLabel.text = datedVenueText;
     
     self.notesView.text = [self.detailItem valueForKey:@"notes"];
@@ -50,8 +59,7 @@
     [self.encoreSwitch setOn:[[self.detailItem valueForKey:@"is_encore"] boolValue] animated:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -63,19 +71,47 @@
     [appDelegate.managedObjectContext save:nil];
 }
 
+- (void)textViewDidEndEditing:(UITextView*)textView {
+    [self.parentController.songTableView reloadData];
+}
+
 - (IBAction)toggleSegue:(UISwitch*)sender {
-    self.detailItem.is_segue = @(sender.isOn);
+    [self.detailItem setValue:[NSNumber numberWithBool:sender.on] forKey:@"is_segue"];
     
     HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
     [appDelegate.managedObjectContext save:nil];
+
+    [self reloadViewData];
+    [self.parentController.songTableView reloadData];
 }
 
 - (IBAction)toggleEncore:(UISwitch*)sender {
-    self.detailItem.is_encore = @(sender.isOn);
+    [self.detailItem setValue:[NSNumber numberWithBool:sender.on] forKey:@"is_encore"];
     
     HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
     [appDelegate.managedObjectContext save:nil];
+    
+    [self reloadViewData];
+    [self.parentController.songTableView reloadData];
 }
 
+-(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
+    if ([[segue identifier] isEqualToString:@"editEntrySong"]) {
+        HPBSongSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+        popupController.detailItem = self.entryEvent;
+    }
+}
+
+
+#pragma mark - HPBSongSearchViewControllerDelegate
+-(void)songSelected:(Song *)selectedSong asSetOpener:(BOOL)isSetOpener {
+    HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.detailItem.song = selectedSong;
+    [appDelegate.managedObjectContext save:nil];
+    
+    [self reloadViewData];
+    [self.parentController.songTableView reloadData];
+}
 
 @end

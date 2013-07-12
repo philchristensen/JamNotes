@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HPBDetailViewController.h"
 #import "Entry.h"
 
-@interface HPBEntryDetailViewController : UITableViewController
+@interface HPBEntryDetailViewController : UITableViewController<HPBSongSearchViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView* notesView;
 @property (weak, nonatomic) IBOutlet UITableViewCell* nameCell;
@@ -18,6 +19,7 @@
 
 @property Event* entryEvent;
 @property Entry* detailItem;
+@property HPBDetailViewController* parentController;
 
 - (IBAction)toggleSegue:(UISwitch*)sender;
 - (IBAction)toggleEncore:(UISwitch*)sender;

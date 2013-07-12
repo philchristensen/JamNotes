@@ -59,12 +59,14 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
     [application setStatusBarHidden:NO];
     
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-
-    [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setColor:[UIColor whiteColor]];
-    [[UITableView appearance] setBackgroundColor:hex2UIColor(@"222222", 1.0)];
-    [[UITableView appearance] setSeparatorColor:hex2UIColor(@"111111", 1.0)];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    if(NO){
+        [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setColor:[UIColor whiteColor]];
+        [[UITableView appearance] setBackgroundColor:hex2UIColor(@"222222", 1.0)];
+        [[UITableView appearance] setSeparatorColor:hex2UIColor(@"111111", 1.0)];
+    }
     
     return YES;
 }

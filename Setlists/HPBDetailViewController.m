@@ -158,6 +158,9 @@
 
             Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
             cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+            if([[entry valueForKey:@"is_encore"] boolValue]){
+                cell.textLabel.text = [@"E: " stringByAppendingString:cell.textLabel.text];
+            }
         }
     }
 
@@ -166,12 +169,19 @@
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if(tableView == self.songTableView){
-        UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 32)];
-        [headerView setBackgroundColor:hex2UIColor(@"372172", 1.0)];
-        [headerView setText:[NSString stringWithFormat:@" Set %d", section + 1]];
-        [headerView setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
-        [headerView setTextColor:[UIColor lightGrayColor]];
-        return headerView;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+        view.backgroundColor = hex2UIColor(@"372172", 1.0);
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, tableView.frame.size.width, 21)];
+        
+        label.text = [NSString stringWithFormat:@"Set %d", section + 1];
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+        
+        [view addSubview:label];
+        
+        return view;
     }
     else{
         return nil;
@@ -288,6 +298,7 @@
         HPBEntryDetailViewController* popupController = [segue destinationViewController];
         popupController.detailItem = [self.detailItem getEntryAtIndexPath:self.songTableView.indexPathForSelectedRow];
         popupController.entryEvent = self.detailItem;
+        popupController.parentController = self;
     }
 }
 
