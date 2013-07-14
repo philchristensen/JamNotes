@@ -72,7 +72,7 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView*)textView {
-    [self.parentController.songTableView reloadData];
+    [self.parentController.tableView reloadData];
 }
 
 - (IBAction)toggleSegue:(UISwitch*)sender {
@@ -82,7 +82,7 @@
     [appDelegate.managedObjectContext save:nil];
 
     [self reloadViewData];
-    [self.parentController.songTableView reloadData];
+    [self.parentController.tableView reloadData];
 }
 
 - (IBAction)toggleEncore:(UISwitch*)sender {
@@ -92,7 +92,7 @@
     [appDelegate.managedObjectContext save:nil];
     
     [self reloadViewData];
-    [self.parentController.songTableView reloadData];
+    [self.parentController.tableView reloadData];
 }
 
 -(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
@@ -111,7 +111,7 @@
     [appDelegate.managedObjectContext save:nil];
     
     [self reloadViewData];
-    [self.parentController.songTableView reloadData];
+    [self.parentController.tableView reloadData];
 }
 
 @end

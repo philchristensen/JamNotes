@@ -14,14 +14,11 @@
 
 @class Event;
 
-@interface HPBDetailViewController : UIViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
+@interface HPBDetailViewController : UITableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
 
 @property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
-
-@property (weak, nonatomic) IBOutlet UITableView* formTableView;
-@property (weak, nonatomic) IBOutlet UITableView* songTableView;
 
 - (IBAction) showDatePicker:(id)sender;
 - (IBAction)addNewItem:(id)sender;

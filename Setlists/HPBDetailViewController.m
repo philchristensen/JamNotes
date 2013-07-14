@@ -48,8 +48,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [self.formTableView deselectRowAtIndexPath:[self.formTableView indexPathForSelectedRow] animated:animated];
-    [self.songTableView deselectRowAtIndexPath:[self.songTableView indexPathForSelectedRow] animated:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
 }
 
@@ -60,7 +59,7 @@
 
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
-    [self.songTableView setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
 }
 
 #pragma mark - Date Picker
@@ -77,7 +76,7 @@
 - (void)datePickerSetDate:(TDDatePickerController*)viewController {
     self.detailItem.creationDate = viewController.datePicker.date;
     [self.context save:nil];
-    [self.formTableView reloadData];
+    [self.tableView reloadData];
     [self dismissSemiModalViewController:viewController];
 }
 
@@ -92,32 +91,25 @@
 #pragma mark - Table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if(tableView == self.formTableView){
-        return 1;
-    }
-    else if(tableView == self.songTableView){
-        return [self.detailItem totalSets];
-    }
-    return 0;
+    return [self.detailItem totalSets] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(tableView == self.formTableView){
+    if(section == 0){
         return 3;
     }
-    else if(tableView == self.songTableView){
-        int total = [self.detailItem totalSongsInSet:section+1];
+    else {
+        int total = [self.detailItem totalSongsInSet:section];
         if(total == 0 && self.editing){
             total = 1;
         }
         return total;
     }
-    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if(tableView == self.formTableView){
+    if(indexPath.section == 0){
         if(indexPath.item == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"bandCell" forIndexPath:indexPath];
             cell.textLabel.text = [[self.detailItem valueForKey:@"band"] valueForKey:@"name"];
@@ -149,7 +141,7 @@
             }
         }
     }
-    else if(tableView == self.songTableView){
+    else {
         if([self.detailItem wouldBeEmptySet:indexPath]){
             cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell" forIndexPath:indexPath];
         }
@@ -168,13 +160,13 @@
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(tableView == self.songTableView){
+    if(section > 0){
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
         view.backgroundColor = hex2UIColor(@"372172", 1.0);
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, tableView.frame.size.width, 21)];
         
-        label.text = [NSString stringWithFormat:@"Set %d", section + 1];
+        label.text = [NSString stringWithFormat:@"Set %d", section];
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
@@ -189,14 +181,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if(section == 0 && tableView == self.formTableView){
+    if(section == 0){
         return 0;
     }
-    return tableView == self.formTableView ? 10 : 22;
+    return 22;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(tableView == self.formTableView){
+    if(indexPath.section == 0){
         if (indexPath.row == 0) {
             return 55;
         }
@@ -211,7 +203,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return tableView == self.songTableView;
+    return indexPath.section > 0;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -296,7 +288,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"editEntry"]) {
         HPBEntryDetailViewController* popupController = [segue destinationViewController];
-        popupController.detailItem = [self.detailItem getEntryAtIndexPath:self.songTableView.indexPathForSelectedRow];
+        popupController.detailItem = [self.detailItem getEntryAtIndexPath:self.tableView.indexPathForSelectedRow];
         popupController.entryEvent = self.detailItem;
         popupController.parentController = self;
     }
@@ -306,14 +298,14 @@
 -(void)bandSelected:(Band *)selectedBand {
     [self.detailItem setValue:selectedBand forKey:@"band"];
     [self.context save:nil];
-    [self.formTableView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - HPBVenueSearchViewControllerDelegate
 -(void)venueSelected:(Venue *)selectedVenue {
     [self.detailItem setValue:selectedVenue forKey:@"venue"];
     [self.context save:nil];
-    [self.formTableView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - HPBSongSearchViewControllerDelegate
@@ -347,7 +339,7 @@
     }
 
     
-    [self.songTableView reloadData];
+    [self.tableView reloadData];
 }
 
 @end
