@@ -33,5 +33,6 @@
 - (Entry*)getEntryAtIndexPath:(NSIndexPath*)indexPath;
 - (BOOL)wouldBeEmptySet:(NSIndexPath*)indexPath;
 - (void)deleteSongAtIndexPath:(NSIndexPath*)indexPath;
+- (void)moveEntryFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 
 @end

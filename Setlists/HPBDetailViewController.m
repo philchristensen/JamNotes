@@ -159,6 +159,17 @@
     return cell;
 }
 
+- (UITableViewCell*)cellIdenticalToCellAtIndexPath:(NSIndexPath*)indexPath forDragTableViewController:(ATSDragToReorderTableViewController*)tableViewController {
+    Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+    if([[entry valueForKey:@"is_encore"] boolValue]){
+        cell.textLabel.text = [@"E: " stringByAppendingString:cell.textLabel.text];
+    }
+    
+    return cell;
+}
+
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if(section > 0){
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
@@ -219,21 +230,16 @@
     }
 }
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
+// support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
 
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
+// support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return indexPath.section > 0;
+}
 
 #pragma mark - Split view
 

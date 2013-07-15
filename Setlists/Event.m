@@ -170,4 +170,8 @@
     [self.managedObjectContext save:nil];
 }
 
+- (void)moveEntryFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath {
+    
+}
+
 @end

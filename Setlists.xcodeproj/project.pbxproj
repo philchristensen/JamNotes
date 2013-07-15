@@ -41,6 +41,8 @@
 		4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AACFE07178C817D008A9521 /* NavigationBar.png */; };
 		4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AACFE08178C817D008A9521 /* NavigationBar@2x.png */; };
 		4AACFE0D178C847F008A9521 /* BarButtonItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AACFE0C178C847F008A9521 /* BarButtonItem.png */; };
+		4ABDBCC01792EA000032A4A7 /* ATSDragToReorderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDBCBF1792EA000032A4A7 /* ATSDragToReorderTableViewController.m */; };
+		4ABDBCC41792ED590032A4A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABDBCC31792ED590032A4A7 /* QuartzCore.framework */; };
 		4ADA58CA1780F2290021CF59 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58C91780F2290021CF59 /* Venue.m */; };
 		4ADA58CD1780F22A0021CF59 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58CC1780F22A0021CF59 /* Entry.m */; };
 		4ADA58D01780F22A0021CF59 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58CF1780F22A0021CF59 /* Event.m */; };
@@ -108,6 +110,9 @@
 		4AACFE07178C817D008A9521 /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
 		4AACFE08178C817D008A9521 /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBar@2x.png"; sourceTree = "<group>"; };
 		4AACFE0C178C847F008A9521 /* BarButtonItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButtonItem.png; sourceTree = "<group>"; };
+		4ABDBCBE1792EA000032A4A7 /* ATSDragToReorderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATSDragToReorderTableViewController.h; path = ReorderingTableViewController/ATSDragToReorderTableViewController.h; sourceTree = "<group>"; };
+		4ABDBCBF1792EA000032A4A7 /* ATSDragToReorderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATSDragToReorderTableViewController.m; path = ReorderingTableViewController/ATSDragToReorderTableViewController.m; sourceTree = "<group>"; };
+		4ABDBCC31792ED590032A4A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4ADA58C81780F2290021CF59 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		4ADA58C91780F2290021CF59 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		4ADA58CB1780F22A0021CF59 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
@@ -125,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ABDBCC41792ED590032A4A7 /* QuartzCore.framework in Frameworks */,
 				429607C0177CB39800F7DF13 /* UIKit.framework in Frameworks */,
 				429607C2177CB39800F7DF13 /* Foundation.framework in Frameworks */,
 				429607C4177CB39800F7DF13 /* CoreGraphics.framework in Frameworks */,
@@ -146,7 +152,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		420A1AFB178332E0004FB944 /* TDSemiModelController */ = {
+		420A1AFB178332E0004FB944 /* TDSemiModalController */ = {
 			isa = PBXGroup;
 			children = (
 				420A1AEF178332D9004FB944 /* TDDatePickerController.h */,
@@ -158,7 +164,7 @@
 				420A1AF5178332D9004FB944 /* UIViewController+TDSemiModalExtension.h */,
 				420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */,
 			);
-			name = TDSemiModelController;
+			name = TDSemiModalController;
 			path = SetlistsTests;
 			sourceTree = "<group>";
 		};
@@ -167,7 +173,8 @@
 			children = (
 				429607C7177CB39800F7DF13 /* Setlists */,
 				429607F5177CB39900F7DF13 /* SetlistsTests */,
-				420A1AFB178332E0004FB944 /* TDSemiModelController */,
+				420A1AFB178332E0004FB944 /* TDSemiModalController */,
+				4ABDBCC21792EA0E0032A4A7 /* ATSDragToReorderTableViewController */,
 				429607BE177CB39800F7DF13 /* Frameworks */,
 				429607BD177CB39800F7DF13 /* Products */,
 			);
@@ -190,6 +197,7 @@
 				429607C3177CB39800F7DF13 /* CoreGraphics.framework */,
 				429607C5177CB39800F7DF13 /* CoreData.framework */,
 				429607EE177CB39900F7DF13 /* SenTestingKit.framework */,
+				4ABDBCC31792ED590032A4A7 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,6 +276,15 @@
 				4ADA58C91780F2290021CF59 /* Venue.m */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		4ABDBCC21792EA0E0032A4A7 /* ATSDragToReorderTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4ABDBCBE1792EA000032A4A7 /* ATSDragToReorderTableViewController.h */,
+				4ABDBCBF1792EA000032A4A7 /* ATSDragToReorderTableViewController.m */,
+			);
+			name = ATSDragToReorderTableViewController;
 			sourceTree = "<group>";
 		};
 		4ADA58C117809D2D0021CF59 /* Search */ = {
@@ -418,6 +435,7 @@
 				420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */,
 				420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */,
 				420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */,
+				4ABDBCC01792EA000032A4A7 /* ATSDragToReorderTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
