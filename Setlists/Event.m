@@ -58,13 +58,13 @@
     NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (results == nil) {
         // Handle the error.
-        NSLog(@"error in fetch all bands");
+        NSLog(@"Error in totalSongs: %@", error);
     }
     
     return [results count];
 }
 
-- (int)totalSongsInSet:(int)setNumber {
+- (NSArray*)songsInSet:(int)setNumber {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
@@ -76,102 +76,88 @@
     NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (results == nil) {
         // Handle the error.
-        NSLog(@"error in fetch all bands");
+        NSLog(@"Error in songsInSet: %@", error);
     }
-    
+    return results;
+}
+
+- (int)totalSongsInSet:(int)setNumber {
+    NSArray* results = [self songsInSet:setNumber];
     return [results count];
 }
 
 - (Entry*)getEntryAtIndexPath:(NSIndexPath*)indexPath {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self , indexPath.section - 1];
-    [request setPredicate:predicate];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:sortDescriptors];
-    
-    NSError *error = nil;
-    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if (results == nil) {
-        // Handle the error.
-        NSLog(@"error in fetch all bands");
-    }
-    
+    NSArray* results = [self songsInSet:indexPath.section];
     return results[indexPath.row];
 }
 
 - (BOOL)wouldBeEmptySet:(NSIndexPath*)indexPath {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self, indexPath.section - 1];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if (results == nil) {
-        // Handle the error.
-        NSLog(@"error in fetch all bands");
-    }
-    
-    return [results count] == 0;
+    return [self totalSongsInSet:indexPath.section] == 0;
 }
 
 - (void)deleteSongAtIndexPath:(NSIndexPath*)indexPath {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self, indexPath.section - 1];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if(error){
-        // Handle the error.
-        NSLog(@"error in fetch all bands");
-    }
-    
+    NSArray* results = [self songsInSet:indexPath.section];
     if([results count]){
         [self.managedObjectContext deleteObject:results[indexPath.row]];
+        
+        NSError *error = nil;
         [self.managedObjectContext save:nil];
+        if(error){
+            NSLog(@"Error in deleteSongAtIndexPath: %@", error);
+        }
     }
-    
-    if([results count] < 2){
-        // update all following sets by subtracting one from set_index
-        [self decrementSets:indexPath.section + 1];
-    }
-}
-
-
-- (void)decrementSets:(int)startSet {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index >= %d)", self, startSet];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if(error){
-        // Handle the error.
-        NSLog(@"error in fetch all bands");
-    }
-    
-    for(Entry* entry in results){
-        entry.set_index = @([entry.set_index intValue] - 1);
-    }
-    [self.managedObjectContext save:nil];
 }
 
 - (void)moveEntryFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath {
-    
+    // if we're moving within the same set
+    if(toIndexPath.section == fromIndexPath.section){
+        NSArray* results = [self songsInSet:toIndexPath.section];
+        // get moving item, set new set_index and order
+        Entry* movingEntry = (Entry*)results[fromIndexPath.item];
+        movingEntry.order = @(toIndexPath.item);
+        
+        // if we moved to an earlier position
+        if(toIndexPath.item < fromIndexPath.item){
+            // increment order of all items greater than current order and less than old order
+            for(int i = toIndexPath.item; i < fromIndexPath.item; i++){
+                Entry* current = (Entry*)results[i];
+                current.order = @([current.order intValue] + 1);
+            }
+        }
+        // we moved to a later position
+        else{
+            // decrement order of all items greater than old order and less than current order
+            for(int i = fromIndexPath.item + 1; i <= toIndexPath.item; i++){
+                Entry* current = (Entry*)results[i];
+                current.order = @([current.order intValue] - 1);
+            }
+        }
+    }
+    // we're moving between sets
+    else {
+        // decrement order of all items in old set greater than old order
+        NSArray* oldSet = [self songsInSet:fromIndexPath.section];
+        for(int i = fromIndexPath.item + 1; i < [oldSet count]; i++){
+            Entry* current = (Entry*)oldSet[i];
+            current.order = @([current.order intValue] - 1);
+        }
+
+        // increment order of all items in new set greater than new order
+        NSArray* newSet = [self songsInSet:toIndexPath.section];
+        for(int i = toIndexPath.item; i < [newSet count]; i++){
+            Entry* current = (Entry*)newSet[i];
+            current.order = @([current.order intValue] + 1);
+        }
+
+        // if we made a set empty
+            // decrement the set_index of all items with greater set index
+    }
+
+    NSError *error = nil;
+    [self.managedObjectContext save:nil];
+    if(error){
+        NSLog(@"Error in moveEntryFromIndexPath: %@", error);
+    }
 }
 
 @end

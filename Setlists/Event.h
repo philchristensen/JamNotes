@@ -29,6 +29,7 @@
 
 - (int)totalSets;
 - (int)totalSongs;
+- (NSArray*)songsInSet:(int)setNumber;
 - (int)totalSongsInSet:(int)setNumber;
 - (Entry*)getEntryAtIndexPath:(NSIndexPath*)indexPath;
 - (BOOL)wouldBeEmptySet:(NSIndexPath*)indexPath;
