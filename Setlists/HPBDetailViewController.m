@@ -113,12 +113,22 @@
         if(indexPath.item == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"bandCell" forIndexPath:indexPath];
             cell.textLabel.text = [[self.detailItem valueForKey:@"band"] valueForKey:@"name"];
+            cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:1];
             if(! cell.textLabel.text){
                 cell.textLabel.text = @"Select Band...";
-                cell.textLabel.textColor = hex2UIColor(@"ffffff", 0.15);
+                cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.15];
             }
         }
         else if(indexPath.item == 1){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
+            cell.textLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
+            cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:1];
+            if(! cell.textLabel.text){
+                cell.textLabel.text = @"Select Venue...";
+                cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.15];
+            }
+        }
+        else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
             NSDateFormatter* format = [[NSDateFormatter alloc] init];
             [format setDateFormat:@"MMMM d, yyyy"];
@@ -131,14 +141,6 @@
             
             UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDatePicker:)];
             [cell addGestureRecognizer:recognizer];
-        }
-        else{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
-            cell.textLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
-            if(! cell.textLabel.text){
-                cell.textLabel.text = @"Select Venue...";
-                cell.textLabel.textColor = hex2UIColor(@"ffffff", 0.15);
-            }
         }
     }
     else {
@@ -332,7 +334,7 @@
     newManagedObject.song = selectedSong;
     newManagedObject.event = self.detailItem;
     newManagedObject.set_index = @(setNumber - 1);
-    newManagedObject.order = @([self.detailItem totalSongs]);
+    newManagedObject.order = @([self.detailItem totalSongs] - 1);
     newManagedObject.is_encore = NO;
     
     // Save the context.

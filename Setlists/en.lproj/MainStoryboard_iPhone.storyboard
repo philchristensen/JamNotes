@@ -107,29 +107,11 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="Xs4-F6-Njj" kind="push" id="3f7-zi-Wj1"/>
+                                    <segue destination="Xs4-F6-Njj" kind="push" identifier="selectBand" id="3f7-zi-Wj1"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateCell" textLabel="rnp-ky-Edl" rowHeight="33" style="IBUITableViewCellStyleDefault" id="rZG-tC-M3V">
-                                <rect key="frame" x="0.0" y="88" width="320" height="33"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rnp-ky-Edl">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="32"/>
-                                            <gestureRecognizers/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="venueCell" textLabel="J0x-uP-OBV" rowHeight="33" style="IBUITableViewCellStyleDefault" id="bib-5r-6Bj">
-                                <rect key="frame" x="0.0" y="121" width="320" height="33"/>
+                                <rect key="frame" x="0.0" y="88" width="320" height="33"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
@@ -145,8 +127,26 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="ptM-Tx-XlF" kind="push" id="eNi-Zm-Eq9"/>
+                                    <segue destination="ptM-Tx-XlF" kind="push" identifier="selectVenue" id="eNi-Zm-Eq9"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateCell" textLabel="rnp-ky-Edl" rowHeight="33" style="IBUITableViewCellStyleDefault" id="rZG-tC-M3V">
+                                <rect key="frame" x="0.0" y="121" width="320" height="33"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rnp-ky-Edl">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="32"/>
+                                            <gestureRecognizers/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="2Il-SV-OA4" style="IBUITableViewCellStyleDefault" id="GVB-u5-2Aw">
                                 <rect key="frame" x="0.0" y="154" width="320" height="44"/>
@@ -526,6 +526,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ATSDragToReorderTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ATSDragToReorderTableViewController.h"/>
+        </class>
         <class className="HPBBandSearchViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBBandSearchViewController.h"/>
             <relationships>
@@ -533,7 +536,7 @@
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
-        <class className="HPBDetailViewController" superclassName="UITableViewController">
+        <class className="HPBDetailViewController" superclassName="ATSDragToReorderTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBDetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addNewItem:"/>

@@ -72,6 +72,10 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index == %d)", self, setNumber - 1];
     [request setPredicate:predicate];
     
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+
     NSError *error = nil;
     NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (results == nil) {
@@ -135,6 +139,11 @@
     }
     // we're moving between sets
     else {
+        // get moving item, set new set_index and order
+        Entry* movingEntry = [self getEntryAtIndexPath:fromIndexPath];
+        movingEntry.order = @(toIndexPath.item);
+        movingEntry.set_index = @(toIndexPath.section - 1);
+
         // decrement order of all items in old set greater than old order
         NSArray* oldSet = [self songsInSet:fromIndexPath.section];
         for(int i = fromIndexPath.item + 1; i < [oldSet count]; i++){
