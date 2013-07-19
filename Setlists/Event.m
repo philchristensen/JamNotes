@@ -139,25 +139,29 @@
     }
     // we're moving between sets
     else {
+        NSArray* oldSet = [self songsInSet:fromIndexPath.section];
+        NSArray* newSet = [self songsInSet:toIndexPath.section];
+        
         // get moving item, set new set_index and order
-        Entry* movingEntry = [self getEntryAtIndexPath:fromIndexPath];
-        movingEntry.order = @(toIndexPath.item);
-        movingEntry.set_index = @(toIndexPath.section - 1);
+        Entry* movingEntry = (Entry*)oldSet[fromIndexPath.item];
+        Entry* destinationEntry = (Entry*)newSet[toIndexPath.item];
+        NSNumber* savedOrder = destinationEntry.order;
+        NSNumber* savedSetIndex = destinationEntry.set_index;
 
         // decrement order of all items in old set greater than old order
-        NSArray* oldSet = [self songsInSet:fromIndexPath.section];
         for(int i = fromIndexPath.item + 1; i < [oldSet count]; i++){
             Entry* current = (Entry*)oldSet[i];
             current.order = @([current.order intValue] - 1);
         }
 
         // increment order of all items in new set greater than new order
-        NSArray* newSet = [self songsInSet:toIndexPath.section];
         for(int i = toIndexPath.item; i < [newSet count]; i++){
             Entry* current = (Entry*)newSet[i];
             current.order = @([current.order intValue] + 1);
         }
 
+        movingEntry.order = savedOrder;
+        movingEntry.set_index = savedSetIndex;
         // if we made a set empty
             // decrement the set_index of all items with greater set index
     }

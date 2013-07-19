@@ -100,7 +100,7 @@
     }
     else {
         int total = [self.detailItem totalSongsInSet:section];
-        if(total == 0 && self.editing){
+        if(total == 0){
             total = 1;
         }
         return total;
@@ -334,7 +334,7 @@
     newManagedObject.song = selectedSong;
     newManagedObject.event = self.detailItem;
     newManagedObject.set_index = @(setNumber - 1);
-    newManagedObject.order = @([self.detailItem totalSongs] - 1);
+    newManagedObject.order = @([self.detailItem totalSongsInSet:setNumber] - 1);
     newManagedObject.is_encore = NO;
     
     // Save the context.
