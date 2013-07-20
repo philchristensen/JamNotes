@@ -34,9 +34,9 @@
     
     NSError *error = nil;
     NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if (results == nil) {
+    if(error){
         // Handle the error.
-        NSLog(@"error in fetch all bands");
+        NSLog(@"Error in totalSets: %@", error);
     }
     
     if([results count] == 0){
@@ -56,7 +56,7 @@
     
     NSError *error = nil;
     NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if (results == nil) {
+    if(error){
         // Handle the error.
         NSLog(@"Error in totalSongs: %@", error);
     }
@@ -105,10 +105,37 @@
         [self.managedObjectContext deleteObject:results[indexPath.row]];
         
         NSError *error = nil;
-        [self.managedObjectContext save:nil];
+        [self.managedObjectContext save:&error];
         if(error){
             NSLog(@"Error in deleteSongAtIndexPath: %@", error);
         }
+    }
+}
+
+- (void)decrementSetsAfter:(int)startSet {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(event == %@) and (set_index > %d)", self, startSet - 1];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    [self.managedObjectContext save:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"Error in decrementSetsAfter: %@", error);
+    }
+    
+    for(Entry* entry in results){
+        entry.set_index = @([entry.set_index intValue] - 1);
+    }
+    error = nil;
+    [self.managedObjectContext save:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"Error in decrementSetsAfter: %@", error);
     }
 }
 
@@ -162,12 +189,10 @@
 
         movingEntry.order = savedOrder;
         movingEntry.set_index = savedSetIndex;
-        // if we made a set empty
-            // decrement the set_index of all items with greater set index
     }
 
     NSError *error = nil;
-    [self.managedObjectContext save:nil];
+    [self.managedObjectContext save:&error];
     if(error){
         NSLog(@"Error in moveEntryFromIndexPath: %@", error);
     }

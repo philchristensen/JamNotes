@@ -35,5 +35,6 @@
 - (BOOL)wouldBeEmptySet:(NSIndexPath*)indexPath;
 - (void)deleteSongAtIndexPath:(NSIndexPath*)indexPath;
 - (void)moveEntryFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
+- (void)decrementSetsAfter:(int)startSet;
 
 @end

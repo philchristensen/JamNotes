@@ -100,9 +100,10 @@
     }
     else {
         int total = [self.detailItem totalSongsInSet:section];
-        if(total == 0){
-            total = 1;
-        }
+        //// whether to show a cell in an empty set or not
+        //if(total == 0){
+        //    total = 1;
+        //}
         return total;
     }
 }
@@ -234,8 +235,14 @@
 
 // support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    [tableView beginUpdates];
     [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+    if([self.detailItem wouldBeEmptySet:fromIndexPath] && fromIndexPath.section < [self.detailItem totalSets]){
+        [self.detailItem decrementSetsAfter:fromIndexPath.section];
+    }
+    [tableView endUpdates];
 }
+
 
 // support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
