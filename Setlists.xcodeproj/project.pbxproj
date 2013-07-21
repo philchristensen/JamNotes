@@ -35,6 +35,7 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
+		4A8856B4179CA94800AE9C32 /* HPBSetlistTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8856B3179CA94800AE9C32 /* HPBSetlistTableView.m */; };
 		4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */; };
 		4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */; };
 		4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */; };
@@ -101,6 +102,8 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
+		4A8856B2179CA94800AE9C32 /* HPBSetlistTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBSetlistTableView.h; sourceTree = "<group>"; };
+		4A8856B3179CA94800AE9C32 /* HPBSetlistTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBSetlistTableView.m; sourceTree = "<group>"; };
 		4AA6048E177D0A9F00A1AC47 /* HPBBandSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBBandSearchViewController.h; sourceTree = "<group>"; };
 		4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBBandSearchViewController.m; sourceTree = "<group>"; };
 		4AA60491177D0C7800A1AC47 /* HPBVenueSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBVenueSearchViewController.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
 				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
 				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
+				4A8856B2179CA94800AE9C32 /* HPBSetlistTableView.h */,
+				4A8856B3179CA94800AE9C32 /* HPBSetlistTableView.m */,
 				420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */,
 				420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */,
 				4ADA58C117809D2D0021CF59 /* Search */,
@@ -436,6 +441,7 @@
 				420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */,
 				420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */,
 				4ABDBCC01792EA000032A4A7 /* ATSDragToReorderTableViewController.m in Sources */,
+				4A8856B4179CA94800AE9C32 /* HPBSetlistTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

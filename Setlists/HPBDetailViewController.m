@@ -24,6 +24,7 @@
 @end
 
 @implementation HPBDetailViewController
+@synthesize movingFromIndexPath;
 
 #pragma mark - Managing the detail item
 
@@ -45,6 +46,7 @@
     self.context = appDelegate.managedObjectContext;
 
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.dragDelegate = self;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -100,10 +102,6 @@
     }
     else {
         int total = [self.detailItem totalSongsInSet:section];
-        //// whether to show a cell in an empty set or not
-        //if(total == 0){
-        //    total = 1;
-        //}
         return total;
     }
 }
@@ -235,19 +233,25 @@
 
 // support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    [tableView beginUpdates];
     [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
-    if([self.detailItem wouldBeEmptySet:fromIndexPath] && fromIndexPath.section < [self.detailItem totalSets]){
-        [self.detailItem decrementSetsAfter:fromIndexPath.section];
-    }
-    [tableView endUpdates];
 }
-
 
 // support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return indexPath.section > 0;
+}
+
+#pragma mark - Draggable table view
+- (void)dragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController didBeginDraggingAtRow:(NSIndexPath *)dragRow {
+    self.movingFromIndexPath = dragRow;
+}
+
+- (void)dragTableViewController:(ATSDragToReorderTableViewController*)dragTableViewController didEndDraggingToRow:(NSIndexPath*)toIndexPath {
+    if([self.detailItem wouldBeEmptySet:self.movingFromIndexPath] && self.movingFromIndexPath.section < [self.detailItem totalSets]){
+        [self.detailItem decrementSetsAfter:self.movingFromIndexPath.section];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Split view

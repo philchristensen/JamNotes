@@ -15,11 +15,12 @@
 
 @class Event;
 
-@interface HPBDetailViewController : ATSDragToReorderTableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
+@interface HPBDetailViewController : ATSDragToReorderTableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,ATSDragToReorderTableViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
 
 @property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
+@property (strong, nonatomic) NSIndexPath* movingFromIndexPath;
 
 - (IBAction) showDatePicker:(id)sender;
 - (IBAction)addNewItem:(id)sender;
