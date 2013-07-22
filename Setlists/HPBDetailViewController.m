@@ -123,10 +123,10 @@
         else if(indexPath.item == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
             cell.textLabel.text = [[self.detailItem valueForKey:@"venue"] valueForKey:@"name"];
-            cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:1];
+            cell.textLabel.textColor = [UIColor colorWithWhite:1.0 alpha:1];
             if(! cell.textLabel.text){
                 cell.textLabel.text = @"Select Venue...";
-                cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.15];
+                cell.textLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.15];
             }
         }
         else{
@@ -163,6 +163,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0 && indexPath.item == 1){
+        cell.backgroundColor = hex2UIColor(@"372172", 1.0);
+    }
+}
+
 // Needed by the drag support for the proxy object used during drag
 - (UITableViewCell*)cellIdenticalToCellAtIndexPath:(NSIndexPath*)indexPath forDragTableViewController:(ATSDragToReorderTableViewController*)tableViewController {
     Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
@@ -180,12 +186,12 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
         view.backgroundColor = hex2UIColor(@"372172", 1.0);
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, tableView.frame.size.width, 21)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 1, tableView.frame.size.width, 21)];
         
         label.text = [NSString stringWithFormat:@"Set %d", section];
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0];
         
         [view addSubview:label];
         
@@ -206,10 +212,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0){
         if(indexPath.row == 0) {
-            return 55;
+            return 48;
         }
         else if(indexPath.row < 3){
-            return 33;
+            return 34;
         }
         // make the extra lines of an empty setlist normal sized
         else {
