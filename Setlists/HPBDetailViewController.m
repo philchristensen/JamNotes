@@ -234,6 +234,11 @@
 // support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+    if([self.detailItem wouldBeEmptySet:fromIndexPath] && fromIndexPath.section > [self.detailItem totalSets]){
+        [tableView deleteSections:[NSIndexSet indexSetWithIndex:fromIndexPath.section]
+                 withRowAnimation:UITableViewRowAnimationFade];
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:toIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 // support conditional rearranging of the table view.
@@ -250,8 +255,8 @@
 - (void)dragTableViewController:(ATSDragToReorderTableViewController*)dragTableViewController didEndDraggingToRow:(NSIndexPath*)toIndexPath {
     if([self.detailItem wouldBeEmptySet:self.movingFromIndexPath] && self.movingFromIndexPath.section < [self.detailItem totalSets]){
         [self.detailItem decrementSetsAfter:self.movingFromIndexPath.section];
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 #pragma mark - Split view

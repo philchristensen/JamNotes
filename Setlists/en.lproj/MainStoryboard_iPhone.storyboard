@@ -85,7 +85,7 @@
         <scene sceneID="Zea-u2-CTm">
             <objects>
                 <tableViewController id="kMc-In-bQy" customClass="HPBDetailViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GXL-xy-3k6" customClass="HPBSetlistTableView">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GXL-xy-3k6">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -556,9 +556,6 @@
         </class>
         <class className="HPBMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBMasterViewController.h"/>
-        </class>
-        <class className="HPBSetlistTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBSetlistTableView.h"/>
         </class>
         <class className="HPBSongSearchViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBSongSearchViewController.h"/>
