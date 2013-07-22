@@ -94,6 +94,7 @@
 #pragma mark - Table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // tableView:moveRowAtIndexPath:toIndexPath: uses deletingSet to deal with moving the last entry out of a set
     return [self.detailItem totalSets] + (self.deletingSet ? 2 : 1);
 }
 
@@ -144,6 +145,7 @@
         }
     }
     else {
+        // this should pretty much never happen, but it's nice to know when there's a bug
         if([self.detailItem wouldBeEmptySet:indexPath]){
             cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell" forIndexPath:indexPath];
         }
@@ -161,6 +163,7 @@
     return cell;
 }
 
+// Needed by the drag support for the proxy object used during drag
 - (UITableViewCell*)cellIdenticalToCellAtIndexPath:(NSIndexPath*)indexPath forDragTableViewController:(ATSDragToReorderTableViewController*)tableViewController {
     Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -226,12 +229,21 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.detailItem deleteSongAtIndexPath:indexPath];
-        if([self.detailItem wouldBeEmptySet:indexPath]){
+        //if that was the last entry, it's really easiest to just reload the table.
+        if([self.detailItem totalSongs] == 0){
+            [tableView reloadData];
+        }
+        //if we deleted the last entry in the set
+        else if([self.detailItem wouldBeEmptySet:indexPath]){
             [self.detailItem decrementSetsAfter:indexPath.section];
+            // delete the section
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
                      withRowAnimation:UITableViewRowAnimationFade];
-            [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+            // reload the later sets, since their numbers have changed
+            [tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.section, [self.detailItem totalSets] - indexPath.section + 1)]
+                     withRowAnimation:UITableViewRowAnimationFade];
         }
+        // otherwise just delete the row
         else {
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
@@ -241,7 +253,9 @@
 // support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+    // if we deleted the last entry in the *last* set, prepare to delete the set's table section
     if([self.detailItem wouldBeEmptySet:fromIndexPath] && fromIndexPath.section > [self.detailItem totalSets]){
+        // this will get the tableview's datasource to pretend there's an extra set for a second
         self.deletingSet = YES;
     }
 }
@@ -254,14 +268,18 @@
 
 #pragma mark - Draggable table view
 - (void)dragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController didBeginDraggingAtRow:(NSIndexPath *)dragRow {
+    // we don't know yet if we're removing the last row in a section
     self.deletingSet = NO;
+    // save the origin index path, because the dragDelegate methods don't have it
     self.movingFromIndexPath = dragRow;
 }
 
 - (void)dragTableViewController:(ATSDragToReorderTableViewController*)dragTableViewController didEndDraggingToRow:(NSIndexPath*)toIndexPath {
     if([self.detailItem wouldBeEmptySet:self.movingFromIndexPath] && self.movingFromIndexPath.section < [self.detailItem totalSets]){
         [self.detailItem decrementSetsAfter:self.movingFromIndexPath.section];
-        [self.tableView reloadData];
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:self.movingFromIndexPath.section]
+                 withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.movingFromIndexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
     if(self.deletingSet){
         self.deletingSet = NO;
