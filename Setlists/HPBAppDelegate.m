@@ -62,6 +62,10 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackBarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Medium" size:0.0]}];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue" size:0.0]}
+                                                                                            forState:UIControlStateNormal];
+    
     if(NO){
         [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setColor:[UIColor whiteColor]];
         [[UITableView appearance] setBackgroundColor:hex2UIColor(@"222222", 1.0)];

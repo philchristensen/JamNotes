@@ -174,6 +174,7 @@
     Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
     if([[entry valueForKey:@"is_encore"] boolValue]){
         cell.textLabel.text = [@"E: " stringByAppendingString:cell.textLabel.text];
     }
