@@ -22,7 +22,7 @@
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) NSIndexPath* movingFromIndexPath;
 
-@property BOOL deletingLastSet;
+@property BOOL deletingSet;
 
 
 - (IBAction) showDatePicker:(id)sender;

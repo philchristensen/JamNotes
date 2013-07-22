@@ -25,7 +25,7 @@
 
 @implementation HPBDetailViewController
 @synthesize movingFromIndexPath;
-@synthesize deletingLastSet;
+@synthesize deletingSet;
 
 #pragma mark - Managing the detail item
 
@@ -94,7 +94,7 @@
 #pragma mark - Table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.detailItem totalSets] + (self.deletingLastSet ? 2 : 1);
+    return [self.detailItem totalSets] + (self.deletingSet ? 2 : 1);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -226,9 +226,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.detailItem deleteSongAtIndexPath:indexPath];
-        if([tableView numberOfRowsInSection:indexPath.section] < 2){
-            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] 
+        if([self.detailItem wouldBeEmptySet:indexPath]){
+            [self.detailItem decrementSetsAfter:indexPath.section];
+            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
                      withRowAnimation:UITableViewRowAnimationFade];
+            [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
         }
         else {
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -240,7 +242,7 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
     if([self.detailItem wouldBeEmptySet:fromIndexPath] && fromIndexPath.section > [self.detailItem totalSets]){
-        self.deletingLastSet = YES;
+        self.deletingSet = YES;
     }
 }
 
@@ -252,7 +254,7 @@
 
 #pragma mark - Draggable table view
 - (void)dragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController didBeginDraggingAtRow:(NSIndexPath *)dragRow {
-    self.deletingLastSet = NO;
+    self.deletingSet = NO;
     self.movingFromIndexPath = dragRow;
 }
 
@@ -261,8 +263,8 @@
         [self.detailItem decrementSetsAfter:self.movingFromIndexPath.section];
         [self.tableView reloadData];
     }
-    if(self.deletingLastSet){
-        self.deletingLastSet = NO;
+    if(self.deletingSet){
+        self.deletingSet = NO;
         [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:self.movingFromIndexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
