@@ -25,6 +25,7 @@
 
 @implementation HPBDetailViewController
 @synthesize movingFromIndexPath;
+@synthesize deletingLastSet;
 
 #pragma mark - Managing the detail item
 
@@ -93,7 +94,7 @@
 #pragma mark - Table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.detailItem totalSets] + 1;
+    return [self.detailItem totalSets] + (self.deletingLastSet ? 2 : 1);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -235,9 +236,7 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     [self.detailItem moveEntryFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
     if([self.detailItem wouldBeEmptySet:fromIndexPath] && fromIndexPath.section > [self.detailItem totalSets]){
-        [tableView deleteSections:[NSIndexSet indexSetWithIndex:fromIndexPath.section]
-                 withRowAnimation:UITableViewRowAnimationFade];
-        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:toIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        self.deletingLastSet = YES;
     }
 }
 
@@ -249,6 +248,7 @@
 
 #pragma mark - Draggable table view
 - (void)dragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController didBeginDraggingAtRow:(NSIndexPath *)dragRow {
+    self.deletingLastSet = NO;
     self.movingFromIndexPath = dragRow;
 }
 
@@ -256,6 +256,10 @@
     if([self.detailItem wouldBeEmptySet:self.movingFromIndexPath] && self.movingFromIndexPath.section < [self.detailItem totalSets]){
         [self.detailItem decrementSetsAfter:self.movingFromIndexPath.section];
         [self.tableView reloadData];
+    }
+    if(self.deletingLastSet){
+        self.deletingLastSet = NO;
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:self.movingFromIndexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
