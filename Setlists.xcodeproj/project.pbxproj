@@ -35,6 +35,8 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
+		4A8856B6179CD72500AE9C32 /* BackBarButtonItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */; };
+		4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */; };
 		4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */; };
 		4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60492177D0C7800A1AC47 /* HPBVenueSearchViewController.m */; };
 		4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */; };
@@ -101,6 +103,8 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
+		4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackBarButtonItem.png; sourceTree = "<group>"; };
+		4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackBarButtonItem@2x.png"; sourceTree = "<group>"; };
 		4AA6048E177D0A9F00A1AC47 /* HPBBandSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBBandSearchViewController.h; sourceTree = "<group>"; };
 		4AA6048F177D0A9F00A1AC47 /* HPBBandSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBBandSearchViewController.m; sourceTree = "<group>"; };
 		4AA60491177D0C7800A1AC47 /* HPBVenueSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBVenueSearchViewController.h; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 		429607C8177CB39800F7DF13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */,
+				4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */,
 				4AACFE0C178C847F008A9521 /* BarButtonItem.png */,
 				4AACFE07178C817D008A9521 /* NavigationBar.png */,
 				4AACFE08178C817D008A9521 /* NavigationBar@2x.png */,
@@ -384,6 +390,8 @@
 				4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */,
 				4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */,
 				4AACFE0D178C847F008A9521 /* BarButtonItem.png in Resources */,
+				4A8856B6179CD72500AE9C32 /* BackBarButtonItem.png in Resources */,
+				4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
