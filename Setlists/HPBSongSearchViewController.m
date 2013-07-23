@@ -82,19 +82,23 @@
 }
 */
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.managedObjectContext deleteObject:self.results[indexPath.row]];
+        [self.results removeObjectAtIndex:indexPath.row];
+        
+        NSError *error = nil;
+        [appDelegate.managedObjectContext save:&error];
+        if(error){
+            NSLog(@"Error in tableView:commitEditingStyle:forRowAtIndexPath: %@", error);
+        }
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -157,13 +161,13 @@
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:sortDescriptors];
     
-    NSError *error = nil;
-    self.results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
-    if (self.results == nil) {
+    NSError* error = nil;
+    NSArray* results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    if (results == nil) {
         // Handle the error.
         NSLog(@"error in fetch all songs");
     }
-    
+    self.results = [NSMutableArray arrayWithArray:results];
     [self.tableView reloadData];
 }
 

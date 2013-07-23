@@ -45,6 +45,12 @@
     NSString* datedVenueText = [NSString stringWithFormat:@"%@ - %@", date, venue];
     
     self.nameCell.textLabel.text = [[self.detailItem valueForKey:@"song"] valueForKey:@"name"];
+//    }
+//    @catch (NSException* e) {
+//        self.nameCell.textLabel.text = [@"unknown" stringByAppendingString:([self.detailItem.is_segue boolValue] ? @" >" : @"")];
+//        self.nameCell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.15];
+//    }
+
     if([[self.detailItem valueForKey:@"is_segue"] boolValue]){
         self.nameCell.textLabel.text = [self.nameCell.textLabel.text stringByAppendingString:@" >"];
     }

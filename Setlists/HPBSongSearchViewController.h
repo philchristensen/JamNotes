@@ -22,7 +22,7 @@
 
 @property Event* detailItem;
 @property NSString* searchText;
-@property NSArray* results;
+@property NSMutableArray* results;
 
 @property BOOL isSetOpener;
 

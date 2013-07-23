@@ -153,7 +153,15 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
 
             Entry* entry = [self.detailItem getEntryAtIndexPath:indexPath];
-            cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+            
+            @try{
+                cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+            }
+            @catch (NSException* e) {
+                cell.textLabel.text = [@"unknown" stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+                cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.15];
+            }
+            
             if([[entry valueForKey:@"is_encore"] boolValue]){
                 cell.textLabel.text = [@"E: " stringByAppendingString:cell.textLabel.text];
             }

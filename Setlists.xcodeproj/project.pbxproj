@@ -117,6 +117,7 @@
 		4ABDBCBE1792EA000032A4A7 /* ATSDragToReorderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATSDragToReorderTableViewController.h; path = ReorderingTableViewController/ATSDragToReorderTableViewController.h; sourceTree = "<group>"; };
 		4ABDBCBF1792EA000032A4A7 /* ATSDragToReorderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATSDragToReorderTableViewController.m; path = ReorderingTableViewController/ATSDragToReorderTableViewController.m; sourceTree = "<group>"; };
 		4ABDBCC31792ED590032A4A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4AC2B717179E1DBB0086B8D6 /* Setlists 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Setlists 3.xcdatamodel"; sourceTree = "<group>"; };
 		4ADA58C81780F2290021CF59 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		4ADA58C91780F2290021CF59 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		4ADA58CB1780F22A0021CF59 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
@@ -656,9 +657,10 @@
 			isa = XCVersionGroup;
 			children = (
 				4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */,
+				4AC2B717179E1DBB0086B8D6 /* Setlists 3.xcdatamodel */,
 				429607E0177CB39800F7DF13 /* Setlists.xcdatamodel */,
 			);
-			currentVersion = 4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */;
+			currentVersion = 4AC2B717179E1DBB0086B8D6 /* Setlists 3.xcdatamodel */;
 			path = Setlists.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
