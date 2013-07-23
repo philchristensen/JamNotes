@@ -222,10 +222,9 @@
 }
  */
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"band"] valueForKey:@"name"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ at %@", [[object valueForKey:@"band"] valueForKey:@"name"], [[object valueForKey:@"venue"] valueForKey:@"name"]];
 
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"MMMM d, yyyy"];
