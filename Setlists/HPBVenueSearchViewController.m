@@ -69,28 +69,28 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    return ![cell.reuseIdentifier isEqualToString:@"addVenueCell"];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.managedObjectContext deleteObject:self.results[indexPath.row]];
+        [self.results removeObjectAtIndex:indexPath.row];
+        
+        NSError *error = nil;
+        [appDelegate.managedObjectContext save:&error];
+        if(error){
+            NSLog(@"Error in tableView:commitEditingStyle:forRowAtIndexPath: %@", error);
+        }
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -150,12 +150,12 @@
     [request setSortDescriptors:sortDescriptors];
     
     NSError *error = nil;
-    self.results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
-    if (self.results == nil) {
+    NSArray* results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    if (results == nil) {
         // Handle the error.
         NSLog(@"error in fetch all venues");
     }
-    
+    self.results = [NSMutableArray arrayWithArray:results];
     [self.tableView reloadData];
 }
 
