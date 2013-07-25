@@ -156,10 +156,12 @@
             
             @try{
                 cell.textLabel.text = [entry.song.name stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
+                cell.detailTextLabel.text = entry.notes;
             }
             @catch (NSException* e) {
                 cell.textLabel.text = [@"unknown" stringByAppendingString:([entry.is_segue boolValue] ? @" >" : @"")];
                 cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.15];
+                cell.detailTextLabel.text = @"The song record for this entry has been deleted.";
             }
             
             if([[entry valueForKey:@"is_encore"] boolValue]){
