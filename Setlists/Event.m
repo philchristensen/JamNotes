@@ -11,6 +11,8 @@
 #import "Entry.h"
 #import "Venue.h"
 
+#import "GRMustache.h"
+
 
 @implementation Event
 
@@ -199,7 +201,13 @@
 }
 
 - (NSString*)generatePlainTextSetlist {
-    return @"";
+    // Renders a document from the `Profile.mustache` resource
+    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"Setlist" bundle:nil error:NULL];
+    NSString* rendering = [template renderObject:@{
+                    @"event":   self,
+                    @"entries": self.entries
+                 } error:NULL];
+    return rendering;
 }
 
 
