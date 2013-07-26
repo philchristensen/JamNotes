@@ -24,14 +24,11 @@
 
 @property BOOL deletingSet;
 
-
 - (IBAction) showDatePicker:(id)sender;
-- (IBAction)addNewItem:(id)sender;
+- (IBAction)shareSetlist:(id)sender;
 
 - (void)datePickerSetDate:(TDDatePickerController*)viewController;
 - (void)datePickerClearDate:(TDDatePickerController*)viewController;
 - (void)datePickerCancel:(TDDatePickerController*)viewController;
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end

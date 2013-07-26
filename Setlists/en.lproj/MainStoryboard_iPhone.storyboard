@@ -88,7 +88,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GXL-xy-3k6">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bandCell" textLabel="Gpx-7z-wNB" rowHeight="66" style="IBUITableViewCellStyleDefault" id="ebo-eA-phN">
                                 <rect key="frame" x="0.0" y="22" width="320" height="66"/>
@@ -190,6 +190,46 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addSongCell" textLabel="Kg1-2b-qQc" style="IBUITableViewCellStyleDefault" id="iQY-Oj-wKM">
+                                <rect key="frame" x="0.0" y="242" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Song..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kg1-2b-qQc">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="VuM-Px-GmZ" kind="push" identifier="addSong" id="9TQ-RA-aql"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addSetCell" textLabel="38j-ro-gdH" style="IBUITableViewCellStyleDefault" id="qsn-EB-Z4p">
+                                <rect key="frame" x="0.0" y="286" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Set..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38j-ro-gdH">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="VuM-Px-GmZ" kind="push" identifier="addSet" id="nvG-JW-dP9"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="kMc-In-bQy" id="fjK-Ie-gJL"/>
@@ -197,9 +237,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Setlist" id="CdA-iu-iVE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="plo-2j-oQE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5R1-ta-S67">
                             <connections>
-                                <action selector="addNewItem:" destination="kMc-In-bQy" id="Tyk-hH-4bY"/>
+                                <action selector="shareSetlist:" destination="kMc-In-bQy" id="Ao8-wt-vPl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -544,7 +584,7 @@
         <class className="HPBDetailViewController" superclassName="ATSDragToReorderTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBDetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addNewItem:"/>
+                <relationship kind="action" name="shareSetlist:"/>
                 <relationship kind="action" name="showDatePicker:"/>
             </relationships>
         </class>
@@ -587,5 +627,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3ew-UQ-dHs"/>
+        <segue reference="nvG-JW-dP9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -37,4 +37,6 @@
 - (void)moveEntryFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 - (void)decrementSetsAfter:(int)startSet;
 
+- (NSString*)generatePlainTextSetlist;
+
 @end

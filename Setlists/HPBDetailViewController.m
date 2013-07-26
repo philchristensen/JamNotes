@@ -95,12 +95,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // tableView:moveRowAtIndexPath:toIndexPath: uses deletingSet to deal with moving the last entry out of a set
-    return [self.detailItem totalSets] + (self.deletingSet ? 2 : 1);
+    return [self.detailItem totalSets] + (self.deletingSet ? 3 : 2);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
         return 3;
+    }
+    else if(section > [self.detailItem totalSets]){
+        return 2;
     }
     else {
         int total = [self.detailItem totalSongsInSet:section];
@@ -142,6 +145,14 @@
             
             UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDatePicker:)];
             [cell addGestureRecognizer:recognizer];
+        }
+    }
+    else if(indexPath.section > [self.detailItem totalSets]){
+        if(indexPath.item == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"addSongCell" forIndexPath:indexPath];
+        }
+        else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
         }
     }
     else {
@@ -193,7 +204,7 @@
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(section > 0){
+    if(section > 0 && section <= [self.detailItem totalSets]){
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
         view.backgroundColor = hex2UIColor(@"372172", 1.0);
         
@@ -215,6 +226,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if(section == 0){
+        return 0;
+    }
+    else if(section > [self.detailItem totalSets]){
         return 0;
     }
     return 22;
@@ -240,7 +254,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return indexPath.section > 0;
+    return indexPath.section > 0 && indexPath.section <= [self.detailItem totalSets];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -280,7 +294,7 @@
 // support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
-    return indexPath.section > 0;
+    return indexPath.section > 0 && indexPath.section <= [self.detailItem totalSets];
 }
 
 #pragma mark - Draggable table view
@@ -304,6 +318,18 @@
     }
 }
 
+#pragma mark - Sharing
+- (void)shareSetlist:(id)sender {
+    //if (_postImage.image != nil) {
+    //    activityItems = @[_postText.text, _postImage.image];
+    //} else {
+    //    activityItems = @[_postText.text];
+    //}
+    NSArray *activityItems = @[[self.detailItem generatePlainTextSetlist]];
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController {
@@ -319,29 +345,6 @@
 }
 
 #pragma mark - Segue control
-- (IBAction)addNewItem:(id)sender {
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"New Item"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"New Song", @"New Set", nil];
-    [actionSheet showInView:self.view];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
-                                                             bundle: nil];
-    
-    HPBSongSearchViewController *popupController = (HPBSongSearchViewController*)[mainStoryboard
-                                                       instantiateViewControllerWithIdentifier: @"songSearchViewController"];
-    popupController.delegate = self;
-    popupController.detailItem = self.detailItem;
-    popupController.isSetOpener = (buttonIndex == 1);
-
-    [self.navigationController pushViewController:popupController animated:YES];
-}
-
-
 -(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
     if ([[segue identifier] isEqualToString:@"selectBand"]) {
         HPBBandSearchViewController* popupController = [segue destinationViewController];
@@ -358,6 +361,18 @@
         popupController.detailItem = [self.detailItem getEntryAtIndexPath:self.tableView.indexPathForSelectedRow];
         popupController.entryEvent = self.detailItem;
         popupController.parentController = self;
+    }
+    else if ([[segue identifier] isEqualToString:@"addSong"]) {
+        HPBSongSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+        popupController.detailItem = self.detailItem;
+        popupController.isSetOpener = NO;
+    }
+    else if ([[segue identifier] isEqualToString:@"addSet"]) {
+        HPBSongSearchViewController* popupController = [segue destinationViewController];
+        popupController.delegate = self;
+        popupController.detailItem = self.detailItem;
+        popupController.isSetOpener = YES;
     }
 }
 

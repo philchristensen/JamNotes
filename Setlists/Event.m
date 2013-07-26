@@ -198,4 +198,9 @@
     }
 }
 
+- (NSString*)generatePlainTextSetlist {
+    return @"";
+}
+
+
 @end
