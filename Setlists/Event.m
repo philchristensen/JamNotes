@@ -203,10 +203,22 @@
 - (NSString*)generatePlainTextSetlist {
     // Renders a document from the `Profile.mustache` resource
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"Setlist" bundle:nil error:NULL];
+    int totalSets = [self totalSets];
+    NSMutableArray* sets = [NSMutableArray arrayWithCapacity:totalSets];
+    for(int i = 0; i < totalSets; i++){
+        sets[i] = @{@"entries": [self songsInSet:i+1],
+                    @"set_num": @(i+1)};
+    }
+
+    NSDate* date = [self valueForKey:@"creationDate"];
+    NSDateFormatter* format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMMM d, yyyy"];
+    
     NSString* rendering = [template renderObject:@{
-                    @"event":   self,
-                    @"entries": self.entries
-                 } error:NULL];
+                           @"sets": sets,
+                           @"event": self,
+                           @"show_date": [format stringFromDate:date],
+                           } error:NULL];
     return rendering;
 }
 
