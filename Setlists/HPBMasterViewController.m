@@ -7,7 +7,7 @@
 //
 
 #import "HPBMasterViewController.h"
-
+#import "HPBShowTableCell.h"
 #import "HPBDetailViewController.h"
 #import "Band.h"
 #import "Event.h"
@@ -54,7 +54,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    HPBShowTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -94,6 +94,11 @@
         self.detailViewController.detailItem = object;
     }
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88;
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -222,13 +227,17 @@
 }
  */
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ at %@", [[object valueForKey:@"band"] valueForKey:@"name"], [[object valueForKey:@"venue"] valueForKey:@"name"]];
+- (void)configureCell:(HPBShowTableCell *)cell atIndexPath:(NSIndexPath *)indexPath{
+    Event* object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.bandNameLabel.text = [[object valueForKey:@"band"] valueForKey:@"name"];
+    cell.venueNameLabel.text = [[object valueForKey:@"venue"] valueForKey:@"name"];
 
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"MMMM d, yyyy"];
-    cell.detailTextLabel.text = [format stringFromDate:[object valueForKey:@"creationDate"]];
+    [format setDateFormat:@"M/d/yyyy"];
+    cell.dateLabel.text = [format stringFromDate:[object valueForKey:@"creationDate"]];
+    
+    cell.setlistLabel.text = [object generateSetlistWithTemplate:@"PlaintextSummarySetlist"];
 }
 
 @end

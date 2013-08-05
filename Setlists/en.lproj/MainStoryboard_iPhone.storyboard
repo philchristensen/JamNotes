@@ -35,29 +35,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" detailTextLabel="PY8-Go-NuZ" style="IBUITableViewCellStyleSubtitle" id="lJ0-d7-vTF">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="88" id="lJ0-d7-vTF" customClass="HPBShowTableCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="phq-AM-6qj">
-                                            <rect key="frame" x="10" y="1" width="36" height="23"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDr-bb-D2x">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="blk-2Y-gkK"/>
+                                                <constraint firstAttribute="width" constant="257" id="x2d-fS-6vt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PY8-Go-NuZ">
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Saratoga Performing Arts Center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMN-Ut-XIY">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="IsL-fG-hcr"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="AC/DC Bag; Back On the Train; The Divided Sky; Free; It's Ice; Mound; Limb by Limb; Walls of the Cave" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="3Mn-mc-EBe">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="273" id="SL6-XL-Gwi"/>
+                                                <constraint firstAttribute="height" constant="43" id="ffl-nu-YWK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="07/07/2013" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="S9f-FW-doz">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="NhN-FR-h12"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="S9f-FW-doz" firstAttribute="centerY" secondItem="qDr-bb-D2x" secondAttribute="centerY" type="default" id="60i-aZ-ega"/>
+                                    <constraint firstItem="S9f-FW-doz" firstAttribute="bottom" secondItem="qDr-bb-D2x" secondAttribute="bottom" type="default" id="9Sh-D5-aXd"/>
+                                    <constraint firstAttribute="trailing" secondItem="S9f-FW-doz" secondAttribute="trailing" constant="20" type="default" id="ABu-Xr-MMi"/>
+                                    <constraint firstItem="3Mn-mc-EBe" firstAttribute="leading" secondItem="zMN-Ut-XIY" secondAttribute="leading" type="default" id="ATD-gU-HG6"/>
+                                    <constraint firstItem="S9f-FW-doz" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="5" id="Dmg-em-9BR"/>
+                                    <constraint firstItem="zMN-Ut-XIY" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="26" id="QFF-HC-0SN"/>
+                                    <constraint firstItem="qDr-bb-D2x" firstAttribute="leading" secondItem="zMN-Ut-XIY" secondAttribute="leading" type="default" id="dku-4j-1ZF"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Mn-mc-EBe" secondAttribute="bottom" constant="1" id="i4M-bl-MAR"/>
+                                    <constraint firstItem="zMN-Ut-XIY" firstAttribute="trailing" secondItem="qDr-bb-D2x" secondAttribute="trailing" type="default" id="nNa-Xf-KZc"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Mn-mc-EBe" secondAttribute="trailing" constant="20" type="default" id="oqg-T7-Vou"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="bandNameLabel" destination="qDr-bb-D2x" id="ddx-aZ-Vwt"/>
+                                    <outlet property="dateLabel" destination="S9f-FW-doz" id="uMi-pr-uCV"/>
+                                    <outlet property="setlistLabel" destination="3Mn-mc-EBe" id="xrv-cc-hf9"/>
+                                    <outlet property="venueNameLabel" destination="zMN-Ut-XIY" id="JO2-F4-KGR"/>
                                     <segue destination="kMc-In-bQy" kind="push" identifier="showDetail" id="3ew-UQ-dHs"/>
                                 </connections>
                             </tableViewCell>
@@ -601,6 +639,15 @@
         </class>
         <class className="HPBMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBMasterViewController.h"/>
+        </class>
+        <class className="HPBShowTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBShowTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bandNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setlistLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueNameLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="HPBSongSearchViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBSongSearchViewController.h"/>

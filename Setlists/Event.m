@@ -201,15 +201,23 @@
 }
 
 - (NSString*)generatePlainTextSetlist {
+    return [self generateSetlistWithTemplate:@"PlaintextSetlist"];
+}
+
+- (NSString*)generateSummarySetlist {
+    return [self generateSetlistWithTemplate:@"PlaintextSummarySetlist"];
+}
+
+- (NSString*)generateSetlistWithTemplate:(NSString*)mustacheTemplateName {
     // Renders a document from the `Profile.mustache` resource
-    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"Setlist" bundle:nil error:NULL];
+    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:mustacheTemplateName bundle:nil error:NULL];
     int totalSets = [self totalSets];
     NSMutableArray* sets = [NSMutableArray arrayWithCapacity:totalSets];
     for(int i = 0; i < totalSets; i++){
         sets[i] = @{@"entries": [self songsInSet:i+1],
                     @"set_num": @(i+1)};
     }
-
+    
     NSDate* date = [self valueForKey:@"creationDate"];
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"MMMM d, yyyy"];
