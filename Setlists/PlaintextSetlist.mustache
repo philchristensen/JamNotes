@@ -1,6 +1,6 @@
-{{ event.band.name }} @ {{ event.venue.name }}
+{{{ event.band.name }}} @ {{{ event.venue.name }}}
 {{ show_date }}
 
 {{#sets}}Set {{ set_num }}:
-{{#entries}}{{ self.song.name }}{{#self.is_segue}} > {{/self.is_segue}}{{^self.is_segue}}; {{/self.is_segue}}{{/entries}}
+{{#entries}}{{{ self.song.name }}}{{#self.is_segue}} > {{/self.is_segue}}{{^self.is_segue}}; {{/self.is_segue}}{{/entries}}
 {{/sets}}
