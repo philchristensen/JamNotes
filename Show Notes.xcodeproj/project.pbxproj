@@ -107,15 +107,15 @@
 		420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBEntryDetailViewController.h; sourceTree = "<group>"; };
 		420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBEntryDetailViewController.m; sourceTree = "<group>"; };
 		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
-		429607BC177CB39800F7DF13 /* Setlists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Setlists.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		429607BC177CB39800F7DF13 /* Show Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429607BF177CB39800F7DF13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		429607C1177CB39800F7DF13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		429607C3177CB39800F7DF13 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		429607C5177CB39800F7DF13 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		429607C9177CB39800F7DF13 /* Setlists-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Setlists-Info.plist"; sourceTree = "<group>"; };
+		429607C9177CB39800F7DF13 /* Show Notes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Show Notes-Info.plist"; sourceTree = "<group>"; };
 		429607CB177CB39800F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607CD177CB39800F7DF13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		429607CF177CB39800F7DF13 /* Setlists-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Setlists-Prefix.pch"; sourceTree = "<group>"; };
+		429607CF177CB39800F7DF13 /* Show Notes-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Show Notes-Prefix.pch"; sourceTree = "<group>"; };
 		429607D0177CB39800F7DF13 /* HPBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBAppDelegate.h; sourceTree = "<group>"; };
 		429607D1177CB39800F7DF13 /* HPBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBAppDelegate.m; sourceTree = "<group>"; };
 		429607DA177CB39800F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -125,9 +125,9 @@
 		429607E3177CB39800F7DF13 /* HPBMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBMasterViewController.m; sourceTree = "<group>"; };
 		429607E5177CB39800F7DF13 /* HPBDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBDetailViewController.h; sourceTree = "<group>"; };
 		429607E6177CB39800F7DF13 /* HPBDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBDetailViewController.m; sourceTree = "<group>"; };
-		429607ED177CB39900F7DF13 /* SetlistsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetlistsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		429607ED177CB39900F7DF13 /* Show NotesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Show NotesTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429607EE177CB39900F7DF13 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		429607F7177CB39900F7DF13 /* SetlistsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SetlistsTests-Info.plist"; sourceTree = "<group>"; };
+		429607F7177CB39900F7DF13 /* Show NotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Show NotesTests-Info.plist"; sourceTree = "<group>"; };
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
@@ -286,8 +286,8 @@
 		429607B3177CB39800F7DF13 = {
 			isa = PBXGroup;
 			children = (
-				429607C7177CB39800F7DF13 /* Setlists */,
-				429607F5177CB39900F7DF13 /* SetlistsTests */,
+				429607C7177CB39800F7DF13 /* Show Notes */,
+				429607F5177CB39900F7DF13 /* Show NotesTests */,
 				420A1AFB178332E0004FB944 /* TDSemiModalController */,
 				4AC2B8C817A1F70800D1CBD9 /* GRMustache */,
 				4ABDBCC21792EA0E0032A4A7 /* ATSDragToReorderTableViewController */,
@@ -299,8 +299,8 @@
 		429607BD177CB39800F7DF13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				429607BC177CB39800F7DF13 /* Setlists.app */,
-				429607ED177CB39900F7DF13 /* SetlistsTests.octest */,
+				429607BC177CB39800F7DF13 /* Show Notes.app */,
+				429607ED177CB39900F7DF13 /* Show NotesTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		429607C7177CB39800F7DF13 /* Setlists */ = {
+		429607C7177CB39800F7DF13 /* Show Notes */ = {
 			isa = PBXGroup;
 			children = (
 				429607D0177CB39800F7DF13 /* HPBAppDelegate.h */,
@@ -338,6 +338,7 @@
 				4AC2B9C017A1F90700D1CBD9 /* Templates */,
 				429607C8177CB39800F7DF13 /* Supporting Files */,
 			);
+			name = "Show Notes";
 			path = Setlists;
 			sourceTree = "<group>";
 		};
@@ -354,28 +355,29 @@
 				4AACFE0C178C847F008A9521 /* BarButtonItem.png */,
 				4AACFE07178C817D008A9521 /* NavigationBar.png */,
 				4AACFE08178C817D008A9521 /* NavigationBar@2x.png */,
-				429607C9177CB39800F7DF13 /* Setlists-Info.plist */,
+				429607C9177CB39800F7DF13 /* Show Notes-Info.plist */,
 				429607CA177CB39800F7DF13 /* InfoPlist.strings */,
 				429607CD177CB39800F7DF13 /* main.m */,
-				429607CF177CB39800F7DF13 /* Setlists-Prefix.pch */,
+				429607CF177CB39800F7DF13 /* Show Notes-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		429607F5177CB39900F7DF13 /* SetlistsTests */ = {
+		429607F5177CB39900F7DF13 /* Show NotesTests */ = {
 			isa = PBXGroup;
 			children = (
 				429607FB177CB39900F7DF13 /* SetlistsTests.h */,
 				429607FC177CB39900F7DF13 /* SetlistsTests.m */,
 				429607F6177CB39900F7DF13 /* Supporting Files */,
 			);
+			name = "Show NotesTests";
 			path = SetlistsTests;
 			sourceTree = "<group>";
 		};
 		429607F6177CB39900F7DF13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				429607F7177CB39900F7DF13 /* SetlistsTests-Info.plist */,
+				429607F7177CB39900F7DF13 /* Show NotesTests-Info.plist */,
 				429607F8177CB39900F7DF13 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -513,9 +515,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		429607BB177CB39800F7DF13 /* Setlists */ = {
+		429607BB177CB39800F7DF13 /* Show Notes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42960800177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "Setlists" */;
+			buildConfigurationList = 42960800177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "Show Notes" */;
 			buildPhases = (
 				429607B8177CB39800F7DF13 /* Sources */,
 				429607B9177CB39800F7DF13 /* Frameworks */,
@@ -525,14 +527,14 @@
 			);
 			dependencies = (
 			);
-			name = Setlists;
+			name = "Show Notes";
 			productName = Setlists;
-			productReference = 429607BC177CB39800F7DF13 /* Setlists.app */;
+			productReference = 429607BC177CB39800F7DF13 /* Show Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
-		429607EC177CB39900F7DF13 /* SetlistsTests */ = {
+		429607EC177CB39900F7DF13 /* Show NotesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42960803177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "SetlistsTests" */;
+			buildConfigurationList = 42960803177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "Show NotesTests" */;
 			buildPhases = (
 				429607E8177CB39900F7DF13 /* Sources */,
 				429607E9177CB39900F7DF13 /* Frameworks */,
@@ -544,9 +546,9 @@
 			dependencies = (
 				429607F4177CB39900F7DF13 /* PBXTargetDependency */,
 			);
-			name = SetlistsTests;
+			name = "Show NotesTests";
 			productName = SetlistsTests;
-			productReference = 429607ED177CB39900F7DF13 /* SetlistsTests.octest */;
+			productReference = 429607ED177CB39900F7DF13 /* Show NotesTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -559,7 +561,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Phil Christensen";
 			};
-			buildConfigurationList = 429607B7177CB39800F7DF13 /* Build configuration list for PBXProject "Setlists" */;
+			buildConfigurationList = 429607B7177CB39800F7DF13 /* Build configuration list for PBXProject "Show Notes" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -571,8 +573,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				429607BB177CB39800F7DF13 /* Setlists */,
-				429607EC177CB39900F7DF13 /* SetlistsTests */,
+				429607BB177CB39800F7DF13 /* Show Notes */,
+				429607EC177CB39900F7DF13 /* Show NotesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -697,7 +699,7 @@
 /* Begin PBXTargetDependency section */
 		429607F4177CB39900F7DF13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 429607BB177CB39800F7DF13 /* Setlists */;
+			target = 429607BB177CB39800F7DF13 /* Show Notes */;
 			targetProxy = 429607F3177CB39900F7DF13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -800,10 +802,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Setlists/Setlists-Prefix.pch";
-				INFOPLIST_FILE = "Setlists/Setlists-Info.plist";
+				GCC_PREFIX_HEADER = "Setlists/Show Notes-Prefix.pch";
+				INFOPLIST_FILE = "Setlists/Show Notes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Show Notes";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -813,10 +815,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Setlists/Setlists-Prefix.pch";
-				INFOPLIST_FILE = "Setlists/Setlists-Info.plist";
+				GCC_PREFIX_HEADER = "Setlists/Show Notes-Prefix.pch";
+				INFOPLIST_FILE = "Setlists/Show Notes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Show Notes";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -832,8 +834,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Setlists/Setlists-Prefix.pch";
-				INFOPLIST_FILE = "SetlistsTests/SetlistsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SetlistsTests/Show NotesTests-Info.plist";
+				PRODUCT_NAME = "Show NotesTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -849,8 +851,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Setlists/Setlists-Prefix.pch";
-				INFOPLIST_FILE = "SetlistsTests/SetlistsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SetlistsTests/Show NotesTests-Info.plist";
+				PRODUCT_NAME = "Show NotesTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -859,7 +861,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		429607B7177CB39800F7DF13 /* Build configuration list for PBXProject "Setlists" */ = {
+		429607B7177CB39800F7DF13 /* Build configuration list for PBXProject "Show Notes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				429607FE177CB39900F7DF13 /* Debug */,
@@ -868,7 +870,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42960800177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "Setlists" */ = {
+		42960800177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "Show Notes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42960801177CB39900F7DF13 /* Debug */,
@@ -877,7 +879,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42960803177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "SetlistsTests" */ = {
+		42960803177CB39900F7DF13 /* Build configuration list for PBXNativeTarget "Show NotesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42960804177CB39900F7DF13 /* Debug */,
