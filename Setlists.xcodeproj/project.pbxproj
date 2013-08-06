@@ -12,11 +12,6 @@
 		420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */; };
 		420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420A1AF1178332D9004FB944 /* TDDatePickerController.xib */; };
 		420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */; };
-		4214C33217820D3F0077FB0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32D17820D3F0077FB0A /* Default-568h@2x.png */; };
-		4214C33317820D3F0077FB0A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32E17820D3F0077FB0A /* Default.png */; };
-		4214C33417820D3F0077FB0A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C32F17820D3F0077FB0A /* Default@2x.png */; };
-		4214C33517820D3F0077FB0A /* trey-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C33017820D3F0077FB0A /* trey-57.png */; };
-		4214C33617820D3F0077FB0A /* trey-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4214C33117820D3F0077FB0A /* trey-114.png */; };
 		429607C0177CB39800F7DF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607BF177CB39800F7DF13 /* UIKit.framework */; };
 		429607C2177CB39800F7DF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C1177CB39800F7DF13 /* Foundation.framework */; };
 		429607C4177CB39800F7DF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C3177CB39800F7DF13 /* CoreGraphics.framework */; };
@@ -35,6 +30,11 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
+		42A9665317B15A8A00F4EE31 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A9664E17B15A8A00F4EE31 /* Default-568h@2x.png */; };
+		42A9665417B15A8A00F4EE31 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A9664F17B15A8A00F4EE31 /* Default.png */; };
+		42A9665517B15A8A00F4EE31 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A9665017B15A8A00F4EE31 /* Default@2x.png */; };
+		42A9665617B15A8A00F4EE31 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A9665117B15A8A00F4EE31 /* Icon.png */; };
+		42A9665717B15A8A00F4EE31 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A9665217B15A8A00F4EE31 /* Icon@2x.png */; };
 		4A8856B6179CD72500AE9C32 /* BackBarButtonItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */; };
 		4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */; };
 		4A9BDFF117B0072800571FCF /* HPBShowTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BDFF017B0072800571FCF /* HPBShowTableCell.m */; };
@@ -106,11 +106,6 @@
 		420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TDSemiModalExtension.m"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.m"; sourceTree = SOURCE_ROOT; };
 		420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBEntryDetailViewController.h; sourceTree = "<group>"; };
 		420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBEntryDetailViewController.m; sourceTree = "<group>"; };
-		4214C32D17820D3F0077FB0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4214C32E17820D3F0077FB0A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		4214C32F17820D3F0077FB0A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		4214C33017820D3F0077FB0A /* trey-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trey-57.png"; sourceTree = "<group>"; };
-		4214C33117820D3F0077FB0A /* trey-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trey-114.png"; sourceTree = "<group>"; };
 		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
 		429607BC177CB39800F7DF13 /* Setlists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Setlists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		429607BF177CB39800F7DF13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -136,6 +131,11 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
+		42A9664E17B15A8A00F4EE31 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		42A9664F17B15A8A00F4EE31 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		42A9665017B15A8A00F4EE31 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		42A9665117B15A8A00F4EE31 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		42A9665217B15A8A00F4EE31 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackBarButtonItem.png; sourceTree = "<group>"; };
 		4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackBarButtonItem@2x.png"; sourceTree = "<group>"; };
 		4A9BDFEF17B0072800571FCF /* HPBShowTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBShowTableCell.h; sourceTree = "<group>"; };
@@ -344,16 +344,16 @@
 		429607C8177CB39800F7DF13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				42A9664E17B15A8A00F4EE31 /* Default-568h@2x.png */,
+				42A9664F17B15A8A00F4EE31 /* Default.png */,
+				42A9665017B15A8A00F4EE31 /* Default@2x.png */,
+				42A9665117B15A8A00F4EE31 /* Icon.png */,
+				42A9665217B15A8A00F4EE31 /* Icon@2x.png */,
 				4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */,
 				4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */,
 				4AACFE0C178C847F008A9521 /* BarButtonItem.png */,
 				4AACFE07178C817D008A9521 /* NavigationBar.png */,
 				4AACFE08178C817D008A9521 /* NavigationBar@2x.png */,
-				4214C32D17820D3F0077FB0A /* Default-568h@2x.png */,
-				4214C32E17820D3F0077FB0A /* Default.png */,
-				4214C32F17820D3F0077FB0A /* Default@2x.png */,
-				4214C33017820D3F0077FB0A /* trey-57.png */,
-				4214C33117820D3F0077FB0A /* trey-114.png */,
 				429607C9177CB39800F7DF13 /* Setlists-Info.plist */,
 				429607CA177CB39800F7DF13 /* InfoPlist.strings */,
 				429607CD177CB39800F7DF13 /* main.m */,
@@ -585,11 +585,6 @@
 				429607CC177CB39800F7DF13 /* InfoPlist.strings in Resources */,
 				429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */,
 				429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */,
-				4214C33217820D3F0077FB0A /* Default-568h@2x.png in Resources */,
-				4214C33317820D3F0077FB0A /* Default.png in Resources */,
-				4214C33417820D3F0077FB0A /* Default@2x.png in Resources */,
-				4214C33517820D3F0077FB0A /* trey-57.png in Resources */,
-				4214C33617820D3F0077FB0A /* trey-114.png in Resources */,
 				420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */,
 				4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */,
 				4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */,
@@ -598,6 +593,11 @@
 				4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */,
 				4A9BDFF317B00A2200571FCF /* PlaintextSetlist.mustache in Resources */,
 				4A9BDFF517B00A4B00571FCF /* PlaintextSummarySetlist.mustache in Resources */,
+				42A9665317B15A8A00F4EE31 /* Default-568h@2x.png in Resources */,
+				42A9665417B15A8A00F4EE31 /* Default.png in Resources */,
+				42A9665517B15A8A00F4EE31 /* Default@2x.png in Resources */,
+				42A9665617B15A8A00F4EE31 /* Icon.png in Resources */,
+				42A9665717B15A8A00F4EE31 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
