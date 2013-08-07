@@ -107,7 +107,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="My Shows" id="36">
+                    <navigationItem key="navigationItem" title="JamNotes" id="36">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uPC-uM-jyR">
                             <connections>
                                 <segue destination="kMc-In-bQy" kind="push" identifier="addShow" id="Q6T-wD-u4u"/>
@@ -135,7 +135,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Band" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gpx-7z-wNB">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="Gpx-7z-wNB">
                                             <rect key="frame" x="10" y="0.0" width="300" height="65"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -674,6 +674,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3ew-UQ-dHs"/>
-        <segue reference="eQc-dL-A8b"/>
+        <segue reference="nvG-JW-dP9"/>
     </inferredMetricsTieBreakers>
 </document>
