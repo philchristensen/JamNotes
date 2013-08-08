@@ -35,6 +35,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self searchBar:self.searchBar textDidChange:@""];
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

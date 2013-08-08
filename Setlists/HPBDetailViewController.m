@@ -422,6 +422,7 @@
 
     
     [self.tableView reloadData];
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height)];
 }
 
 @end

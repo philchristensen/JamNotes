@@ -40,6 +40,7 @@
     if(self.isSetOpener){
         self.title = @"Select Set Opener";
     }
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
