@@ -1,61 +1,107 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="JamNotes : An iOS app for tracking the setlists played at live concerts." />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>JamNotes</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title">JamNotes</h1>
-          <h2 id="project_tagline">An iOS app for tracking the setlists played at live concerts.</h2>
-        </header>
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="jquery.lightbox-0.5.css" media="screen" />   
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>   
+  <!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="iefix.css" />
+  <![endif]-->
+  <title>Great App</title>
+</head>
+<body>
+  <div class="page">
+    <div class="wrap">
+      <div class="prava">
+        <div class="iphone">
+          <img src="img/app.jpg" alt="Aplikace" />
+        </div>
+        <a href="https://itunes.apple.com/us/app/" class="store"></a>
+      </div>        
+      <div class="left">
+        <div class="top">
+          <div class="menu">
+            <ul> 
+              <li><a href="#features">Features</a></li>
+              <li><a href="#screens">Screenshots</a></li>
+              <li class="last"><a href="#about">About Us</a></li>
+            </ul>
+          </div>
+          <h1>Great App</h1>
+          <h2>Use Great App to amaze your friends</h2>
+          <p class="top">It has never been easier! Curabitur id imperdiet est. Fusce fringilla sodales ipsum, et pretium metus ullamcorper eget. Phasellus venenatis elit ut magna egestas eleifend. <a href="https://itunes.apple.com/us/app/" class="getit">Get the app</a></p>         
+        </div>
+        <div class="features">        
+          <h3><a name="features"></a>Our app features</h3>
+          <div class="feature">
+            <h4>Cool feature #1</h4>
+            <p>Curabitur id imperdiet est. Fusce fringilla sodales ipsum, et pretium metus ullamcorper eget. Phasellus venenatis elit ut magna egestas eleifend.</p>
+          </div>
+          <div class="feature">
+          <h4>Cool feature #2</h4>
+          <p>Curabitur id imperdiet est. Fusce fringilla sodales ipsum, et pretium metus ullamcorper eget. Phasellus venenatis elit ut magna egestas eleifend.</p>
+          </div>
+          <div class="feature">
+          <h4>Cool feature #3</h4>
+          <p>Quisque sollicitudin vulputate turpis, ac convallis arcu ultrices malesuada. Phasellus a lorem quis mi fringilla mattis. Nulla massa velit, dignissim sed congue lobortis, lacinia sed leo. Praesent aliquam iaculis elit, viverra porta odio lacinia eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse a arcu diam, sit amet euismod justo.</p>
+          </div>
+        </div>      
+      </div>
+      <div class="full">
+        <hr style="margin: 20px 0 60px 0;"/>
+        <h3><a name="screens"></a>Screenshots</h3>
+        <div id="gallery">
+          <div class="screen">
+            <img src="img/placeholder.jpg" alt="Screen" />
+            <a href="img/placeholder.jpg" title="Screen 1" class="vice"></a>
+          </div>
+          <div class="screen">
+            <img src="img/placeholder.jpg" alt="Screen" />
+            <a href="img/placeholder.jpg" title="Screen 2" class="vice"></a>
+          </div>
+          <div class="screen">
+            <img src="img/placeholder.jpg" alt="Screen" />
+            <a href="img/placeholder.jpg" title="Screen 3" class="vice"></a>
+          </div>
+          <div class="screen" style="margin-right: 0;">
+            <img src="img/placeholder.jpg" alt="Screen" />
+            <a href="img/placeholder.jpg" title="Screen 4" class="vice"></a>
+          </div>
+        </div>
+        
+        <div style="clear: both;"></div>        
+        <hr style="margin: 80px 0 60px 0;"/>
+        <div style="clear: both;"></div>
+        <h3 class="small">About Us</h3>
+        <div class="leftsmall">
+          <img src="img/placeholder2.jpg" alt="Screen" />
+        </div>      
+        <h3 class="big"><a name="about"></a>About Us</h3>
+        <p class="about">Pellentesque sagittis tortor et est viverra ultrices. Suspendisse dignissim sollicitudin aliquam. Maecenas eget tellus nibh, faucibus hendrerit lacus. Phasellus ultricies sapien a eros facilisis facilisis tristique augue commodo. Aenean nibh turpis, bibendum in elementum tincidunt.</p>
+        <p class="about">Curabitur dictum pulvinar velit vel hendrerit. Nam ligula est, congue sit amet vestibulum nec, euismod id nisl. Pellentesque ultricies laoreet sodales.</p>
+        <p class="about"><strong>Our email:</strong> <a href="#">info@greatapp.com</a></p>
+        <div style="clear: both;"></div>
+                  <div class="site">
+             Stay in touch:
+             <div style="clear: both; height: 15px;"></div>
+             <a href="http://www.twitter.com"><img src="img/twitter.jpg" alt="Twitter" /></a>
+             <a href="http://www.facebook.com"><img src="img/facebook.jpg" alt="Facebook" /></a>
+          </div>
+          <div style="clear: both;"></div>
+      </div>
+      <div class="footer">
+      Made with <img src="img/srdce.jpg" alt="Love" /> on Mac by <a href="http://www.appstemplates.com">AppsTemplates</a> © 2012 Great App, All rights reserved <br />
+      Apple, the logo and iPhone are trademarks of Apple Inc., registered in U.S. and other countries.
+      </div>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="jamnotes" class="anchor" href="#jamnotes"><span class="octicon octicon-link"></span></a>JamNotes</h1>
-
-<h4>
-<a name="a-tool-for-the-obsessed-live-music-aficionado-jamnotes-provides-a-clean-simple-interface-for-tracking-setlists-from-your-favorite-live-shows" class="anchor" href="#a-tool-for-the-obsessed-live-music-aficionado-jamnotes-provides-a-clean-simple-interface-for-tracking-setlists-from-your-favorite-live-shows"><span class="octicon octicon-link"></span></a>A tool for the obsessed live music aficionado, JamNotes provides a clean, simple interface for tracking setlists from your favorite live shows.</h4>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with JamNotes? Drop a line to <a href="mailto:phil@bubblehouse.org">phil@bubblehouse.org</a>.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">JamNotes maintained by <a href="https://github.com/philchristensen">philchristensen</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-427877-12");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
-  </body>
+  </div>
+</body>
 </html>
