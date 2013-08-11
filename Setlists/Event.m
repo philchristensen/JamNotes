@@ -22,6 +22,15 @@
 @dynamic entries;
 @dynamic venue;
 
+@synthesize year;
+
+- (NSString*) year {
+    NSDateFormatter* format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy"];
+    NSString* result = [format stringFromDate:self.creationDate];
+    return result;
+}
+
 - (int)totalSets {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entry" inManagedObjectContext:self.managedObjectContext];

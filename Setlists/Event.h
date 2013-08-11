@@ -18,6 +18,8 @@
 @property (nonatomic, retain) Band *band;
 @property (nonatomic, retain) NSSet *entries;
 @property (nonatomic, retain) Venue *venue;
+@property (readonly, nonatomic, retain) NSString* year;
+
 @end
 
 @interface Event (CoreDataGeneratedAccessors)

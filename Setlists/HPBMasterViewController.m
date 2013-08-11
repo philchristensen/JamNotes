@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Phil Christensen. All rights reserved.
 //
 
+#import "HPBAppDelegate.h"
 #import "HPBMasterViewController.h"
 #import "HPBShowTableCell.h"
 #import "HPBDetailViewController.h"
@@ -41,32 +42,49 @@
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.fetchedResultsController sections] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+    view.backgroundColor = hex2UIColor(@"372172", 1.0);
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 1, tableView.frame.size.width, 21)];
+    
+    NSArray* sections = [self.fetchedResultsController sections];
+    
+    label.text = [NSString stringWithFormat:@"%@", [sections[section] name]];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0];
+    
+    [view addSubview:label];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 22;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HPBShowTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -81,14 +99,12 @@
     }   
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // The table view should not be re-orderable.
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         Event* object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = object;
@@ -100,8 +116,7 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Event* object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
@@ -152,7 +167,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"year" cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
