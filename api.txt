@@ -1,0 +1,4 @@
+Mailaddress		phil@bubblehouse.org
+Application Name	JamNotes
+API Key			760349b2-a881-4b13-9343-977fe282958a
+
