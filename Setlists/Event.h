@@ -40,6 +40,7 @@
 - (void)decrementSetsAfter:(int)startSet;
 
 - (NSString*)generatePlainTextSetlist;
+- (NSString*)generateSummarySetlist;
 - (NSString*)generateSetlistWithTemplate:(NSString*)mustacheTemplateName;
 
 @end

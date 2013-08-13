@@ -252,7 +252,7 @@
     [format setDateFormat:@"M/d/yyyy"];
     cell.dateLabel.text = [format stringFromDate:[object valueForKey:@"creationDate"]];
     
-    cell.setlistLabel.text = [object generateSetlistWithTemplate:@"PlaintextSummarySetlist"];
+    cell.setlistLabel.text = [object generateSummarySetlist];
 }
 
 @end

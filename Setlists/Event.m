@@ -9,6 +9,7 @@
 #import "Event.h"
 #import "Band.h"
 #import "Entry.h"
+#import "Song.h"
 #import "Venue.h"
 
 #import "GRMustache.h"
@@ -214,7 +215,22 @@
 }
 
 - (NSString*)generateSummarySetlist {
-    return [self generateSetlistWithTemplate:@"PlaintextSummarySetlist"];
+    NSMutableArray* parts = [[NSMutableArray alloc] init];
+    int totalSets = [self totalSets];
+    for(int set_index = 0; set_index < totalSets; set_index++){
+        NSArray* songs = [self songsInSet:set_index + 1];
+        for(int i = 0; i < [songs count]; i++){
+            Entry* entry = (Entry*)songs[i];
+            [parts addObject:entry.song.name];
+            if(entry.is_segue){
+                [parts addObject:@" > "];
+            }
+            else if(i < [songs count] - 1) {
+                [parts addObject:@", "];
+            }
+        }
+    }
+    return [parts componentsJoinedByString:@""];
 }
 
 - (NSString*)generateSetlistWithTemplate:(NSString*)mustacheTemplateName {
