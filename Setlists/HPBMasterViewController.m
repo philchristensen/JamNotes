@@ -18,6 +18,7 @@
 @end
 
 @implementation HPBMasterViewController
+@synthesize infoButton;
 
 - (void)awakeFromNib {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -33,11 +34,36 @@
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.detailViewController = (HPBDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    
+    self.infoButton.frame = CGRectMake(0, screenHeight - 86, 22, 22);
+    [self.view addSubview:self.infoButton];
+    [self.view bringSubviewToFront:self.infoButton];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGRect frame = self.infoButton.frame;
+    frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.infoButton.frame.size.height;
+    self.infoButton.frame = frame;
+    
+    [self.view bringSubviewToFront:self.infoButton];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)flipToAbout:(id)sender {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle: nil];
+    UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"aboutViewController"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - Table View

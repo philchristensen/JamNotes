@@ -19,4 +19,8 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (strong, nonatomic) UIButton* infoButton;
+
+- (void)flipToAbout:(id)sender;
+
 @end
