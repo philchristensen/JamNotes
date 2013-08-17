@@ -4,6 +4,3 @@
 [submodule "TDSemiModal"]
 	path = TDSemiModal
 	url = https://github.com/reednj/TDSemiModal.git
-[submodule "GRMustache"]
-	path = GRMustache
-	url = https://github.com/groue/GRMustache.git
