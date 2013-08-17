@@ -609,7 +609,7 @@ https://github.com/groue/GRMustache
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-551" y="1366"/>
+            <point key="canvasLocation" x="-551" y="58"/>
         </scene>
         <!--Entry Detail View Controller - Entry Details-->
         <scene sceneID="kWh-CR-wWy">
