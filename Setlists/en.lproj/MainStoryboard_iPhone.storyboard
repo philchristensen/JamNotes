@@ -235,7 +235,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Song..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kg1-2b-qQc">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add song..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kg1-2b-qQc">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -255,7 +255,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Set..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38j-ro-gdH">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add set..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38j-ro-gdH">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -275,7 +275,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Import Setlist..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uFt-h2-Rib">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download setlist..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uFt-h2-Rib">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -370,46 +370,65 @@
             </objects>
             <point key="canvasLocation" x="281" y="58"/>
         </scene>
-        <!--Table View Controller - Import Setlist-->
+        <!--Import Setlist View Controller - Select Setlist-->
         <scene sceneID="pdt-3l-JYt">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foT-pG-xbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="VR8-TT-0VV">
-                    <connections>
-                        <outlet property="delegate" destination="1Wu-bq-eLY" id="ek1-tm-ivk"/>
-                        <outlet property="searchContentsController" destination="1Wu-bq-eLY" id="PXq-6c-owr"/>
-                        <outlet property="searchResultsDataSource" destination="1Wu-bq-eLY" id="giS-1k-Rji"/>
-                        <outlet property="searchResultsDelegate" destination="1Wu-bq-eLY" id="sNN-Wx-zz2"/>
-                    </connections>
-                </searchDisplayController>
-                <tableViewController id="1Wu-bq-eLY" sceneMemberID="viewController">
+                <tableViewController id="1Wu-bq-eLY" customClass="HPBImportSetlistViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G9J-ID-X0M">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="Ve1-0B-LLT" detailTextLabel="usp-VC-tQX" style="IBUITableViewCellStyleSubtitle" id="NYT-1Y-7EA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="setlistCell" id="NYT-1Y-7EA" customClass="HPBImportTableCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" id="Ve1-0B-LLT">
-                                            <rect key="frame" x="10" y="0.0" width="48" height="26"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NR-Lo-qYC">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Lw4-vH-SwT"/>
+                                                <constraint firstAttribute="width" constant="209" id="htC-1K-yqC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Saratoga Performing Arts Center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usp-VC-tQX">
-                                            <rect key="frame" x="10" y="26" width="205" height="18"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Saratoga Performing Arts Center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-4T-idn">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="257" id="4DB-bT-kw0"/>
+                                                <constraint firstAttribute="height" constant="22" id="cbz-Tv-e0t"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="07/07/2013" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="FNe-Yt-534">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="6oL-FC-ISm"/>
+                                                <constraint firstAttribute="height" constant="21" id="Xdw-tz-KmK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="3NR-Lo-qYC" firstAttribute="baseline" secondItem="FNe-Yt-534" secondAttribute="baseline" type="default" id="Kvz-4U-4iK"/>
+                                    <constraint firstItem="WUV-4T-idn" firstAttribute="leading" secondItem="NYT-1Y-7EA" secondAttribute="leading" constant="20" type="default" id="Uop-lu-Z9o"/>
+                                    <constraint firstAttribute="trailing" secondItem="FNe-Yt-534" secondAttribute="trailing" constant="20" type="default" id="doW-Az-dui"/>
+                                    <constraint firstItem="WUV-4T-idn" firstAttribute="top" secondItem="NYT-1Y-7EA" secondAttribute="top" constant="20" type="default" id="fG5-f8-Ktb"/>
+                                    <constraint firstAttribute="bottom" secondItem="3NR-Lo-qYC" secondAttribute="bottom" constant="20" type="default" id="kZT-Ot-bA5"/>
+                                    <constraint firstItem="3NR-Lo-qYC" firstAttribute="leading" secondItem="NYT-1Y-7EA" secondAttribute="leading" constant="20" type="default" id="yUG-i6-4Eu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bandNameLabel" destination="3NR-Lo-qYC" id="reB-At-Hor"/>
+                                    <outlet property="dateLabel" destination="FNe-Yt-534" id="gx3-dZ-3I0"/>
+                                    <outlet property="venueNameLabel" destination="WUV-4T-idn" id="sOc-0F-FRy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -417,10 +436,7 @@
                             <outlet property="delegate" destination="1Wu-bq-eLY" id="WHm-Rm-eyE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Import Setlist" id="ojg-mB-dHZ"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="VR8-TT-0VV" id="nV2-PT-NKb"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Select Setlist" id="ojg-mB-dHZ"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="829" y="1366"/>
@@ -778,6 +794,17 @@ https://github.com/groue/GRMustache
                 <relationship kind="outlet" name="segueSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
+        <class className="HPBImportSetlistViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBImportSetlistViewController.h"/>
+        </class>
+        <class className="HPBImportTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBImportTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bandNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="HPBMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HPBMasterViewController.h"/>
         </class>
@@ -815,6 +842,6 @@ https://github.com/groue/GRMustache
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Q6T-wD-u4u"/>
-        <segue reference="eQc-dL-A8b"/>
+        <segue reference="nvG-JW-dP9"/>
     </inferredMetricsTieBreakers>
 </document>

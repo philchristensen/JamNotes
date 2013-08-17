@@ -35,6 +35,8 @@
 		4A4A0D7B17B3149600F8A09C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7617B3149600F8A09C /* Default@2x.png */; };
 		4A4A0D7C17B3149600F8A09C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7717B3149600F8A09C /* Icon.png */; };
 		4A4A0D7D17B3149600F8A09C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7817B3149600F8A09C /* Icon@2x.png */; };
+		4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */; };
+		4A6F3F4E17BFAFE100E68022 /* HPBImportTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F3F4D17BFAFE100E68022 /* HPBImportTableCell.m */; };
 		4A8856B6179CD72500AE9C32 /* BackBarButtonItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */; };
 		4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */; };
 		4A9BDFF117B0072800571FCF /* HPBShowTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BDFF017B0072800571FCF /* HPBShowTableCell.m */; };
@@ -139,6 +141,10 @@
 		4A4A0D7617B3149600F8A09C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4A4A0D7717B3149600F8A09C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4A4A0D7817B3149600F8A09C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		4A6F3F4917BFAFC700E68022 /* HPBImportSetlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBImportSetlistViewController.h; sourceTree = "<group>"; };
+		4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBImportSetlistViewController.m; sourceTree = "<group>"; };
+		4A6F3F4C17BFAFE100E68022 /* HPBImportTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBImportTableCell.h; sourceTree = "<group>"; };
+		4A6F3F4D17BFAFE100E68022 /* HPBImportTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBImportTableCell.m; sourceTree = "<group>"; };
 		4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackBarButtonItem.png; sourceTree = "<group>"; };
 		4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackBarButtonItem@2x.png"; sourceTree = "<group>"; };
 		4A9BDFEF17B0072800571FCF /* HPBShowTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBShowTableCell.h; sourceTree = "<group>"; };
@@ -342,6 +348,7 @@
 				4AD6529417B80AFD002E95CC /* HPBAboutViewController.h */,
 				4AD6529517B80AFD002E95CC /* HPBAboutViewController.m */,
 				4ADA58C117809D2D0021CF59 /* Search */,
+				4A6F3F4817BFAF9C00E68022 /* Import */,
 				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				42960812177CB62700F7DF13 /* Data Model */,
 				4AC2B9C017A1F90700D1CBD9 /* Templates */,
@@ -410,6 +417,17 @@
 				4ADA58C91780F2290021CF59 /* Venue.m */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		4A6F3F4817BFAF9C00E68022 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				4A6F3F4917BFAFC700E68022 /* HPBImportSetlistViewController.h */,
+				4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */,
+				4A6F3F4C17BFAFE100E68022 /* HPBImportTableCell.h */,
+				4A6F3F4D17BFAFE100E68022 /* HPBImportTableCell.m */,
+			);
+			name = Import;
 			sourceTree = "<group>";
 		};
 		4ABDBCC21792EA0E0032A4A7 /* ATSDragToReorderTableViewController */ = {
@@ -697,6 +715,8 @@
 				4AC2B9BF17A1F82200D1CBD9 /* NSValueTransformer+GRMustache.m in Sources */,
 				4A9BDFF117B0072800571FCF /* HPBShowTableCell.m in Sources */,
 				4AD6529617B80AFD002E95CC /* HPBAboutViewController.m in Sources */,
+				4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */,
+				4A6F3F4E17BFAFE100E68022 /* HPBImportTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

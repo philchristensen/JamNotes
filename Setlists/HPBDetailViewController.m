@@ -151,14 +151,18 @@
     else if(indexPath.section > [self.detailItem totalSets]){
         if(indexPath.item == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"addSongCell" forIndexPath:indexPath];
+            if([self.detailItem totalSongs] == 0){
+                cell.textLabel.text = @"Select show opener...";
+            }
+            else {
+                cell.textLabel.text = @"Add song...";
+            }
+        }
+        else if([self.detailItem totalSongs] == 0){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"importSetlistCell" forIndexPath:indexPath];
         }
         else{
-            if([self.detailItem totalSongs] == 0){
-                cell = [tableView dequeueReusableCellWithIdentifier:@"importSetlistCell" forIndexPath:indexPath];
-            }
-            else{
-                cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
-            }
+            cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
         }
     }
     else {
