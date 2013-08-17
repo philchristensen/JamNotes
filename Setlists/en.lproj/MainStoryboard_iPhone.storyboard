@@ -423,7 +423,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="871" y="1366"/>
+            <point key="canvasLocation" x="829" y="1366"/>
         </scene>
         <!--Venue Search View Controller - Select Venue-->
         <scene sceneID="8Zn-Ls-hQA">
@@ -487,7 +487,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKh-Lx-YxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="58"/>
+            <point key="canvasLocation" x="281" y="1366"/>
         </scene>
         <!--Song Search View Controller - Select Song-->
         <scene sceneID="ogz-8i-qVY">
@@ -552,7 +552,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYx-59-4Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="710"/>
+            <point key="canvasLocation" x="1273" y="710"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="6iZ-b8-gSh">
@@ -737,7 +737,7 @@ https://github.com/groue/GRMustache
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLT-Ch-TtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="710"/>
+            <point key="canvasLocation" x="829" y="710"/>
         </scene>
     </scenes>
     <resources>
@@ -815,6 +815,6 @@ https://github.com/groue/GRMustache
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Q6T-wD-u4u"/>
-        <segue reference="nvG-JW-dP9"/>
+        <segue reference="eQc-dL-A8b"/>
     </inferredMetricsTieBreakers>
 </document>
