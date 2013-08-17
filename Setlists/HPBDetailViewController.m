@@ -102,6 +102,7 @@
     if(section == 0){
         return 3;
     }
+    // the add/import lines are in a different section
     else if(section > [self.detailItem totalSets]){
         return 2;
     }
@@ -152,7 +153,12 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"addSongCell" forIndexPath:indexPath];
         }
         else{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
+            if([self.detailItem totalSongs] == 0){
+                cell = [tableView dequeueReusableCellWithIdentifier:@"importSetlistCell" forIndexPath:indexPath];
+            }
+            else{
+                cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
+            }
         }
     }
     else {

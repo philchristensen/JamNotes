@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-551" y="710"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -117,7 +117,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="-139" y="710"/>
         </scene>
         <!--Detail View Controller - Setlist-->
         <scene sceneID="Zea-u2-CTm">
@@ -268,6 +268,26 @@
                                     <segue destination="VuM-Px-GmZ" kind="push" identifier="addSet" id="nvG-JW-dP9"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="importSetlistCell" textLabel="uFt-h2-Rib" style="IBUITableViewCellStyleDefault" id="94c-EJ-TAj">
+                                <rect key="frame" x="0.0" y="330" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Import Setlist..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uFt-h2-Rib">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="1Wu-bq-eLY" kind="push" id="pO0-8N-xOm"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="kMc-In-bQy" id="fjK-Ie-gJL"/>
@@ -284,7 +304,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmp-rM-xX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="281" y="710"/>
         </scene>
         <!--Band Search View Controller - Select Band-->
         <scene sceneID="USj-Am-LiO">
@@ -348,7 +368,62 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ceh-1h-z2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="760"/>
+            <point key="canvasLocation" x="281" y="58"/>
+        </scene>
+        <!--Table View Controller - Import Setlist-->
+        <scene sceneID="pdt-3l-JYt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="foT-pG-xbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="VR8-TT-0VV">
+                    <connections>
+                        <outlet property="delegate" destination="1Wu-bq-eLY" id="ek1-tm-ivk"/>
+                        <outlet property="searchContentsController" destination="1Wu-bq-eLY" id="PXq-6c-owr"/>
+                        <outlet property="searchResultsDataSource" destination="1Wu-bq-eLY" id="giS-1k-Rji"/>
+                        <outlet property="searchResultsDelegate" destination="1Wu-bq-eLY" id="sNN-Wx-zz2"/>
+                    </connections>
+                </searchDisplayController>
+                <tableViewController id="1Wu-bq-eLY" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G9J-ID-X0M">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="Ve1-0B-LLT" detailTextLabel="usp-VC-tQX" style="IBUITableViewCellStyleSubtitle" id="NYT-1Y-7EA">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" id="Ve1-0B-LLT">
+                                            <rect key="frame" x="10" y="0.0" width="48" height="26"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Saratoga Performing Arts Center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usp-VC-tQX">
+                                            <rect key="frame" x="10" y="26" width="205" height="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Wu-bq-eLY" id="MfZ-WJ-QTV"/>
+                            <outlet property="delegate" destination="1Wu-bq-eLY" id="WHm-Rm-eyE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Import Setlist" id="ojg-mB-dHZ"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="VR8-TT-0VV" id="nV2-PT-NKb"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="871" y="1366"/>
         </scene>
         <!--Venue Search View Controller - Select Venue-->
         <scene sceneID="8Zn-Ls-hQA">
@@ -412,7 +487,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKh-Lx-YxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="760"/>
+            <point key="canvasLocation" x="871" y="58"/>
         </scene>
         <!--Song Search View Controller - Select Song-->
         <scene sceneID="ogz-8i-qVY">
@@ -477,7 +552,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYx-59-4Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="760"/>
+            <point key="canvasLocation" x="1271" y="710"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="6iZ-b8-gSh">
@@ -534,7 +609,7 @@ https://github.com/groue/GRMustache
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1365" y="760"/>
+            <point key="canvasLocation" x="-551" y="1366"/>
         </scene>
         <!--Entry Detail View Controller - Entry Details-->
         <scene sceneID="kWh-CR-wWy">
@@ -662,7 +737,7 @@ https://github.com/groue/GRMustache
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLT-Ch-TtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="64"/>
+            <point key="canvasLocation" x="871" y="710"/>
         </scene>
     </scenes>
     <resources>
