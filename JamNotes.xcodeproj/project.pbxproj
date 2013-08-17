@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		420A1AFC178338FE004FB944 /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF0178332D9004FB944 /* TDDatePickerController.m */; };
-		420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */; };
-		420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */; };
-		420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420A1AF1178332D9004FB944 /* TDDatePickerController.xib */; };
 		420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */; };
 		429607C0177CB39800F7DF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607BF177CB39800F7DF13 /* UIKit.framework */; };
 		429607C2177CB39800F7DF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C1177CB39800F7DF13 /* Foundation.framework */; };
@@ -74,14 +70,6 @@
 /* Begin PBXFileReference section */
 		035757C9597F4A858F6769BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		10893DC308A940CCA6FCD070 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		420A1AEF178332D9004FB944 /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDDatePickerController.h; path = TDSemiModal/Source/TDDatePickerController.h; sourceTree = SOURCE_ROOT; };
-		420A1AF0178332D9004FB944 /* TDDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDatePickerController.m; path = TDSemiModal/Source/TDDatePickerController.m; sourceTree = SOURCE_ROOT; };
-		420A1AF1178332D9004FB944 /* TDDatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDDatePickerController.xib; path = TDSemiModal/Source/TDDatePickerController.xib; sourceTree = SOURCE_ROOT; };
-		420A1AF2178332D9004FB944 /* TDSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSemiModal.h; path = TDSemiModal/Source/TDSemiModal.h; sourceTree = SOURCE_ROOT; };
-		420A1AF3178332D9004FB944 /* TDSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSemiModalViewController.h; path = TDSemiModal/Source/TDSemiModalViewController.h; sourceTree = SOURCE_ROOT; };
-		420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemiModalViewController.m; path = TDSemiModal/Source/TDSemiModalViewController.m; sourceTree = SOURCE_ROOT; };
-		420A1AF5178332D9004FB944 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+TDSemiModalExtension.h"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.h"; sourceTree = SOURCE_ROOT; };
-		420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TDSemiModalExtension.m"; path = "TDSemiModal/Source/UIViewController+TDSemiModalExtension.m"; sourceTree = SOURCE_ROOT; };
 		420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBEntryDetailViewController.h; sourceTree = "<group>"; };
 		420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBEntryDetailViewController.m; sourceTree = "<group>"; };
 		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -181,28 +169,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		420A1AFB178332E0004FB944 /* TDSemiModalController */ = {
-			isa = PBXGroup;
-			children = (
-				420A1AEF178332D9004FB944 /* TDDatePickerController.h */,
-				420A1AF0178332D9004FB944 /* TDDatePickerController.m */,
-				420A1AF1178332D9004FB944 /* TDDatePickerController.xib */,
-				420A1AF2178332D9004FB944 /* TDSemiModal.h */,
-				420A1AF3178332D9004FB944 /* TDSemiModalViewController.h */,
-				420A1AF4178332D9004FB944 /* TDSemiModalViewController.m */,
-				420A1AF5178332D9004FB944 /* UIViewController+TDSemiModalExtension.h */,
-				420A1AF6178332D9004FB944 /* UIViewController+TDSemiModalExtension.m */,
-			);
-			name = TDSemiModalController;
-			path = SetlistsTests;
-			sourceTree = "<group>";
-		};
 		429607B3177CB39800F7DF13 = {
 			isa = PBXGroup;
 			children = (
 				429607C7177CB39800F7DF13 /* JamNotes */,
 				429607F5177CB39900F7DF13 /* JamNotesTests */,
-				420A1AFB178332E0004FB944 /* TDSemiModalController */,
 				4ABDBCC21792EA0E0032A4A7 /* ATSDragToReorderTableViewController */,
 				429607BE177CB39800F7DF13 /* Frameworks */,
 				429607BD177CB39800F7DF13 /* Products */,
@@ -440,7 +411,6 @@
 				429607CC177CB39800F7DF13 /* InfoPlist.strings in Resources */,
 				429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */,
 				429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */,
-				420A1AFF17833949004FB944 /* TDDatePickerController.xib in Resources */,
 				4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */,
 				4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */,
 				4AACFE0D178C847F008A9521 /* BarButtonItem.png in Resources */,
@@ -532,11 +502,8 @@
 				4ADA58D01780F22A0021CF59 /* Event.m in Sources */,
 				4ADA58D31780F22A0021CF59 /* Song.m in Sources */,
 				4ADA58D61780F22A0021CF59 /* Band.m in Sources */,
-				420A1AFC178338FE004FB944 /* TDDatePickerController.m in Sources */,
-				420A1AFD17833903004FB944 /* TDSemiModalViewController.m in Sources */,
 				420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */,
 				4ABDBCC01792EA000032A4A7 /* ATSDragToReorderTableViewController.m in Sources */,
-				420A1AFE17833908004FB944 /* UIViewController+TDSemiModalExtension.m in Sources */,
 				4A9BDFF117B0072800571FCF /* HPBShowTableCell.m in Sources */,
 				4AD6529617B80AFD002E95CC /* HPBAboutViewController.m in Sources */,
 				4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */,
