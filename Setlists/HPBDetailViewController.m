@@ -448,6 +448,23 @@
 - (void)setlistDownloaded:(SFSetlist*)selectedSetlist {
     self.detailItem.venue = [Venue venueNamed:selectedSetlist.venue[@"name"] inContext:self.context];
     self.detailItem.band = [Band bandNamed:selectedSetlist.artist[@"name"] inContext:self.context];
+    
+    int set_index = 0;
+    for(NSDictionary* set in selectedSetlist.sets[@"set"]){
+        BOOL is_encore = [set[@"encore"] boolValue];
+        for(NSDictionary* song in set[@"song"]){
+            NSString* songName = song[@"name"];
+            Entry* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Entry" inManagedObjectContext:self.context];
+            newManagedObject.song = [Song songBy:self.detailItem.band named:songName inContext:self.context];
+            newManagedObject.event = self.detailItem;
+            newManagedObject.set_index = @(set_index);
+            newManagedObject.order = @([self.detailItem totalSongsInSet:set_index + 1] - 1);
+            newManagedObject.is_encore = @(is_encore);
+            
+        }
+        set_index++;
+    }
+    
     [self.context save:nil];
     [self.tableView reloadData];
 }
