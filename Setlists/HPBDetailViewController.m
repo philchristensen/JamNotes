@@ -12,6 +12,7 @@
 #import "HPBEntryDetailViewController.h"
 #import "HPBVenueSearchViewController.h"
 #import "HPBAppDelegate.h"
+#import "HPBImportSetlistViewController.h"
 
 #import "Event.h"
 #import "Entry.h"
@@ -383,6 +384,10 @@
         popupController.delegate = self;
         popupController.detailItem = self.detailItem;
         popupController.isSetOpener = YES;
+    }
+    else if ([[segue identifier] isEqualToString:@"importSetlist"]) {
+        HPBImportSetlistViewController* popupController = [segue destinationViewController];
+        popupController.detailItem = self.detailItem;
     }
 }
 

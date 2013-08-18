@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface HPBImportSetlistViewController : UITableViewController
+
+@property (nonatomic, strong) Event* detailItem;
 
 @end

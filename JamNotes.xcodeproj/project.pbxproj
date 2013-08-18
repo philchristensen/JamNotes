@@ -33,6 +33,7 @@
 		4A4A0D7D17B3149600F8A09C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7817B3149600F8A09C /* Icon@2x.png */; };
 		4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */; };
 		4A6F3F4E17BFAFE100E68022 /* HPBImportTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F3F4D17BFAFE100E68022 /* HPBImportTableCell.m */; };
+		4A71195417C04DC900A52BA9 /* SFSetlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A71195317C04DC900A52BA9 /* SFSetlist.m */; };
 		4A8856B6179CD72500AE9C32 /* BackBarButtonItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */; };
 		4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */; };
 		4A9BDFF117B0072800571FCF /* HPBShowTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9BDFF017B0072800571FCF /* HPBShowTableCell.m */; };
@@ -106,6 +107,8 @@
 		4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBImportSetlistViewController.m; sourceTree = "<group>"; };
 		4A6F3F4C17BFAFE100E68022 /* HPBImportTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBImportTableCell.h; sourceTree = "<group>"; };
 		4A6F3F4D17BFAFE100E68022 /* HPBImportTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBImportTableCell.m; sourceTree = "<group>"; };
+		4A71195217C04DC900A52BA9 /* SFSetlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFSetlist.h; sourceTree = "<group>"; };
+		4A71195317C04DC900A52BA9 /* SFSetlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSetlist.m; sourceTree = "<group>"; };
 		4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackBarButtonItem.png; sourceTree = "<group>"; };
 		4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackBarButtonItem@2x.png"; sourceTree = "<group>"; };
 		4A9BDFEF17B0072800571FCF /* HPBShowTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBShowTableCell.h; sourceTree = "<group>"; };
@@ -299,6 +302,8 @@
 				4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */,
 				4A6F3F4C17BFAFE100E68022 /* HPBImportTableCell.h */,
 				4A6F3F4D17BFAFE100E68022 /* HPBImportTableCell.m */,
+				4A71195217C04DC900A52BA9 /* SFSetlist.h */,
+				4A71195317C04DC900A52BA9 /* SFSetlist.m */,
 			);
 			name = Import;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				4AD6529617B80AFD002E95CC /* HPBAboutViewController.m in Sources */,
 				4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */,
 				4A6F3F4E17BFAFE100E68022 /* HPBImportTableCell.m in Sources */,
+				4A71195417C04DC900A52BA9 /* SFSetlist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
