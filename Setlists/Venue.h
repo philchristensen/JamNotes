@@ -20,6 +20,8 @@
 
 @interface Venue (CoreDataGeneratedAccessors)
 
++ (Venue*)venueNamed:(NSString*)venueName inContext:(NSManagedObjectContext*)context;
+
 - (void)addEventsObject:(Event *)value;
 - (void)removeEventsObject:(Event *)value;
 - (void)addEvents:(NSSet *)values;

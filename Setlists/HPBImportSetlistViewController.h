@@ -10,10 +10,16 @@
 #import "Event.h"
 #import "SFSetlist.h"
 
+@protocol HPBImportSetlistViewControllerDelegate <NSObject>
+@optional
+- (void)setlistDownloaded:(SFSetlist*)selectedSetlist;
+@end
+
 @interface HPBImportSetlistViewController : UITableViewController
 
 @property (nonatomic, strong) Event* detailItem;
 @property (nonatomic, strong) NSArray* searchResults;
+@property (nonatomic, strong) id<HPBImportSetlistViewControllerDelegate> delegate;
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
 

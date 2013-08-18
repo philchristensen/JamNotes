@@ -103,9 +103,9 @@
 
 -(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
     if ([[segue identifier] isEqualToString:@"editEntrySong"]) {
-        HPBSongSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.entryEvent;
+        HPBSongSearchViewController* vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.detailItem = self.entryEvent;
     }
 }
 

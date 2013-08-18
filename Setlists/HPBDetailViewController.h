@@ -12,10 +12,11 @@
 #import "HPBSongSearchViewController.h"
 #import "TDDatePickerController.h"
 #import "ATSDragToReorderTableViewController.h"
+#import "HPBImportSetlistViewController.h"
 
 @class Event;
 
-@interface HPBDetailViewController : ATSDragToReorderTableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,ATSDragToReorderTableViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate>
+@interface HPBDetailViewController : ATSDragToReorderTableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,ATSDragToReorderTableViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate,HPBImportSetlistViewControllerDelegate>
 
 @property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;

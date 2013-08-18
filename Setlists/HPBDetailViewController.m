@@ -17,6 +17,9 @@
 #import "Event.h"
 #import "Entry.h"
 #import "Song.h"
+#import "Venue.h"
+#import "Band.h"
+#import "SFSetlist.h"
 
 #import "TDDatePickerController.h"
 
@@ -358,36 +361,37 @@
 #pragma mark - Segue control
 -(void)prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender {
     if ([[segue identifier] isEqualToString:@"selectBand"]) {
-        HPBBandSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.detailItem;
+        HPBBandSearchViewController* vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.detailItem = self.detailItem;
     }
     else if ([[segue identifier] isEqualToString:@"selectVenue"]) {
-        HPBVenueSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.detailItem;
+        HPBVenueSearchViewController* vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.detailItem = self.detailItem;
     }
     else if ([[segue identifier] isEqualToString:@"editEntry"]) {
-        HPBEntryDetailViewController* popupController = [segue destinationViewController];
-        popupController.detailItem = [self.detailItem getEntryAtIndexPath:self.tableView.indexPathForSelectedRow];
-        popupController.entryEvent = self.detailItem;
-        popupController.parentController = self;
+        HPBEntryDetailViewController* vc = [segue destinationViewController];
+        vc.detailItem = [self.detailItem getEntryAtIndexPath:self.tableView.indexPathForSelectedRow];
+        vc.entryEvent = self.detailItem;
+        vc.parentController = self;
     }
     else if ([[segue identifier] isEqualToString:@"addSong"]) {
-        HPBSongSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.detailItem;
-        popupController.isSetOpener = NO;
+        HPBSongSearchViewController* vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.detailItem = self.detailItem;
+        vc.isSetOpener = NO;
     }
     else if ([[segue identifier] isEqualToString:@"addSet"]) {
-        HPBSongSearchViewController* popupController = [segue destinationViewController];
-        popupController.delegate = self;
-        popupController.detailItem = self.detailItem;
-        popupController.isSetOpener = YES;
+        HPBSongSearchViewController* vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.detailItem = self.detailItem;
+        vc.isSetOpener = YES;
     }
     else if ([[segue identifier] isEqualToString:@"importSetlist"]) {
-        HPBImportSetlistViewController* popupController = [segue destinationViewController];
-        popupController.detailItem = self.detailItem;
+        HPBImportSetlistViewController* vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.detailItem = self.detailItem;
     }
 }
 
@@ -439,5 +443,13 @@
     [self.tableView reloadData];
     [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height)];
 }
+
+#pragma mark - HPBImportSetlistViewControllerDelegate
+- (void)setlistDownloaded:(SFSetlist*)selectedSetlist {
+    self.detailItem.venue = [Venue venueNamed:selectedSetlist.venue[@"name"] inContext:self.context];
+    [self.context save:nil];
+    [self.tableView reloadData];
+}
+
 
 @end
