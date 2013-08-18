@@ -77,10 +77,28 @@
     [manager getObjectsAtPath:methodPath parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
         self.searchResults = [result array];
         [self.activityIndicator stopAnimating];
+        self.errorMessage = nil;
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Failed with error: %@", [error localizedDescription]);
+        self.searchResults = @[];
         [self.activityIndicator stopAnimating];
+        if([operation.HTTPRequestOperation.response statusCode] == 500){
+            self.errorMessage = @"setlist.fm returned an error.";
+        }
+        else if([operation.HTTPRequestOperation.response statusCode] == 404){
+            NSDateFormatter* format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"M/d/yyyy"];
+            NSString* date = [format stringFromDate:self.detailItem.creationDate];
+
+            if(self.detailItem.band){
+                self.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@.", self.detailItem.band.name, date];
+            }
+            else{
+                self.errorMessage = [NSString stringWithFormat:@"no setlists found on %@.", date];
+            }
+        }
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     }];
 }
 
@@ -98,21 +116,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    if(self.errorMessage != nil){
+        return 1;
+    }
     return [self.searchResults count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HPBImportTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"setlistCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    SFSetlist* setlist = self.searchResults[indexPath.item];
-    cell.bandNameLabel.text = setlist.artist[@"name"];
-    cell.venueNameLabel.text = setlist.venue[@"name"];
+    HPBImportTableCell *cell;
+    if(self.errorMessage == nil){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"setlistCell" forIndexPath:indexPath];
+        
+        // Configure the cell...
+        SFSetlist* setlist = self.searchResults[indexPath.item];
+        cell.bandNameLabel.text = setlist.artist[@"name"];
+        cell.venueNameLabel.text = setlist.venue[@"name"];
 
-    NSDateFormatter* format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"M/d/yyyy"];
-    cell.dateLabel.text = [format stringFromDate:setlist.eventDate];
-
+        NSDateFormatter* format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"M/d/yyyy"];
+        cell.dateLabel.text = [format stringFromDate:setlist.eventDate];
+    }
+    else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"errorCell" forIndexPath:indexPath];
+        cell.textLabel.text = self.errorMessage;
+    }
     return cell;
 }
 

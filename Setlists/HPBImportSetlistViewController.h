@@ -20,6 +20,7 @@
 @property (nonatomic, strong) Event* detailItem;
 @property (nonatomic, strong) NSArray* searchResults;
 @property (nonatomic, strong) id<HPBImportSetlistViewControllerDelegate> delegate;
+@property (nonatomic, strong) NSString* errorMessage;
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
 
