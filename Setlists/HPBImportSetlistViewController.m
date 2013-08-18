@@ -72,11 +72,15 @@
     
     [manager addResponseDescriptorsFromArray:@[responseDescriptor]]; //, errorDescriptor]];
     
+    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidesWhenStopped:YES];
     [manager getObjectsAtPath:methodPath parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
         self.searchResults = [result array];
+        [self.activityIndicator stopAnimating];
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Failed with error: %@", [error localizedDescription]);
+        [self.activityIndicator stopAnimating];
     }];
 }
 

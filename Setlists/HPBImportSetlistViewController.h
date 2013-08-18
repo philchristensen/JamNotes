@@ -15,4 +15,6 @@
 @property (nonatomic, strong) Event* detailItem;
 @property (nonatomic, strong) NSArray* searchResults;
 
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
+
 @end
