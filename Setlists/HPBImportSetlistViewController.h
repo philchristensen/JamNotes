@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "SFSetlist.h"
 
 @interface HPBImportSetlistViewController : UITableViewController
 
 @property (nonatomic, strong) Event* detailItem;
+@property (nonatomic, strong) NSArray* searchResults;
 
 @end

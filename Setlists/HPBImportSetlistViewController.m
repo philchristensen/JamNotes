@@ -13,6 +13,7 @@
 #import "Band.h"
 
 #import <RestKit.h>
+#import "RKXMLReaderSerialization.h"
 
 @interface HPBImportSetlistViewController ()
 
@@ -40,34 +41,43 @@
 }
 
 - (void)querySetlistFm {
-    // GET a single Article from /articles/1234.json and map it into an object
-    // JSON looks like {"article": {"title": "My Article", "author": "Blake", "body": "Very cool!!"}}
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SFSetlist class]];
-    [mapping addAttributeMappingsFromArray:@[@"setlist", @"venue", @"sets"]];
-    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-    
+    [RKMIMETypeSerialization registerClass:[RKXMLReaderSerialization class] forMIMEType:@"application/xml"];
+
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd-MM-yyyy"];
+    NSString* date = [format stringFromDate:self.detailItem.creationDate];
     
-    NSString* date = [[format stringFromDate:self.detailItem.creationDate] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    NSString* artistName = [self.detailItem.band.name stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    NSString* basePath = @"/rest/0.1/search/setlists.json";
-    NSURL* requestURL = [[NSURL alloc] initWithScheme:@"http"
-                                                 host:@"api.setlist.fm"
-                                                 path:[NSString stringWithFormat:@"%@?date=%@&artistName=%@", basePath, date, artistName]];
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithDictionary:@{@"date":date}];
+    if(self.detailItem.band) {
+        params[@"artistName"] = self.detailItem.band.name;
+    }
+
+    NSURL* baseURL = [NSURL URLWithString:@"http://api.setlist.fm/rest/0.1"];
+    NSString* methodPath = @"search/setlists";
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:baseURL];
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SFSetlist class]];
+    mapping.dateFormatters = @[format];
+    mapping.preferredDateFormatter = format;
+    [mapping addAttributeMappingsFromDictionary:@{
+     @"eventDate" : @"eventDate",
+     @"artist" : @"artist",
+     @"venue" : @"venue",
+     @"sets" : @"sets"
+     }];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
+                                                                                            method:RKRequestMethodAny
+                                                                                       pathPattern:methodPath
+                                                                                           keyPath:@"setlists.setlist"
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:requestURL];
+    [manager addResponseDescriptorsFromArray:@[responseDescriptor]]; //, errorDescriptor]];
     
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:@"/rest/0.1/search/setlists.json" keyPath:@"setlists" statusCodes:statusCodes];
-    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
-        SFSetlist *setlist = [result firstObject];
-        NSLog(@"Mapped the setlist: %@", setlist);
-        
+    [manager getObjectsAtPath:methodPath parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
+        self.searchResults = [result array];
+        [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Failed with error: %@", [error localizedDescription]);
     }];
-    [operation start];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,22 +88,27 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return [self.searchResults count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HPBImportTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"setlistCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    SFSetlist* setlist = self.searchResults[indexPath.item];
+    cell.bandNameLabel.text = setlist.artist[@"name"];
+    cell.venueNameLabel.text = setlist.venue[@"name"];
+
+    NSDateFormatter* format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"M/d/yyyy"];
+    cell.dateLabel.text = [format stringFromDate:setlist.eventDate];
+
     return cell;
 }
 

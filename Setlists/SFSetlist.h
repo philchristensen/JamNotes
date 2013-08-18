@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface SFSetlist : NSObject
-@property (nonatomic, copy) NSMutableDictionary* setlist;
+@property (nonatomic, copy) NSDate* eventDate;
+@property (nonatomic, copy) NSMutableDictionary* artist;
 @property (nonatomic, copy) NSMutableDictionary* venue;
 @property (nonatomic, copy) NSMutableDictionary* sets;
 @end
