@@ -452,10 +452,19 @@
     int set_index = 0;
     for(NSDictionary* set in selectedSetlist.sets[@"set"]){
         BOOL is_encore = [set[@"encore"] boolValue];
-        for(NSDictionary* song in set[@"song"]){
+        NSArray* songs = set[@"song"];
+        NSDictionary* singleSong = (NSDictionary*)songs;
+        if([singleSong respondsToSelector:@selector(objectForKey:)] && [singleSong objectForKey:@"name"] != nil){
+            songs = @[singleSong];
+        }
+        for(__strong NSDictionary* song in songs){
+            if([song respondsToSelector:@selector(isEqualToString:)]){
+                continue;
+            }
             NSString* songName = song[@"name"];
             Entry* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Entry" inManagedObjectContext:self.context];
             newManagedObject.song = [Song songBy:self.detailItem.band named:songName inContext:self.context];
+            newManagedObject.notes = song[@"info"] ? song[@"info"][@"text"] : nil;
             newManagedObject.event = self.detailItem;
             newManagedObject.set_index = @(set_index);
             newManagedObject.order = @([self.detailItem totalSongsInSet:set_index + 1] - 1);
