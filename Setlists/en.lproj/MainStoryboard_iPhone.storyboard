@@ -393,14 +393,14 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NR-Lo-qYC">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Lw4-vH-SwT"/>
-                                                <constraint firstAttribute="width" constant="209" id="htC-1K-yqC"/>
+                                                <constraint firstAttribute="width" constant="221" id="SeK-np-F7Y"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Saratoga Performing Arts Center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-4T-idn">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="257" id="4DB-bT-kw0"/>
+                                                <constraint firstAttribute="width" constant="269" id="bFM-as-VCW"/>
                                                 <constraint firstAttribute="height" constant="22" id="cbz-Tv-e0t"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -420,12 +420,12 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="3NR-Lo-qYC" firstAttribute="leading" secondItem="NYT-1Y-7EA" secondAttribute="leading" constant="9" id="HWQ-jX-bpw"/>
                                     <constraint firstItem="3NR-Lo-qYC" firstAttribute="baseline" secondItem="FNe-Yt-534" secondAttribute="baseline" type="default" id="Kvz-4U-4iK"/>
-                                    <constraint firstItem="WUV-4T-idn" firstAttribute="leading" secondItem="NYT-1Y-7EA" secondAttribute="leading" constant="20" type="default" id="Uop-lu-Z9o"/>
                                     <constraint firstAttribute="trailing" secondItem="FNe-Yt-534" secondAttribute="trailing" constant="20" type="default" id="doW-Az-dui"/>
                                     <constraint firstItem="WUV-4T-idn" firstAttribute="top" secondItem="NYT-1Y-7EA" secondAttribute="top" constant="20" type="default" id="fG5-f8-Ktb"/>
                                     <constraint firstAttribute="bottom" secondItem="3NR-Lo-qYC" secondAttribute="bottom" constant="20" type="default" id="kZT-Ot-bA5"/>
-                                    <constraint firstItem="3NR-Lo-qYC" firstAttribute="leading" secondItem="NYT-1Y-7EA" secondAttribute="leading" constant="20" type="default" id="yUG-i6-4Eu"/>
+                                    <constraint firstItem="3NR-Lo-qYC" firstAttribute="leading" secondItem="WUV-4T-idn" secondAttribute="leading" type="default" id="tzB-D0-cEC"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="bandNameLabel" destination="3NR-Lo-qYC" id="reB-At-Hor"/>
@@ -433,24 +433,8 @@
                                     <outlet property="venueNameLabel" destination="WUV-4T-idn" id="sOc-0F-FRy"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="errorCell" textLabel="gLe-F3-prY" style="IBUITableViewCellStyleDefault" id="Dpa-2q-dpz" customClass="HPBImportTableCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="left" text="Error in download" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gLe-F3-prY">
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" red="0.60059696435928345" green="0.22221918404102325" blue="0.24975165724754333" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="loadNextCell" textLabel="A8Z-ak-foZ" detailTextLabel="m1Q-85-iPH" style="IBUITableViewCellStyleSubtitle" id="9NF-aO-ge5" customClass="HPBImportTableCell">
-                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -465,6 +449,22 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="20 out of 40 setlists returned" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1Q-85-iPH">
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="errorCell" textLabel="gLe-F3-prY" style="IBUITableViewCellStyleDefault" id="Dpa-2q-dpz" customClass="HPBImportTableCell">
+                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="left" text="Error in download" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gLe-F3-prY">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.60059696435928345" green="0.22221918404102325" blue="0.24975165724754333" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
