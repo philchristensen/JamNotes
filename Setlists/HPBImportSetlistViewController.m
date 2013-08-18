@@ -92,11 +92,17 @@
             NSString* date = [format stringFromDate:self.detailItem.creationDate];
 
             if(self.detailItem.band){
-                self.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@.", self.detailItem.band.name, date];
+                self.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@", self.detailItem.band.name, date];
             }
             else{
-                self.errorMessage = [NSString stringWithFormat:@"no setlists found on %@.", date];
+                self.errorMessage = [NSString stringWithFormat:@"no setlists found on %@", date];
             }
+        }
+        else if(error.code == -1009){
+            self.errorMessage = @"you appear to be offline";
+        }
+        else {
+            self.errorMessage = [NSString stringWithFormat:@"unexpected error %d", error.code];
         }
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     }];
@@ -185,13 +191,6 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     [self.delegate setlistDownloaded:self.searchResults[indexPath.item]];
     [self.navigationController popViewControllerAnimated:YES];
 }
