@@ -73,8 +73,8 @@
                                                 <constraint firstAttribute="height" constant="21" id="6ga-tn-JDU"/>
                                                 <constraint firstAttribute="width" constant="75" id="NhN-FR-h12"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" red="0.28223405540981822" green="0.23320504829848335" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
@@ -632,10 +632,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3C-Cx-9bI">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="4pi-4u-z4E"/>
+                                    <constraint firstAttribute="height" constant="192" id="Obz-UD-YoY"/>
                                     <constraint firstAttribute="width" constant="327" id="sBQ-kV-4DY"/>
                                 </constraints>
                                 <string key="text">Thanks to:
+
+http://setlist.fm
 
 Nathan Reed
 https://github.com/reednj/TDSemiModal
@@ -655,8 +657,8 @@ https://github.com/groue/GRMustache
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="S3C-Cx-9bI" firstAttribute="top" secondItem="4ky-4i-LzB" secondAttribute="top" constant="260" id="KID-i6-fV4"/>
                             <constraint firstItem="4wg-yB-vjk" firstAttribute="top" secondItem="4ky-4i-LzB" secondAttribute="top" type="default" id="KTn-R0-zcs"/>
-                            <constraint firstItem="S3C-Cx-9bI" firstAttribute="top" secondItem="4ky-4i-LzB" secondAttribute="top" constant="287" id="Oqd-Ka-89v"/>
                             <constraint firstItem="4wg-yB-vjk" firstAttribute="leading" secondItem="4ky-4i-LzB" secondAttribute="leading" type="default" id="WtS-ik-4H4"/>
                             <constraint firstItem="4wg-yB-vjk" firstAttribute="bottom" secondItem="4ky-4i-LzB" secondAttribute="bottom" type="default" id="hXt-ou-5RN"/>
                             <constraint firstItem="S3C-Cx-9bI" firstAttribute="centerX" secondItem="4wg-yB-vjk" secondAttribute="centerX" type="default" id="s7q-Pw-pwF"/>
