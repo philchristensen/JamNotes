@@ -44,8 +44,8 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDr-bb-D2x">
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="196" id="F74-qw-L0G"/>
                                                 <constraint firstAttribute="height" constant="21" id="blk-2Y-gkK"/>
-                                                <constraint firstAttribute="width" constant="257" id="x2d-fS-6vt"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,6 +53,7 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Saratoga Performing Arts Center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMN-Ut-XIY">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="IsL-fG-hcr"/>
+                                                <constraint firstAttribute="width" constant="257" id="bAo-md-Zvz"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -69,6 +70,7 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="07/07/2013" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="S9f-FW-doz">
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="6ga-tn-JDU"/>
                                                 <constraint firstAttribute="width" constant="75" id="NhN-FR-h12"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -80,15 +82,13 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="S9f-FW-doz" firstAttribute="centerY" secondItem="qDr-bb-D2x" secondAttribute="centerY" type="default" id="60i-aZ-ega"/>
-                                    <constraint firstItem="S9f-FW-doz" firstAttribute="bottom" secondItem="qDr-bb-D2x" secondAttribute="bottom" type="default" id="9Sh-D5-aXd"/>
+                                    <constraint firstItem="qDr-bb-D2x" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="5" id="7CI-BC-YHv"/>
+                                    <constraint firstItem="S9f-FW-doz" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="6" id="9tt-hl-C6N"/>
                                     <constraint firstAttribute="trailing" secondItem="S9f-FW-doz" secondAttribute="trailing" constant="20" type="default" id="ABu-Xr-MMi"/>
                                     <constraint firstItem="3Mn-mc-EBe" firstAttribute="leading" secondItem="zMN-Ut-XIY" secondAttribute="leading" type="default" id="ATD-gU-HG6"/>
-                                    <constraint firstItem="S9f-FW-doz" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="5" id="Dmg-em-9BR"/>
                                     <constraint firstItem="zMN-Ut-XIY" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="26" id="QFF-HC-0SN"/>
                                     <constraint firstItem="qDr-bb-D2x" firstAttribute="leading" secondItem="zMN-Ut-XIY" secondAttribute="leading" type="default" id="dku-4j-1ZF"/>
                                     <constraint firstAttribute="bottom" secondItem="3Mn-mc-EBe" secondAttribute="bottom" constant="1" id="i4M-bl-MAR"/>
-                                    <constraint firstItem="zMN-Ut-XIY" firstAttribute="trailing" secondItem="qDr-bb-D2x" secondAttribute="trailing" type="default" id="nNa-Xf-KZc"/>
                                     <constraint firstAttribute="trailing" secondItem="3Mn-mc-EBe" secondAttribute="trailing" constant="20" type="default" id="oqg-T7-Vou"/>
                                 </constraints>
                                 <connections>
@@ -574,7 +574,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="AC/DC Bag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8SE-QK-zdG">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="AC/DC Bag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8SE-QK-zdG">
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -701,7 +701,7 @@ https://github.com/groue/GRMustache
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="AC/DC Bag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fr2-pJ-Vck">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Everybody's Got Something to Hide Except Me and My Monkey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="fr2-pJ-Vck">
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -890,6 +890,6 @@ https://github.com/groue/GRMustache
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Q6T-wD-u4u"/>
-        <segue reference="nvG-JW-dP9"/>
+        <segue reference="eQc-dL-A8b"/>
     </inferredMetricsTieBreakers>
 </document>
