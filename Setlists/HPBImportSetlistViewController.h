@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import "SFSetlist.h"
+#import <RestKit.h>
 
 @protocol HPBImportSetlistViewControllerDelegate <NSObject>
 @optional
@@ -18,7 +19,8 @@
 @interface HPBImportSetlistViewController : UITableViewController
 
 @property (nonatomic, strong) Event* detailItem;
-@property (nonatomic, strong) NSArray* searchResults;
+@property (nonatomic, strong) NSMutableArray* searchResults;
+@property (nonatomic, strong) RKPaginator* paginator;
 @property (nonatomic, strong) id<HPBImportSetlistViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSString* errorMessage;
 

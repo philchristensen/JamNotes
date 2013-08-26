@@ -37,6 +37,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.searchResults = [[NSMutableArray alloc] init];
+    
     [self querySetlistFm];
 }
 
@@ -53,8 +55,8 @@
     }
 
     NSURL* baseURL = [NSURL URLWithString:@"http://api.setlist.fm/rest/0.1"];
-    NSString* methodPath = @"search/setlists";
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:baseURL];
+    
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SFSetlist class]];
     mapping.dateFormatters = @[format];
     mapping.preferredDateFormatter = format;
@@ -66,46 +68,74 @@
      }];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
                                                                                             method:RKRequestMethodAny
-                                                                                       pathPattern:methodPath
+                                                                                       pathPattern:nil
                                                                                            keyPath:@"setlists.setlist"
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [manager addResponseDescriptor:responseDescriptor];
     
-    [manager addResponseDescriptorsFromArray:@[responseDescriptor]]; //, errorDescriptor]];
+
+    RKObjectMapping *paginationMapping = [RKObjectMapping mappingForClass:[RKPaginator class]];
+    [paginationMapping addAttributeMappingsFromDictionary:@{
+     @"setlists.itemsPerPage": @"perPage",
+     @"setlists.total": @"objectCount",
+     @"setlists.page": @"currentPage",
+     }];
+    [manager setPaginationMapping:paginationMapping];
     
     [self.activityIndicator startAnimating];
     [self.activityIndicator setHidesWhenStopped:YES];
-    [manager getObjectsAtPath:methodPath parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
-        self.searchResults = [result array];
-        [self.activityIndicator stopAnimating];
-        self.errorMessage = nil;
-        [self.tableView reloadData];
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"Failed with error: %@", [error localizedDescription]);
-        self.searchResults = @[];
-        [self.activityIndicator stopAnimating];
-        if([operation.HTTPRequestOperation.response statusCode] == 500){
-            self.errorMessage = @"setlist.fm returned an error.";
-        }
-        else if([operation.HTTPRequestOperation.response statusCode] == 404){
-            NSDateFormatter* format = [[NSDateFormatter alloc] init];
-            [format setDateFormat:@"M/d/yyyy"];
-            NSString* date = [format stringFromDate:self.detailItem.creationDate];
 
-            if(self.detailItem.band){
-                self.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@", self.detailItem.band.name, date];
-            }
-            else{
-                self.errorMessage = [NSString stringWithFormat:@"no setlists found on %@", date];
-            }
-        }
-        else if(error.code == -1009){
-            self.errorMessage = @"you appear to be offline";
+    NSMutableArray *pairs = [NSMutableArray array];
+    for (id key in params) {
+        id value = [params objectForKey: key];
+        [pairs addObject:
+         [NSString stringWithFormat: @"%@=%@",
+          [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding],
+          [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]
+          ]
+         ];
+    }
+    NSString* queryString = [pairs componentsJoinedByString: @"&"];
+    self.paginator = [manager paginatorWithPathPattern:[NSString stringWithFormat:@"search/setlists?%@&p=:currentPage", queryString]];
+    
+    // Create weak reference to self to use within the completion blocks
+    __weak typeof(self) weakSelf = self;
+    [self.paginator setCompletionBlockWithSuccess:^(RKPaginator *paginator, NSArray *objects, NSUInteger page) {
+        [weakSelf.searchResults addObjectsFromArray:objects];
+        [weakSelf.activityIndicator stopAnimating];
+        weakSelf.errorMessage = nil;
+        [weakSelf.tableView reloadData];
+    } failure:^(RKPaginator *paginator, NSError *error) {
+        NSLog(@"Failed with error: %@", [error localizedDescription]);
+        [weakSelf.activityIndicator stopAnimating];
+        // This will be be supported by RestKit 0.20.4 -- https://github.com/RestKit/RestKit/commit/8c9c2e3857f85c045b275e06934b65f6fcc46a04
+//        if([operation.HTTPRequestOperation.response statusCode] == 500){
+//            weakSelf.errorMessage = @"setlist.fm returned an error.";
+//        }
+//        else if([operation.HTTPRequestOperation.response statusCode] == 404){
+//            NSDateFormatter* format = [[NSDateFormatter alloc] init];
+//            [format setDateFormat:@"M/d/yyyy"];
+//            NSString* date = [format stringFromDate:weakSelf.detailItem.creationDate];
+//            
+//            if(weakSelf.detailItem.band){
+//                weakSelf.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@", weakSelf.detailItem.band.name, date];
+//            }
+//            else{
+//                weakSelf.errorMessage = [NSString stringWithFormat:@"no setlists found on %@", date];
+//            }
+//        }
+//        else
+        
+        if(error.code == -1009){
+            weakSelf.errorMessage = @"you appear to be offline";
         }
         else {
-            self.errorMessage = [NSString stringWithFormat:@"unexpected error %d", error.code];
+            weakSelf.errorMessage = [NSString stringWithFormat:@"unexpected error: %@", error.localizedDescription];
         }
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+        [weakSelf.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     }];
+    
+    [self.paginator loadPage:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,22 +155,28 @@
     if(self.errorMessage != nil){
         return 1;
     }
-    return [self.searchResults count];
+    return [self.searchResults count] + (self.paginator.isLoaded && self.paginator.hasNextPage ? 1 : 0);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HPBImportTableCell *cell;
     if(self.errorMessage == nil){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"setlistCell" forIndexPath:indexPath];
-        
-        // Configure the cell...
-        SFSetlist* setlist = self.searchResults[indexPath.item];
-        cell.bandNameLabel.text = setlist.artist[@"name"];
-        cell.venueNameLabel.text = setlist.venue[@"name"];
+        if(indexPath.item < [self.searchResults count]){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"setlistCell" forIndexPath:indexPath];
+            
+            // Configure the cell...
+            SFSetlist* setlist = self.searchResults[indexPath.item];
+            cell.bandNameLabel.text = setlist.artist[@"name"];
+            cell.venueNameLabel.text = setlist.venue[@"name"];
 
-        NSDateFormatter* format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"M/d/yyyy"];
-        cell.dateLabel.text = [format stringFromDate:setlist.eventDate];
+            NSDateFormatter* format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"M/d/yyyy"];
+            cell.dateLabel.text = [format stringFromDate:setlist.eventDate];
+        }
+        else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"loadNextCell" forIndexPath:indexPath];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d more setlists available", self.paginator.objectCount - (self.paginator.currentPage * self.paginator.perPage)];
+        }
     }
     else{
         cell = [tableView dequeueReusableCellWithIdentifier:@"errorCell" forIndexPath:indexPath];
@@ -191,8 +227,13 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate setlistDownloaded:self.searchResults[indexPath.item]];
-    [self.navigationController popViewControllerAnimated:YES];
+    if(indexPath.item < [self.searchResults count]){
+        [self.delegate setlistDownloaded:self.searchResults[indexPath.item]];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        [self.paginator loadPage:self.paginator.currentPage + 1];
+    }
 }
 
 @end
