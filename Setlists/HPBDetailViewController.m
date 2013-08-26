@@ -450,7 +450,11 @@
     self.detailItem.band = [Band bandNamed:selectedSetlist.artist[@"name"] inContext:self.context];
     
     int set_index = 0;
-    for(NSDictionary* set in selectedSetlist.sets[@"set"]){
+    NSArray* sets = selectedSetlist.sets[@"set"];
+    if([ sets respondsToSelector:@selector(objectForKey:)]){
+        sets = @[sets];
+    }
+    for(NSDictionary* set in sets){
         BOOL is_encore = [set[@"encore"] boolValue];
         NSArray* songs = set[@"song"];
         NSDictionary* singleSong = (NSDictionary*)songs;

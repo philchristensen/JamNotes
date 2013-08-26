@@ -112,21 +112,21 @@
 //        if([operation.HTTPRequestOperation.response statusCode] == 500){
 //            weakSelf.errorMessage = @"setlist.fm returned an error.";
 //        }
-//        else if([operation.HTTPRequestOperation.response statusCode] == 404){
-//            NSDateFormatter* format = [[NSDateFormatter alloc] init];
-//            [format setDateFormat:@"M/d/yyyy"];
-//            NSString* date = [format stringFromDate:weakSelf.detailItem.creationDate];
-//            
-//            if(weakSelf.detailItem.band){
-//                weakSelf.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@", weakSelf.detailItem.band.name, date];
-//            }
-//            else{
-//                weakSelf.errorMessage = [NSString stringWithFormat:@"no setlists found on %@", date];
-//            }
-//        }
 //        else
-        
-        if(error.code == -1009){
+//        if([operation.HTTPRequestOperation.response statusCode] == 404){
+        if([error.localizedRecoverySuggestion isEqualToString:@"not found\n"]){
+            NSDateFormatter* format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"M/d/yyyy"];
+            NSString* date = [format stringFromDate:weakSelf.detailItem.creationDate];
+            
+            if(weakSelf.detailItem.band){
+                weakSelf.errorMessage = [NSString stringWithFormat:@"no setlists found for %@ on %@", weakSelf.detailItem.band.name, date];
+            }
+            else{
+                weakSelf.errorMessage = [NSString stringWithFormat:@"no setlists found on %@", date];
+            }
+        }
+        else if(error.code == -1009){
             weakSelf.errorMessage = @"you appear to be offline";
         }
         else {
