@@ -21,6 +21,9 @@
 
 @property (strong, nonatomic) UIButton* infoButton;
 
+@property BOOL isScrolling;
+@property BOOL isStoppingScrolling;
+
 - (void)flipToAbout:(id)sender;
 
 @end
