@@ -37,13 +37,13 @@
     
     self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
-    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    
     self.infoButton.frame = CGRectMake(0, screenHeight - 86, 22, 22);
     [self.view addSubview:self.infoButton];
     [self.view bringSubviewToFront:self.infoButton];
+
+    self.tableView.sectionIndexColor = [UIColor colorWithWhite:0 alpha:0.25];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -68,19 +68,22 @@
 
 #pragma mark - Table View
 
+NSString* shortenYear(NSString* year){
+    return [@"\u2018" stringByAppendingString:[year substringFromIndex:2]];
+}
+
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    if(!self.isScrolling) return nil;
-    
     NSMutableArray* titles = [[NSMutableArray alloc] init];
     NSArray* sections = [[self fetchedResultsController] sections];
-    int divisor = [sections count] / 10;
+    int divisor = ([sections count] / 10);
+    divisor = divisor != 0 ? divisor : 2;
     for(id section in sections){
         int year = [[section name] intValue];
         if(year % divisor != 0){
             continue;
         }
         else{
-            [titles addObject:[section name]];
+            [titles addObject:shortenYear([section name])];
         }
     }
     return titles;
@@ -89,7 +92,7 @@
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     int counter = 0;
     for(id section in [[self fetchedResultsController] sections]){
-        if([section name] == title){
+        if([title isEqualToString:shortenYear([section name])]){
             return counter;
         }
         counter++;
@@ -307,38 +310,6 @@
     cell.dateLabel.text = [format stringFromDate:[object valueForKey:@"creationDate"]];
     
     cell.setlistLabel.text = [object generateSummarySetlist];
-}
-
-// pragma mark - Scroll View methods
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    self.isScrolling = YES;
-    self.isStoppingScrolling = NO;
-    [self.tableView reloadSectionIndexTitles];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if(! decelerate){
-        self.isStoppingScrolling = YES;
-        __weak typeof(self) weakSelf = self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            if(self.isStoppingScrolling){
-                self.isScrolling = NO;
-                [weakSelf.tableView reloadSectionIndexTitles];
-            }
-        });
-    
-    }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.isStoppingScrolling = YES;
-    __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        if(self.isStoppingScrolling){
-            self.isScrolling = NO;
-            [weakSelf.tableView reloadSectionIndexTitles];
-        }
-    });
 }
 
 @end

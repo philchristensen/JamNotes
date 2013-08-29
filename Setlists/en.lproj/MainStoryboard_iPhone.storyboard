@@ -44,7 +44,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDr-bb-D2x">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="196" id="F74-qw-L0G"/>
+                                                <constraint firstAttribute="width" constant="184" id="Ujr-rr-YB0"/>
                                                 <constraint firstAttribute="height" constant="21" id="blk-2Y-gkK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -59,9 +59,9 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="AC/DC Bag; Back On the Train; The Divided Sky; Free; It's Ice; Mound; Limb by Limb; Walls of the Cave" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="3Mn-mc-EBe">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="AC/DC Bag; Back On the Train; The Divided Sky; Free; It's Ice; Mound; Limb by Limb; Walls of the Cave" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="265" translatesAutoresizingMaskIntoConstraints="NO" id="3Mn-mc-EBe">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="273" id="SL6-XL-Gwi"/>
+                                                <constraint firstAttribute="width" constant="265" id="MZH-w6-UON"/>
                                                 <constraint firstAttribute="height" constant="43" id="ffl-nu-YWK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -84,12 +84,12 @@
                                 <constraints>
                                     <constraint firstItem="qDr-bb-D2x" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="5" id="7CI-BC-YHv"/>
                                     <constraint firstItem="S9f-FW-doz" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="6" id="9tt-hl-C6N"/>
-                                    <constraint firstAttribute="trailing" secondItem="S9f-FW-doz" secondAttribute="trailing" constant="20" type="default" id="ABu-Xr-MMi"/>
                                     <constraint firstItem="3Mn-mc-EBe" firstAttribute="leading" secondItem="zMN-Ut-XIY" secondAttribute="leading" type="default" id="ATD-gU-HG6"/>
                                     <constraint firstItem="zMN-Ut-XIY" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="26" id="QFF-HC-0SN"/>
                                     <constraint firstItem="qDr-bb-D2x" firstAttribute="leading" secondItem="zMN-Ut-XIY" secondAttribute="leading" type="default" id="dku-4j-1ZF"/>
                                     <constraint firstAttribute="bottom" secondItem="3Mn-mc-EBe" secondAttribute="bottom" constant="1" id="i4M-bl-MAR"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Mn-mc-EBe" secondAttribute="trailing" constant="20" type="default" id="oqg-T7-Vou"/>
+                                    <constraint firstItem="qDr-bb-D2x" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="27" id="lvk-HY-iMU"/>
+                                    <constraint firstItem="3Mn-mc-EBe" firstAttribute="trailing" secondItem="S9f-FW-doz" secondAttribute="trailing" type="default" id="qsJ-zz-Aom"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="bandNameLabel" destination="qDr-bb-D2x" id="ddx-aZ-Vwt"/>
