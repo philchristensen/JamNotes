@@ -3,6 +3,7 @@ PODS:
   - GRMustache (6.8.2):
     - JRSwizzle (~> 1.0)
   - JRSwizzle (1.0)
+  - QuickDialog (0.9)
   - RestKit (0.20.3):
     - RestKit/Core
   - RestKit/Core (0.20.3):
@@ -28,11 +29,14 @@ PODS:
 
 DEPENDENCIES:
   - GRMustache
+  - QuickDialog (from `https://raw.github.com/philchristensen/QuickDialog/master/QuickDialog.podspec`)
   - RestKit
   - RKXMLReaderSerialization (from `https://github.com/RestKit/RKXMLReaderSerialization.git`)
   - TDSemiModal (from `https://raw.github.com/philchristensen/Specs/master/TDSemiModal/0.0.1/TDSemiModal.podspec`)
 
 EXTERNAL SOURCES:
+  QuickDialog:
+    :podspec: https://raw.github.com/philchristensen/QuickDialog/master/QuickDialog.podspec
   RKXMLReaderSerialization:
     :git: https://github.com/RestKit/RKXMLReaderSerialization.git
   TDSemiModal:
@@ -42,10 +46,11 @@ SPEC CHECKSUMS:
   AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
   GRMustache: 9ea300db470733cfe8824896c07c8898a7102109
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
+  QuickDialog: d6b15c878b2563b794a05a3cd5430bb6be7008d5
   RestKit: 1f181c180105a92f11ec4f6cd7de37625e516d83
   RKXMLReaderSerialization: 4e4986e29782e05cf2f52d5076630304cfa6fb29
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
-  TDSemiModal: 0fe29aab45d4b75d3264be2418ad1483df3f51e4
+  TDSemiModal: eb66ea9b5d47ddf8ba15f85886f6d98a54be5196
   TransitionKit: d0e3344aac92991395d4c2e72d9c5a8ceeb12910
   XMLReader: d8a522b0362140b328bcaec7f289ff4ffffebf29
 

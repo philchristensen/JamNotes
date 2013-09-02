@@ -75,8 +75,8 @@ NSString* shortenYear(NSString* year){
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     NSMutableArray* titles = [[NSMutableArray alloc] init];
     NSArray* sections = [[self fetchedResultsController] sections];
-    int divisor = ([sections count] / 10);
-    divisor = divisor != 0 ? divisor : 2;
+    int divisor = round([sections count] / 10.0);
+    divisor = divisor != 0 ? divisor : 1;
     for(id section in sections){
         int year = [[section name] intValue];
         if(year % divisor != 0){

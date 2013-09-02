@@ -55,6 +55,7 @@
 		4ADA58D01780F22A0021CF59 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58CF1780F22A0021CF59 /* Event.m */; };
 		4ADA58D31780F22A0021CF59 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58D21780F22A0021CF59 /* Song.m */; };
 		4ADA58D61780F22A0021CF59 /* Band.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58D51780F22A0021CF59 /* Band.m */; };
+		4ADA8E1217D45F29009D8F2B /* HPBSongEditViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA8E1117D45F29009D8F2B /* HPBSongEditViewControllerFactory.m */; };
 		6D229D0BFFB64C1FA742D08F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 035757C9597F4A858F6769BD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,8 @@
 		4ADA58D21780F22A0021CF59 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		4ADA58D41780F22A0021CF59 /* Band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Band.h; sourceTree = "<group>"; };
 		4ADA58D51780F22A0021CF59 /* Band.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Band.m; sourceTree = "<group>"; };
+		4ADA8E1017D45F29009D8F2B /* HPBSongEditViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBSongEditViewControllerFactory.h; sourceTree = "<group>"; };
+		4ADA8E1117D45F29009D8F2B /* HPBSongEditViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBSongEditViewControllerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,7 @@
 				420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */,
 				4AD6529417B80AFD002E95CC /* HPBAboutViewController.h */,
 				4AD6529517B80AFD002E95CC /* HPBAboutViewController.m */,
+				4ADA8E1317D45F2E009D8F2B /* Edit Forms */,
 				4ADA58C117809D2D0021CF59 /* Search */,
 				4A6F3F4817BFAF9C00E68022 /* Import */,
 				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
@@ -337,6 +341,15 @@
 				4AA60495177D0DDF00A1AC47 /* HPBSongSearchViewController.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		4ADA8E1317D45F2E009D8F2B /* Edit Forms */ = {
+			isa = PBXGroup;
+			children = (
+				4ADA8E1017D45F29009D8F2B /* HPBSongEditViewControllerFactory.h */,
+				4ADA8E1117D45F29009D8F2B /* HPBSongEditViewControllerFactory.m */,
+			);
+			name = "Edit Forms";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,6 +527,7 @@
 				4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */,
 				4A6F3F4E17BFAFE100E68022 /* HPBImportTableCell.m in Sources */,
 				4A71195417C04DC900A52BA9 /* SFSetlist.m in Sources */,
+				4ADA8E1217D45F29009D8F2B /* HPBSongEditViewControllerFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
