@@ -67,7 +67,8 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
                                                                                             forState:UIControlStateNormal];
     
     if(NO){
-        [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setColor:[UIColor whiteColor]];
+        id look = [UILabel appearanceWhenContainedIn:[UITableViewCell class], nil];
+        [look setColor:[UIColor whiteColor]];
         [[UITableView appearance] setBackgroundColor:hex2UIColor(@"222222", 1.0)];
     }
     [[UITableView appearance] setSeparatorColor:[UIColor clearColor]];
