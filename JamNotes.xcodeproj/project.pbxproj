@@ -26,9 +26,6 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
-		4A4A0D7917B3149600F8A09C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7417B3149600F8A09C /* Default-568h@2x.png */; };
-		4A4A0D7A17B3149600F8A09C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7517B3149600F8A09C /* Default.png */; };
-		4A4A0D7B17B3149600F8A09C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7617B3149600F8A09C /* Default@2x.png */; };
 		4A4A0D7C17B3149600F8A09C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7717B3149600F8A09C /* Icon.png */; };
 		4A4A0D7D17B3149600F8A09C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7817B3149600F8A09C /* Icon@2x.png */; };
 		4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */; };
@@ -56,6 +53,9 @@
 		4ADA58D31780F22A0021CF59 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58D21780F22A0021CF59 /* Song.m */; };
 		4ADA58D61780F22A0021CF59 /* Band.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA58D51780F22A0021CF59 /* Band.m */; };
 		4ADA8E1217D45F29009D8F2B /* HPBSongEditViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA8E1117D45F29009D8F2B /* HPBSongEditViewControllerFactory.m */; };
+		4AF2528417E7EB5300379434 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF2528117E7EB5300379434 /* Default-568h@2x.png */; };
+		4AF2528517E7EB5300379434 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF2528217E7EB5300379434 /* Default.png */; };
+		4AF2528617E7EB5300379434 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF2528317E7EB5300379434 /* Default@2x.png */; };
 		6D229D0BFFB64C1FA742D08F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 035757C9597F4A858F6769BD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -99,9 +99,6 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
-		4A4A0D7417B3149600F8A09C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4A4A0D7517B3149600F8A09C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		4A4A0D7617B3149600F8A09C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4A4A0D7717B3149600F8A09C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4A4A0D7817B3149600F8A09C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4A6F3F4917BFAFC700E68022 /* HPBImportSetlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBImportSetlistViewController.h; sourceTree = "<group>"; };
@@ -145,6 +142,9 @@
 		4ADA58D51780F22A0021CF59 /* Band.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Band.m; sourceTree = "<group>"; };
 		4ADA8E1017D45F29009D8F2B /* HPBSongEditViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBSongEditViewControllerFactory.h; sourceTree = "<group>"; };
 		4ADA8E1117D45F29009D8F2B /* HPBSongEditViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBSongEditViewControllerFactory.m; sourceTree = "<group>"; };
+		4AF2528117E7EB5300379434 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Launch Image/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		4AF2528217E7EB5300379434 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Launch Image/Default.png"; sourceTree = SOURCE_ROOT; };
+		4AF2528317E7EB5300379434 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Launch Image/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,9 +243,9 @@
 			children = (
 				4AD6528C17B80511002E95CC /* AboutImage.png */,
 				4AD6528D17B80511002E95CC /* AboutImage@2x.png */,
-				4A4A0D7417B3149600F8A09C /* Default-568h@2x.png */,
-				4A4A0D7517B3149600F8A09C /* Default.png */,
-				4A4A0D7617B3149600F8A09C /* Default@2x.png */,
+				4AF2528117E7EB5300379434 /* Default-568h@2x.png */,
+				4AF2528217E7EB5300379434 /* Default.png */,
+				4AF2528317E7EB5300379434 /* Default@2x.png */,
 				4A4A0D7717B3149600F8A09C /* Icon.png */,
 				4A4A0D7817B3149600F8A09C /* Icon@2x.png */,
 				4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */,
@@ -429,16 +429,16 @@
 				429607CC177CB39800F7DF13 /* InfoPlist.strings in Resources */,
 				429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */,
 				429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */,
+				4AF2528517E7EB5300379434 /* Default.png in Resources */,
 				4AACFE09178C817D008A9521 /* NavigationBar.png in Resources */,
 				4AACFE0A178C817D008A9521 /* NavigationBar@2x.png in Resources */,
 				4AACFE0D178C847F008A9521 /* BarButtonItem.png in Resources */,
 				4A8856B6179CD72500AE9C32 /* BackBarButtonItem.png in Resources */,
 				4A8856B8179CD89100AE9C32 /* BackBarButtonItem@2x.png in Resources */,
+				4AF2528617E7EB5300379434 /* Default@2x.png in Resources */,
+				4AF2528417E7EB5300379434 /* Default-568h@2x.png in Resources */,
 				4A9BDFF317B00A2200571FCF /* PlaintextSetlist.mustache in Resources */,
 				4A9BDFF517B00A4B00571FCF /* PlaintextSummarySetlist.mustache in Resources */,
-				4A4A0D7917B3149600F8A09C /* Default-568h@2x.png in Resources */,
-				4A4A0D7A17B3149600F8A09C /* Default.png in Resources */,
-				4A4A0D7B17B3149600F8A09C /* Default@2x.png in Resources */,
 				4A4A0D7C17B3149600F8A09C /* Icon.png in Resources */,
 				4A4A0D7D17B3149600F8A09C /* Icon@2x.png in Resources */,
 				4AD6528E17B80511002E95CC /* AboutImage.png in Resources */,

@@ -814,14 +814,14 @@ https://github.com/groue/GRMustache
     <resources>
         <image name="AboutImage.png" width="320" height="568"/>
     </resources>
-    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="nvG-JW-dP9"/>
         <segue reference="Q6T-wD-u4u"/>
-        <segue reference="eQc-dL-A8b"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -56,15 +56,23 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
         controller.managedObjectContext = self.managedObjectContext;
     }
     
+    NSString *reqSysVer = @"7.0";
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+    BOOL isOS7 = FALSE;
+    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+        isOS7 = TRUE;
+
     [application setStatusBarHidden:NO];
     
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackBarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Medium" size:0.0]}];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue" size:0.0]}
-                                                                                            forState:UIControlStateNormal];
+    if(! isOS7){
+        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackBarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        
+        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Medium" size:0.0]}];
+        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue" size:0.0]}
+                                                                                                forState:UIControlStateNormal];
+    }
     
     if(NO){
         id look = [UILabel appearanceWhenContainedIn:[UITableViewCell class], nil];

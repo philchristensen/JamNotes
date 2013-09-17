@@ -73,13 +73,19 @@ NSString* shortenYear(NSString* year){
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    NSString *reqSysVer = @"7.0";
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+    BOOL isOS7 = FALSE;
+    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+        isOS7 = TRUE;
+    
     NSMutableArray* titles = [[NSMutableArray alloc] init];
     NSArray* sections = [[self fetchedResultsController] sections];
     int divisor = round([sections count] / 10.0);
     divisor = divisor != 0 ? divisor : 1;
     for(id section in sections){
         int year = [[section name] intValue];
-        if(year % divisor != 0){
+        if(year % divisor != 0 && !isOS7){
             continue;
         }
         else{
