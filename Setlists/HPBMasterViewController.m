@@ -25,6 +25,13 @@
         self.clearsSelectionOnViewWillAppear = NO;
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
+
+    NSString *reqSysVer = @"7.0";
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+    self.isOS7 = FALSE;
+    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+        self.isOS7 = TRUE;
+    
     [super awakeFromNib];
 }
 
@@ -39,16 +46,25 @@
     [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    self.infoButton.frame = CGRectMake(0, screenHeight - 86, 22, 22);
+    
+    
+    int os7offset = (self.isOS7 ? 2 : 0);
+    self.infoButton.frame = CGRectMake(os7offset, screenHeight - 86 - os7offset, 22, 22);
+    
     [self.view addSubview:self.infoButton];
     [self.view bringSubviewToFront:self.infoButton];
-
+    
+    if(self.isOS7){
+        self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    }
+    
     self.tableView.sectionIndexColor = [UIColor colorWithWhite:0 alpha:0.25];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGRect frame = self.infoButton.frame;
-    frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.infoButton.frame.size.height;
+    int os7offset = (self.isOS7 ? 2 : 0);
+    frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.infoButton.frame.size.height - os7offset;
     self.infoButton.frame = frame;
     
     [self.view bringSubviewToFront:self.infoButton];
@@ -73,11 +89,6 @@ NSString* shortenYear(NSString* year){
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    NSString *reqSysVer = @"7.0";
-    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-    BOOL isOS7 = FALSE;
-    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
-        isOS7 = TRUE;
     
     NSMutableArray* titles = [[NSMutableArray alloc] init];
     NSArray* sections = [[self fetchedResultsController] sections];
@@ -85,7 +96,7 @@ NSString* shortenYear(NSString* year){
     divisor = divisor != 0 ? divisor : 1;
     for(id section in sections){
         int year = [[section name] intValue];
-        if(year % divisor != 0 && !isOS7){
+        if(year % divisor != 0 && !self.isOS7){
             continue;
         }
         else{
