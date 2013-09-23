@@ -26,6 +26,10 @@
 		429607F2177CB39900F7DF13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C5177CB39800F7DF13 /* CoreData.framework */; };
 		429607FA177CB39900F7DF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429607F8177CB39900F7DF13 /* InfoPlist.strings */; };
 		429607FD177CB39900F7DF13 /* SetlistsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607FC177CB39900F7DF13 /* SetlistsTests.m */; };
+		4A353CE617EFD52B00D833FC /* Icon-29h.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A353CE217EFD52B00D833FC /* Icon-29h.png */; };
+		4A353CE717EFD52B00D833FC /* Icon-58h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A353CE317EFD52B00D833FC /* Icon-58h@2x.png */; };
+		4A353CE817EFD52B00D833FC /* Icon-80h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A353CE417EFD52B00D833FC /* Icon-80h@2x.png */; };
+		4A353CE917EFD52B00D833FC /* Icon-120h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A353CE517EFD52B00D833FC /* Icon-120h@2x.png */; };
 		4A4A0D7C17B3149600F8A09C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7717B3149600F8A09C /* Icon.png */; };
 		4A4A0D7D17B3149600F8A09C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4A0D7817B3149600F8A09C /* Icon@2x.png */; };
 		4A6F3F4B17BFAFC700E68022 /* HPBImportSetlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F3F4A17BFAFC700E68022 /* HPBImportSetlistViewController.m */; };
@@ -99,6 +103,10 @@
 		429607F9177CB39900F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		429607FB177CB39900F7DF13 /* SetlistsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetlistsTests.h; sourceTree = "<group>"; };
 		429607FC177CB39900F7DF13 /* SetlistsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetlistsTests.m; sourceTree = "<group>"; };
+		4A353CE217EFD52B00D833FC /* Icon-29h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29h.png"; sourceTree = "<group>"; };
+		4A353CE317EFD52B00D833FC /* Icon-58h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58h@2x.png"; sourceTree = "<group>"; };
+		4A353CE417EFD52B00D833FC /* Icon-80h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80h@2x.png"; sourceTree = "<group>"; };
+		4A353CE517EFD52B00D833FC /* Icon-120h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120h@2x.png"; sourceTree = "<group>"; };
 		4A4A0D7717B3149600F8A09C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4A4A0D7817B3149600F8A09C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4A6F3F4917BFAFC700E68022 /* HPBImportSetlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBImportSetlistViewController.h; sourceTree = "<group>"; };
@@ -248,6 +256,10 @@
 				4AF2528317E7EB5300379434 /* Default@2x.png */,
 				4A4A0D7717B3149600F8A09C /* Icon.png */,
 				4A4A0D7817B3149600F8A09C /* Icon@2x.png */,
+				4A353CE217EFD52B00D833FC /* Icon-29h.png */,
+				4A353CE317EFD52B00D833FC /* Icon-58h@2x.png */,
+				4A353CE417EFD52B00D833FC /* Icon-80h@2x.png */,
+				4A353CE517EFD52B00D833FC /* Icon-120h@2x.png */,
 				4A8856B5179CD72500AE9C32 /* BackBarButtonItem.png */,
 				4A8856B7179CD89100AE9C32 /* BackBarButtonItem@2x.png */,
 				4AACFE0C178C847F008A9521 /* BarButtonItem.png */,
@@ -402,6 +414,11 @@
 				CLASSPREFIX = HPB;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Phil Christensen";
+				TargetAttributes = {
+					429607BB177CB39800F7DF13 = {
+						DevelopmentTeam = 4VH5X5UUF7;
+					};
+				};
 			};
 			buildConfigurationList = 429607B7177CB39800F7DF13 /* Build configuration list for PBXProject "JamNotes" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -426,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A353CE717EFD52B00D833FC /* Icon-58h@2x.png in Resources */,
 				429607CC177CB39800F7DF13 /* InfoPlist.strings in Resources */,
 				429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */,
 				429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -440,8 +458,11 @@
 				4A9BDFF317B00A2200571FCF /* PlaintextSetlist.mustache in Resources */,
 				4A9BDFF517B00A4B00571FCF /* PlaintextSummarySetlist.mustache in Resources */,
 				4A4A0D7C17B3149600F8A09C /* Icon.png in Resources */,
+				4A353CE917EFD52B00D833FC /* Icon-120h@2x.png in Resources */,
 				4A4A0D7D17B3149600F8A09C /* Icon@2x.png in Resources */,
 				4AD6528E17B80511002E95CC /* AboutImage.png in Resources */,
+				4A353CE617EFD52B00D833FC /* Icon-29h.png in Resources */,
+				4A353CE817EFD52B00D833FC /* Icon-80h@2x.png in Resources */,
 				4AD6528F17B80511002E95CC /* AboutImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,7 +632,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -647,10 +668,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10893DC308A940CCA6FCD070 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Setlists/JamNotes-Prefix.pch";
 				INFOPLIST_FILE = "Setlists/JamNotes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = JamNotes;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -661,10 +684,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10893DC308A940CCA6FCD070 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Setlists/JamNotes-Prefix.pch";
 				INFOPLIST_FILE = "Setlists/JamNotes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = JamNotes;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
