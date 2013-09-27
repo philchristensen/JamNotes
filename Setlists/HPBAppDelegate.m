@@ -39,19 +39,20 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UINavigationController *navigationController;
+    
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
         
         UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
         HPBMasterViewController *controller = (HPBMasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        navigationController = (UINavigationController *)self.window.rootViewController;
         HPBMasterViewController *controller = (HPBMasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
@@ -62,10 +63,14 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
     if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
         isOS7 = TRUE;
 
-    [application setStatusBarHidden:NO];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    if(! isOS7){
+    if(isOS7){
+        navigationController.navigationBar.translucent = NO;
+        navigationController.navigationBar.barTintColor = hex2UIColor(@"372172", 1.0);
+    }
+    else{
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
         [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackBarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         
