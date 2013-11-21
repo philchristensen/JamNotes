@@ -36,6 +36,26 @@
     
     [self searchBar:self.searchBar textDidChange:@""];
     [self.searchBar becomeFirstResponder];
+
+    HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
+    if([Venue totalVenuesInContext:appDelegate.managedObjectContext] == 0){
+        NSMutableParagraphStyle* helpTextStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+        [helpTextStyle setAlignment: NSTextAlignmentCenter];
+        [helpTextStyle setLineBreakMode:NSLineBreakByWordWrapping];
+        
+        NSDictionary* helpTextFontAttributes = @{
+                                                 NSFontAttributeName:               [UIFont fontWithName: @"HelveticaNeue-Bold" size: 24],
+                                                 NSForegroundColorAttributeName:    [UIColor grayColor],
+                                                 NSParagraphStyleAttributeName:     helpTextStyle
+                                                 };
+        
+        self.firstRunHelpLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 25, 270, 270)];
+        self.firstRunHelpLabel.attributedText = [[NSAttributedString alloc] initWithString:@"You haven't added any venues yet. To add a new venue, type the name in the search field, and click to add." attributes:helpTextFontAttributes];
+        self.firstRunHelpLabel.numberOfLines = 0;
+        
+        [self.view addSubview:self.firstRunHelpLabel];
+        [self.view bringSubviewToFront:self.firstRunHelpLabel];
+    }
 }
 
 - (void)didReceiveMemoryWarning

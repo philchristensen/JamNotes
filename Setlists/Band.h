@@ -22,6 +22,7 @@
 @interface Band (CoreDataGeneratedAccessors)
 
 + (Band*)bandNamed:(NSString*)bandName inContext:(NSManagedObjectContext*)context;
++ (int)totalBandsInContext:(NSManagedObjectContext*)context;
 
 - (void)addEventsObject:(Event *)value;
 - (void)removeEventsObject:(Event *)value;

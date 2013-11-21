@@ -42,23 +42,21 @@
     
     self.detailViewController = (HPBDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    
-    
-    int os7offset = (self.isOS7 ? 2 : 0);
-    self.infoButton.frame = CGRectMake(os7offset, screenHeight - 86 - os7offset, 22, 22);
-    
-    [self.view addSubview:self.infoButton];
-    [self.view bringSubviewToFront:self.infoButton];
     
     if(self.isOS7){
         self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     }
-    
     self.tableView.sectionIndexColor = [UIColor colorWithWhite:0 alpha:0.25];
+    
+    int os7offset = (self.isOS7 ? 2 : 0);
+    self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
+    self.infoButton.frame = CGRectMake(os7offset, screenHeight - 86 - os7offset, 22, 22);
+    
+    [self.view addSubview:self.infoButton];
+    [self.view bringSubviewToFront:self.infoButton];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

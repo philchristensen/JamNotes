@@ -49,4 +49,19 @@
     return selectedVenue;
 }
 
++(int) totalVenuesInContext:(NSManagedObjectContext*)context {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Venue" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"Error in totalVenuesInContext: %@", error);
+    }
+    
+    return [results count];
+}
+
 @end

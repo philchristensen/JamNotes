@@ -17,6 +17,8 @@
 
 @interface HPBSongSearchViewController : UITableViewController
 
+@property (strong, nonatomic) UILabel* firstRunHelpLabel;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet id<HPBSongSearchViewControllerDelegate> delegate;
 

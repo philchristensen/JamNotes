@@ -53,4 +53,22 @@
     return selectedSong;
 }
 
++(int) totalSongsByBand:(Band*)band {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Song" inManagedObjectContext:band.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"band == %@", band];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray* results = [band.managedObjectContext executeFetchRequest:request error:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"Error in totalSongsByBand: %@", error);
+    }
+    
+    return [results count];
+}
+
 @end

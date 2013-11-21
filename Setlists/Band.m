@@ -52,4 +52,19 @@
     return selectedBand;
 }
 
++(int) totalBandsInContext:(NSManagedObjectContext*)context {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Band" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    if(error){
+        // Handle the error.
+        NSLog(@"Error in totalBandsInContext: %@", error);
+    }
+    
+    return [results count];
+}
+
 @end

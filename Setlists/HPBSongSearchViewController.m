@@ -8,6 +8,7 @@
 
 #import "HPBSongSearchViewController.h"
 #import "HPBAppDelegate.h"
+#import "Band.h"
 #import "Song.h"
 #import "Event.h"
 
@@ -41,6 +42,26 @@
         self.title = @"Select Set Opener";
     }
     [self.searchBar becomeFirstResponder];
+    
+    Band* band = [self.detailItem band];
+    if([Song totalSongsByBand:band] == 0){
+        NSMutableParagraphStyle* helpTextStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+        [helpTextStyle setAlignment: NSTextAlignmentCenter];
+        [helpTextStyle setLineBreakMode:NSLineBreakByWordWrapping];
+        
+        NSDictionary* helpTextFontAttributes = @{
+                                                 NSFontAttributeName:               [UIFont fontWithName: @"HelveticaNeue-Bold" size: 24],
+                                                 NSForegroundColorAttributeName:    [UIColor grayColor],
+                                                 NSParagraphStyleAttributeName:     helpTextStyle
+                                                 };
+        
+        self.firstRunHelpLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 25, 270, 270)];
+        self.firstRunHelpLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You haven't added any songs for %@ yet. To add a new song, type the name in the search field, and click to add.", [[self.detailItem band] name]] attributes:helpTextFontAttributes];
+        self.firstRunHelpLabel.numberOfLines = 0;
+        
+        [self.view addSubview:self.firstRunHelpLabel];
+        [self.view bringSubviewToFront:self.firstRunHelpLabel];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

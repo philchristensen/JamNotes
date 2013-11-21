@@ -22,6 +22,7 @@
 @interface Song (CoreDataGeneratedAccessors)
 
 + (Song*)songBy:(Band*)band named:(NSString*)songName inContext:(NSManagedObjectContext*)context;
++ (int)totalSongsByBand:(Band*)band;
 
 - (void)addEntriesObject:(Entry *)value;
 - (void)removeEntriesObject:(Entry *)value;
