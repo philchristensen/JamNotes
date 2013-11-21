@@ -164,6 +164,13 @@
         }
         else if([self.detailItem totalSongs] == 0){
             cell = [tableView dequeueReusableCellWithIdentifier:@"importSetlistCell" forIndexPath:indexPath];
+            Band* band = [self.detailItem band];
+            if(band){
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"Search setlist.fm for any %@ shows on this date.", band.name];
+            }
+            else{
+                cell.detailTextLabel.text = @"Search setlist.fm for any setlists from this date.";
+            }
         }
         else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
