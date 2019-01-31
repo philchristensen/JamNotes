@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AD228CC4-8810-4A48-9050-6013C16BC5A3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>JamNotes</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4B920EFB-0774-4C7F-AD9F-80BA2D892A46</key>
+		<string>ssh://github.com/philchristensen/JamNotes.git</string>
+		<key>B454C405-87F0-4379-9F53-EC8CEBB801C3</key>
+		<string>ssh://github.com/philchristensen/ReorderingTableViewController.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>JamNotes.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4B920EFB-0774-4C7F-AD9F-80BA2D892A46</key>
+		<string>..</string>
+		<key>B454C405-87F0-4379-9F53-EC8CEBB801C3</key>
+		<string>../ReorderingTableViewController</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/philchristensen/JamNotes.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4B920EFB-0774-4C7F-AD9F-80BA2D892A46</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4B920EFB-0774-4C7F-AD9F-80BA2D892A46</string>
+			<key>IDESourceControlWCCName</key>
+			<string>JamNotes</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B454C405-87F0-4379-9F53-EC8CEBB801C3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ReorderingTableViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>
