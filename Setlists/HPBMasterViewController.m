@@ -53,7 +53,7 @@
     int os7offset = (self.isOS7 ? 2 : 0);
     self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
-    self.infoButton.frame = CGRectMake(os7offset, screenHeight - 86 - os7offset, 22, 22);
+    self.infoButton.frame = CGRectMake(os7offset, screenHeight - 140 - os7offset, 22, 22);
     
     [self.view addSubview:self.infoButton];
     [self.view bringSubviewToFront:self.infoButton];
