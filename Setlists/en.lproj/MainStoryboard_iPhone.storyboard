@@ -68,9 +68,8 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="AC/DC Bag; Back On the Train; The Divided Sky; Free; It's Ice; Mound; Limb by Limb; Walls of the Cave" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="265" translatesAutoresizingMaskIntoConstraints="NO" id="3Mn-mc-EBe">
-                                            <rect key="frame" x="27" y="44" width="265" height="43"/>
+                                            <rect key="frame" x="27" y="44" width="385" height="43"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="265" id="MZH-w6-UON"/>
                                                 <constraint firstAttribute="height" constant="43" id="ffl-nu-YWK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -78,7 +77,7 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="07/07/2013" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="S9f-FW-doz">
-                                            <rect key="frame" x="217" y="6" width="75" height="21"/>
+                                            <rect key="frame" x="337" y="6" width="75" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6ga-tn-JDU"/>
                                                 <constraint firstAttribute="width" constant="75" id="NhN-FR-h12"/>
@@ -88,6 +87,10 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3Mn-mc-EBe" firstAttribute="leading" secondItem="fhn-37-RqO" secondAttribute="leading" constant="27" id="gew-K1-3n9"/>
+                                        <constraint firstAttribute="trailing" secondItem="3Mn-mc-EBe" secondAttribute="trailing" constant="2" id="mwZ-to-NbO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
