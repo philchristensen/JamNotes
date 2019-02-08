@@ -54,8 +54,12 @@
         params[@"artistName"] = self.detailItem.band.name;
     }
 
-    NSURL* baseURL = [NSURL URLWithString:@"http://api.setlist.fm/rest/0.1"];
+    NSURL* baseURL = [NSURL URLWithString:@"https://api.setlist.fm/rest/1.0"];
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:baseURL];
+    [manager setAcceptHeaderWithMIMEType:@"application/xml"];
+    AFHTTPClient *client = manager.HTTPClient;
+    [client setDefaultHeader:@"x-api-key" value:@"760349b2-a881-4b13-9343-977fe282958a"];
+    [client setDefaultHeader:@"Accept-Language" value:@"en"];
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SFSetlist class]];
     mapping.dateFormatters = @[format];
