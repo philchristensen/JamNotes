@@ -10,7 +10,7 @@
 
 @interface SFSetlist : NSObject
 @property (nonatomic, copy) NSDate* eventDate;
-@property (nonatomic, copy) NSMutableDictionary* artist;
-@property (nonatomic, copy) NSMutableDictionary* venue;
-@property (nonatomic, copy) NSMutableDictionary* sets;
+@property (nonatomic, copy) NSDictionary* artist;
+@property (nonatomic, copy) NSDictionary* venue;
+@property (nonatomic, copy) NSDictionary* sets;
 @end

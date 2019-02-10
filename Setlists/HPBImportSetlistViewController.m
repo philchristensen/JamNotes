@@ -65,11 +65,27 @@
     mapping.dateFormatters = @[format];
     mapping.preferredDateFormatter = format;
     [mapping addAttributeMappingsFromDictionary:@{
-     @"eventDate" : @"eventDate",
-     @"artist" : @"artist",
-     @"venue" : @"venue",
-     @"sets" : @"sets"
+     @"eventDate" : @"eventDate"
      }];
+    
+    RKObjectMapping* artistMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class] ];
+    [artistMapping addAttributeMappingsFromArray:@[ @"name", @"sortName", @"disambiguation" ]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"artist"
+                                                                                   toKeyPath:@"artist"
+                                                                                 withMapping:artistMapping]];
+
+    RKObjectMapping* venueMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class] ];
+    [venueMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"venue"
+                                                                            toKeyPath:@"venue"
+                                                                          withMapping:venueMapping]];
+    
+    RKObjectMapping* setsMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class] ];
+    [setsMapping addAttributeMappingsFromArray:@[ @"set" ]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"sets"
+                                                                            toKeyPath:@"sets"
+                                                                          withMapping:setsMapping]];
+    
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
                                                                                             method:RKRequestMethodAny
                                                                                        pathPattern:nil
