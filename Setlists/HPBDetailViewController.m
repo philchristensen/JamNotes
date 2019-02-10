@@ -475,7 +475,17 @@
             NSString* songName = song[@"name"];
             Entry* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Entry" inManagedObjectContext:self.context];
             newManagedObject.song = [Song songBy:self.detailItem.band named:songName inContext:self.context];
-            newManagedObject.notes = song[@"info"] ? song[@"info"][@"text"] : nil;
+            
+            NSString* infoText = song[@"info"] ? song[@"info"][@"text"] : @"";
+            if([infoText isEqualToString:@">"]){
+                newManagedObject.is_segue = @(1);
+            }
+            else{
+                if([infoText hasSuffix:@">"]){
+                    newManagedObject.is_segue = @(1);
+                }
+                newManagedObject.notes = infoText;
+            }
             newManagedObject.event = self.detailItem;
             newManagedObject.set_index = @(set_index);
             newManagedObject.order = @([self.detailItem totalSongsInSet:set_index + 1] - 1);
