@@ -14,6 +14,7 @@
 @interface Event : NSManagedObject
 
 @property (nonatomic, retain) NSDate * creationDate;
+@property (nonatomic, retain) NSNumber* attended;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Band *band;
 @property (nonatomic, retain) NSSet *entries;

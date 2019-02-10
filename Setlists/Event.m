@@ -18,6 +18,7 @@
 @implementation Event
 
 @dynamic creationDate;
+@dynamic attended;
 @dynamic name;
 @dynamic band;
 @dynamic entries;
