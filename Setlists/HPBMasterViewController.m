@@ -321,7 +321,15 @@ NSString* shortenYear(NSString* year){
     
     cell.bandNameLabel.text = [[object valueForKey:@"band"] valueForKey:@"name"];
     cell.venueNameLabel.text = [[object valueForKey:@"venue"] valueForKey:@"name"];
-
+    
+    NSNumber* attended = [object valueForKey:@"attended"];
+    if([attended isEqualToNumber:@(1)]){
+        cell.backgroundColor = [UIColor colorWithDisplayP3Red:0.9 green:0.8 blue:1.0 alpha:0.3];
+    }
+    else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"M/d/yyyy"];
     cell.dateLabel.text = [format stringFromDate:[object valueForKey:@"creationDate"]];
