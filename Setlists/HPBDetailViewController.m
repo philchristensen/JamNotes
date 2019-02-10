@@ -69,6 +69,13 @@
     [self.tableView setEditing:editing animated:animated];
 }
 
+#pragma mark - Attendance Toggle
+- (IBAction) toggleAttendance:(id)sender {
+    self.detailItem.attended = [self.detailItem.attended isEqualToNumber:@(1)] ? @(0) : @(1);
+    [self.context save:nil];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Date Picker
 
 - (IBAction) showDatePicker:(id)sender {
@@ -121,6 +128,13 @@
     if(indexPath.section == 0){
         if(indexPath.item == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"bandCell" forIndexPath:indexPath];
+            UILabel* attendeeToggle = [cell viewWithTag:1];
+            if([[self.detailItem valueForKey:@"attended"] isEqualToNumber:@(1)]){
+                [attendeeToggle setAlpha:1.0];
+            }
+            else{
+                [attendeeToggle setAlpha:0.3];
+            }
             cell.textLabel.text = [[self.detailItem valueForKey:@"band"] valueForKey:@"name"];
             cell.textLabel.textColor = [UIColor colorWithWhite:0.0 alpha:1];
             if(! cell.textLabel.text){

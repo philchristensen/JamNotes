@@ -147,6 +147,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" alpha="0.29999999999999999" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-e2-dtN">
+                                            <rect key="frame" x="349" y="21.5" width="45" height="22.5"/>
+                                            <gestureRecognizers/>
+                                            <string key="text">🎫
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="dhT-wW-gog" appends="YES" id="jLq-Nd-W9l"/>
+                                            </connections>
+                                        </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Phish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="Gpx-7z-wNB">
                                             <rect key="frame" x="20" y="0.0" width="374" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -155,6 +167,11 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6cz-e2-dtN" secondAttribute="bottom" constant="11" id="NOh-8L-A9X"/>
+                                        <constraint firstItem="6cz-e2-dtN" firstAttribute="centerY" secondItem="Gpx-7z-wNB" secondAttribute="centerY" id="TzT-2g-i0M"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6cz-e2-dtN" secondAttribute="trailing" id="Uao-LK-bnR"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Xs4-F6-Njj" kind="push" identifier="selectBand" id="3f7-zi-Wj1"/>
@@ -324,6 +341,11 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmp-rM-xX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dhT-wW-gog">
+                    <connections>
+                        <action selector="toggleAttendance:" destination="kMc-In-bQy" id="yWt-2B-usn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="449.60000000000002" y="638.68065967016491"/>
         </scene>

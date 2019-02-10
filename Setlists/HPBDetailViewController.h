@@ -22,11 +22,13 @@
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) NSIndexPath* movingFromIndexPath;
+@property (strong, nonatomic) UILabel* attendeeTogle;
 
 @property BOOL deletingSet;
 
 - (IBAction) showDatePicker:(id)sender;
-- (IBAction)shareSetlist:(id)sender;
+- (IBAction) shareSetlist:(id)sender;
+- (IBAction) toggleAttendance:(id)sender;
 
 - (void)datePickerSetDate:(TDDatePickerController*)viewController;
 - (void)datePickerClearDate:(TDDatePickerController*)viewController;
