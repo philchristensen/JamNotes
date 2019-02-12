@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		420A1B02178349B8004FB944 /* HPBEntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */; };
+		4236DFA92211124C00C1179A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4236DFA82211124B00C1179A /* Photos.framework */; };
+		4236DFAC2213723900C1179A /* HPBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */; };
+		4236DFAE2213798F00C1179A /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4236DFAD2213798F00C1179A /* PhotosUI.framework */; };
 		429607C0177CB39800F7DF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607BF177CB39800F7DF13 /* UIKit.framework */; };
 		429607C2177CB39800F7DF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C1177CB39800F7DF13 /* Foundation.framework */; };
 		429607C4177CB39800F7DF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C3177CB39800F7DF13 /* CoreGraphics.framework */; };
@@ -77,6 +80,10 @@
 /* Begin PBXFileReference section */
 		420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBEntryDetailViewController.h; sourceTree = "<group>"; };
 		420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBEntryDetailViewController.m; sourceTree = "<group>"; };
+		4236DFA82211124B00C1179A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		4236DFAA2213723900C1179A /* HPBCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBCollectionViewCell.h; sourceTree = "<group>"; };
+		4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBCollectionViewCell.m; sourceTree = "<group>"; };
+		4236DFAD2213798F00C1179A /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		423A47912210D1CD007AE3AB /* Setlists 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 4.xcdatamodel"; sourceTree = "<group>"; };
 		426939E6D9FDEDF1473B052E /* Pods-JamNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamNotes/Pods-JamNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -164,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4236DFAE2213798F00C1179A /* PhotosUI.framework in Frameworks */,
+				4236DFA92211124C00C1179A /* Photos.framework in Frameworks */,
 				4ABDBCC41792ED590032A4A7 /* QuartzCore.framework in Frameworks */,
 				429607C0177CB39800F7DF13 /* UIKit.framework in Frameworks */,
 				429607C2177CB39800F7DF13 /* Foundation.framework in Frameworks */,
@@ -211,6 +220,8 @@
 		429607BE177CB39800F7DF13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4236DFAD2213798F00C1179A /* PhotosUI.framework */,
+				4236DFA82211124B00C1179A /* Photos.framework */,
 				429607BF177CB39800F7DF13 /* UIKit.framework */,
 				429607C1177CB39800F7DF13 /* Foundation.framework */,
 				429607C3177CB39800F7DF13 /* CoreGraphics.framework */,
@@ -234,6 +245,8 @@
 				4A9BDFF017B0072800571FCF /* HPBShowTableCell.m */,
 				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
 				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
+				4236DFAA2213723900C1179A /* HPBCollectionViewCell.h */,
+				4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */,
 				420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */,
 				420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */,
 				4AD6529417B80AFD002E95CC /* HPBAboutViewController.h */,
@@ -564,6 +577,7 @@
 				429607E7177CB39800F7DF13 /* HPBDetailViewController.m in Sources */,
 				4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */,
 				4AA60493177D0C7800A1AC47 /* HPBVenueSearchViewController.m in Sources */,
+				4236DFAC2213723900C1179A /* HPBCollectionViewCell.m in Sources */,
 				4AA60496177D0DDF00A1AC47 /* HPBSongSearchViewController.m in Sources */,
 				4ADA58CA1780F2290021CF59 /* Venue.m in Sources */,
 				4ADA58CD1780F22A0021CF59 /* Entry.m in Sources */,

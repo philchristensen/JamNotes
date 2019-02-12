@@ -13,6 +13,7 @@
 #import "HPBVenueSearchViewController.h"
 #import "HPBAppDelegate.h"
 #import "HPBImportSetlistViewController.h"
+#import "HPBCollectionViewCell.h"
 
 #import "Event.h"
 #import "Entry.h"
@@ -49,7 +50,9 @@
 
     HPBAppDelegate* appDelegate = (HPBAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.context = appDelegate.managedObjectContext;
-
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+    
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.dragDelegate = self;
 }
@@ -102,6 +105,46 @@
     [self dismissSemiModalViewController:viewController];
 }
 
+#pragma mark - Photo Collection view
+- (void)photoLibraryDidChange:(PHChange *)changeInfo {
+}
+
+- (PHFetchResult*) fetchAssetsFrom:(NSDate*)date {
+    PHFetchOptions* options = [[PHFetchOptions alloc] init];
+
+    NSDate* startDate = [[NSCalendar currentCalendar] startOfDayForDate:date];
+    NSDate* endDate = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
+        
+    options.predicate = [NSComparisonPredicate predicateWithFormat:@"(creationDate > %@) AND (creationDate < %@)", startDate, endDate];
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    return [PHAsset fetchAssetsWithOptions:options];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
+    return [allPhotos count];
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
+    HPBCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
+    
+    PHImageManager* manager = [PHImageManager defaultManager];
+    PHAsset* asset = [allPhotos objectAtIndex:[indexPath item]];
+    if (asset.mediaType == PHAssetMediaTypeImage && (asset.mediaSubtypes & PHAssetMediaSubtypePhotoLive)) {
+        cell.livePhotoBadgeImage = [PHLivePhotoView livePhotoBadgeImageWithOptions:PHLivePhotoBadgeOptionsOverContent];
+    }
+    
+    cell.representedAssetIdentifier = asset.localIdentifier;
+    [manager requestImageForAsset:asset targetSize:CGSizeMake(128, 128) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if([cell.representedAssetIdentifier isEqualToString:asset.localIdentifier]){
+            cell.thumbnailImage = result;
+        }
+    }];
+    
+    return cell;
+}
+
 #pragma mark - Table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -111,7 +154,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
-        return 3;
+        return 4;
     }
     // the add/import lines are in a different section
     else if(section > [self.detailItem totalSets]){
@@ -151,7 +194,7 @@
                 cell.textLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.15];
             }
         }
-        else{
+        else if(indexPath.item == 2){
             cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
             NSDateFormatter* format = [[NSDateFormatter alloc] init];
             [format setDateFormat:@"MMMM d, yyyy"];
@@ -164,6 +207,9 @@
             
             UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDatePicker:)];
             [cell addGestureRecognizer:recognizer];
+        }
+        else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"eventPhotosCell" forIndexPath:indexPath];
         }
     }
     else if(indexPath.section > [self.detailItem totalSets]){
@@ -274,8 +320,11 @@
         if(indexPath.row == 0) {
             return 48;
         }
-        else if(indexPath.row < 3){
+        else if(indexPath.row <= 2){
             return 34;
+        }
+        else if(indexPath.row == 3){
+            return 100;
         }
         // make the extra lines of an empty setlist normal sized
         else {

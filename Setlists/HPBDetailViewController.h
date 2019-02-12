@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
+#import <PhotosUI/PhotosUI.h>
 #import "HPBBandSearchViewController.h"
 #import "HPBVenueSearchViewController.h"
 #import "HPBSongSearchViewController.h"
@@ -16,7 +18,7 @@
 
 @class Event;
 
-@interface HPBDetailViewController : ATSDragToReorderTableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,ATSDragToReorderTableViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate,HPBImportSetlistViewControllerDelegate>
+@interface HPBDetailViewController : ATSDragToReorderTableViewController <UISplitViewControllerDelegate,UIActionSheetDelegate,PHPhotoLibraryChangeObserver,UICollectionViewDataSource,ATSDragToReorderTableViewControllerDelegate,HPBBandSearchViewControllerDelegate,HPBVenueSearchViewControllerDelegate,HPBSongSearchViewControllerDelegate,HPBImportSetlistViewControllerDelegate>
 
 @property (strong, nonatomic) Event* detailItem;
 @property (strong, nonatomic) NSManagedObjectContext* context;
@@ -33,5 +35,7 @@
 - (void)datePickerSetDate:(TDDatePickerController*)viewController;
 - (void)datePickerClearDate:(TDDatePickerController*)viewController;
 - (void)datePickerCancel:(TDDatePickerController*)viewController;
+
+- (PHFetchResult*) fetchAssetsFrom:(NSDate*)date;
 
 @end
