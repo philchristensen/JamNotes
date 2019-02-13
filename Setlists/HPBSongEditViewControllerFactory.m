@@ -3,7 +3,7 @@
 //  JamNotes
 //
 //  Created by Phil Christensen on 9/2/13.
-//  Copyright (c) 2013 Phil Christensen. All rights reserved.
+//  Copyright (c) 2013-2019 Phil Christensen. All rights reserved.
 //
 
 #import "HPBSongEditViewControllerFactory.h"
