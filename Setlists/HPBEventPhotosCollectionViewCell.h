@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HPBEventPhotosCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) UIImage* image;
+@property (strong, nonatomic) NSString* representedAssetIdentifier;
+
+@property (weak, nonatomic) IBOutlet UIImageView* imageView;
+
 @end
 
 NS_ASSUME_NONNULL_END

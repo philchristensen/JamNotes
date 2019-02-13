@@ -10,4 +10,19 @@
 
 @implementation HPBEventPhotosCollectionViewCell
 
+@synthesize image;
+
+- (void) setImage:(UIImage*)image {
+    self.imageView.image = image;
+}
+
+- (UIImage*) image {
+    return self.imageView.image;
+}
+
+- (void) prepareForReuse {
+    [super prepareForReuse];
+    self.imageView.image = nil;
+}
+
 @end

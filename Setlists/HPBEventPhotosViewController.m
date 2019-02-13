@@ -9,7 +9,7 @@
 #import <PhotosUI/PhotosUI.h>
 
 #import "HPBEventPhotosViewController.h"
-#import "HPBCollectionViewCell.h"
+#import "HPBEventPhotosCollectionViewCell.h"
 
 @interface HPBEventPhotosViewController ()
 
@@ -53,18 +53,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    HPBCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
+    HPBEventPhotosCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
     PHImageManager* manager = [PHImageManager defaultManager];
     PHAsset* asset = [self.fetchResult objectAtIndex:[indexPath item]];
-    if (asset.mediaType == PHAssetMediaTypeImage && (asset.mediaSubtypes & PHAssetMediaSubtypePhotoLive)) {
-        cell.livePhotoBadgeImage = [PHLivePhotoView livePhotoBadgeImageWithOptions:PHLivePhotoBadgeOptionsOverContent];
-    }
     
     cell.representedAssetIdentifier = asset.localIdentifier;
     [manager requestImageForAsset:asset targetSize:CGSizeMake(128, 128) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if([cell.representedAssetIdentifier isEqualToString:asset.localIdentifier]){
-            cell.thumbnailImage = result;
+            cell.image = result;
         }
     }];
     
