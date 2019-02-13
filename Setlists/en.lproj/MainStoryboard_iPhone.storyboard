@@ -462,7 +462,41 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ceh-1h-z2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449.60000000000002" y="52.173913043478265"/>
+            <point key="canvasLocation" x="449" y="-33"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="Ib8-Dl-TVN">
+            <objects>
+                <collectionViewController id="559-c4-QYa" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QlX-4M-aeh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LPk-Ei-yMW">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Adk-Lc-wS8">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="559-c4-QYa" id="K3x-PN-OHR"/>
+                            <outlet property="delegate" destination="559-c4-QYa" id="1eZ-ci-T2C"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HvP-ma-bja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325" y="-33"/>
         </scene>
         <!--Select Setlist-->
         <scene sceneID="pdt-3l-JYt">
@@ -583,7 +617,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foT-pG-xbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326.4000000000001" y="1228.785607196402"/>
+            <point key="canvasLocation" x="1326" y="1353"/>
         </scene>
         <!--Select Venue-->
         <scene sceneID="8Zn-Ls-hQA">
@@ -649,7 +683,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKh-Lx-YxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449.60000000000002" y="1228.785607196402"/>
+            <point key="canvasLocation" x="449" y="1353"/>
         </scene>
         <!--Select Song-->
         <scene sceneID="ogz-8i-qVY">
@@ -726,19 +760,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="TopLeft" image="AboutImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="4wg-yB-vjk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="896"/>
+                            <imageView contentMode="scaleAspectFit" image="AboutImage" translatesAutoresizingMaskIntoConstraints="NO" id="4wg-yB-vjk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="aRL-y4-02m" appends="YES" id="2qq-ae-kbE"/>
                                 </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3C-Cx-9bI">
-                                <rect key="frame" x="-3.5" y="260" width="327" height="192"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3C-Cx-9bI">
+                                <rect key="frame" x="0.0" y="577" width="414" height="192"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="Obz-UD-YoY"/>
-                                    <constraint firstAttribute="width" constant="327" id="sBQ-kV-4DY"/>
                                 </constraints>
                                 <string key="text">Thanks to:
 
@@ -759,14 +792,19 @@ https://github.com/groue/GRMustache
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="S3C-Cx-9bI" firstAttribute="top" secondItem="4ky-4i-LzB" secondAttribute="top" constant="260" id="KID-i6-fV4"/>
+                            <constraint firstItem="4wg-yB-vjk" firstAttribute="top" secondItem="4ky-4i-LzB" secondAttribute="top" id="79B-Kc-9Kw"/>
+                            <constraint firstItem="8Un-qA-3RK" firstAttribute="trailing" secondItem="4wg-yB-vjk" secondAttribute="trailing" id="Bq8-Wc-8ad"/>
+                            <constraint firstItem="S3C-Cx-9bI" firstAttribute="leading" secondItem="8Un-qA-3RK" secondAttribute="leading" id="GIK-IA-GO2"/>
                             <constraint firstItem="4wg-yB-vjk" firstAttribute="top" secondItem="4ky-4i-LzB" secondAttribute="top" id="KTn-R0-zcs"/>
+                            <constraint firstItem="4wg-yB-vjk" firstAttribute="leading" secondItem="8Un-qA-3RK" secondAttribute="leading" id="LLB-jp-I9U"/>
                             <constraint firstItem="4wg-yB-vjk" firstAttribute="leading" secondItem="8Un-qA-3RK" secondAttribute="leading" id="WtS-ik-4H4"/>
+                            <constraint firstItem="8Un-qA-3RK" firstAttribute="trailing" secondItem="S3C-Cx-9bI" secondAttribute="trailing" id="hF3-YB-iH2"/>
                             <constraint firstItem="4wg-yB-vjk" firstAttribute="bottom" secondItem="4ky-4i-LzB" secondAttribute="bottom" id="hXt-ou-5RN"/>
+                            <constraint firstAttribute="bottom" secondItem="4wg-yB-vjk" secondAttribute="bottom" id="oZl-q3-eRX"/>
                             <constraint firstItem="S3C-Cx-9bI" firstAttribute="centerX" secondItem="4wg-yB-vjk" secondAttribute="centerX" id="s7q-Pw-pwF"/>
+                            <constraint firstItem="8Un-qA-3RK" firstAttribute="bottom" secondItem="S3C-Cx-9bI" secondAttribute="bottom" constant="93" id="tOC-eR-hu1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Un-qA-3RK"/>
                     </view>
@@ -778,7 +816,7 @@ https://github.com/groue/GRMustache
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-881.60000000000002" y="52.173913043478265"/>
+            <point key="canvasLocation" x="-883" y="-33"/>
         </scene>
         <!--Entry Details-->
         <scene sceneID="kWh-CR-wWy">
@@ -915,7 +953,7 @@ https://github.com/groue/GRMustache
         </scene>
     </scenes>
     <resources>
-        <image name="AboutImage.png" width="320" height="568"/>
+        <image name="AboutImage" width="153.60000610351562" height="272.6400146484375"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nvG-JW-dP9"/>
