@@ -57,33 +57,8 @@ UIColor* hex2UIColor(NSString* hexcolor, CGFloat alpha) {
         controller.managedObjectContext = self.managedObjectContext;
     }
     
-    NSString *reqSysVer = @"7.0";
-    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-    BOOL isOS7 = FALSE;
-    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
-        isOS7 = TRUE;
-
-    [application setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    if(isOS7){
-        navigationController.navigationBar.translucent = NO;
-        navigationController.navigationBar.barTintColor = hex2UIColor(@"372172", 1.0);
-    }
-    else{
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[UIImage imageNamed:@"BarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackBarButtonItem"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        
-        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Medium" size:0.0]}];
-        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue" size:0.0]}
-                                                                                                forState:UIControlStateNormal];
-    }
-    
-    if(NO){
-        id look = [UILabel appearanceWhenContainedIn:[UITableViewCell class], nil];
-        [look setColor:[UIColor whiteColor]];
-        [[UITableView appearance] setBackgroundColor:hex2UIColor(@"222222", 1.0)];
-    }
+    navigationController.navigationBar.translucent = NO;
+    navigationController.navigationBar.barTintColor = hex2UIColor(@"372172", 1.0);
     [[UITableView appearance] setSeparatorColor:[UIColor clearColor]];
     
     return YES;

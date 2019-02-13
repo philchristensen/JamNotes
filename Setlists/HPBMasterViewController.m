@@ -28,12 +28,6 @@
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
 
-    NSString *reqSysVer = @"7.0";
-    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-    self.isOS7 = FALSE;
-    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
-        self.isOS7 = TRUE;
-    
     [super awakeFromNib];
 }
 
@@ -47,15 +41,12 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
-    if(self.isOS7){
-        self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    }
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.sectionIndexColor = [UIColor colorWithWhite:0 alpha:0.25];
     
-    int os7offset = (self.isOS7 ? 2 : 0);
     self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [self.infoButton addTarget:self action:@selector(flipToAbout:) forControlEvents:UIControlEventTouchDown];
-    self.infoButton.frame = CGRectMake(os7offset, screenHeight - 140 - os7offset, 22, 22);
+    self.infoButton.frame = CGRectMake(2, screenHeight - 138, 22, 22);
     
     [self.view addSubview:self.infoButton];
     [self.view bringSubviewToFront:self.infoButton];
@@ -63,8 +54,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGRect frame = self.infoButton.frame;
-    int os7offset = (self.isOS7 ? 2 : 0);
-    frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.infoButton.frame.size.height - os7offset;
+    frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.infoButton.frame.size.height - 2;
     self.infoButton.frame = frame;
     
     [self.view bringSubviewToFront:self.infoButton];
@@ -95,13 +85,7 @@ NSString* shortenYear(NSString* year){
     int divisor = round([sections count] / 10.0);
     divisor = divisor != 0 ? divisor : 1;
     for(id section in sections){
-        int year = [[section name] intValue];
-        if(year % divisor != 0 && !self.isOS7){
-            continue;
-        }
-        else{
-            [titles addObject:shortenYear([section name])];
-        }
+        [titles addObject:shortenYear([section name])];
     }
     return titles;
 }
@@ -268,9 +252,12 @@ NSString* shortenYear(NSString* year){
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeMove:
+            break;
+        case NSFetchedResultsChangeUpdate:
             break;
     }
 }

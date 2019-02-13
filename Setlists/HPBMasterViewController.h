@@ -21,8 +21,6 @@
 
 @property (strong, nonatomic) UIButton* infoButton;
 
-@property BOOL isOS7;
-
 - (void)flipToAbout:(id)sender;
 
 @end
