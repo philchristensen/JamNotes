@@ -14,6 +14,7 @@
 #import "HPBAppDelegate.h"
 #import "HPBImportSetlistViewController.h"
 #import "HPBCollectionViewCell.h"
+#import "HPBEventPhotosViewController.h"
 
 #import "Event.h"
 #import "Entry.h"
@@ -143,6 +144,10 @@
     }];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 #pragma mark - Table view
@@ -462,6 +467,11 @@
         HPBImportSetlistViewController* vc = [segue destinationViewController];
         vc.delegate = self;
         vc.detailItem = self.detailItem;
+    }
+    else if ([[segue identifier] isEqualToString:@"displayMedia"]) {
+        HPBEventPhotosViewController* vc = [segue destinationViewController];
+        vc.event = self.detailItem;
+        vc.fetchResult = [self fetchAssetsFrom:self.detailItem.creationDate];
     }
 }
 
