@@ -19,7 +19,6 @@
 		429607CE177CB39800F7DF13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607CD177CB39800F7DF13 /* main.m */; };
 		429607D2177CB39800F7DF13 /* HPBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607D1177CB39800F7DF13 /* HPBAppDelegate.m */; };
 		429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429607D9177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard */; };
-		429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */; };
 		429607E1177CB39800F7DF13 /* Setlists.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 429607DF177CB39800F7DF13 /* Setlists.xcdatamodeld */; };
 		429607E4177CB39800F7DF13 /* HPBMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607E3177CB39800F7DF13 /* HPBMasterViewController.m */; };
 		429607E7177CB39800F7DF13 /* HPBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429607E6177CB39800F7DF13 /* HPBDetailViewController.m */; };
@@ -83,7 +82,6 @@
 		429607D0177CB39800F7DF13 /* HPBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBAppDelegate.h; sourceTree = "<group>"; };
 		429607D1177CB39800F7DF13 /* HPBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBAppDelegate.m; sourceTree = "<group>"; };
 		429607DA177CB39800F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		429607DD177CB39800F7DF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		429607E0177CB39800F7DF13 /* Setlists.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Setlists.xcdatamodel; sourceTree = "<group>"; };
 		429607E2177CB39800F7DF13 /* HPBMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBMasterViewController.h; sourceTree = "<group>"; };
 		429607E3177CB39800F7DF13 /* HPBMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBMasterViewController.m; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 				4ADA8E1317D45F2E009D8F2B /* Edit Forms */,
 				4ADA58C117809D2D0021CF59 /* Search */,
 				4A6F3F4817BFAF9C00E68022 /* Import */,
-				429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */,
 				42960812177CB62700F7DF13 /* Data Model */,
 				4AC2B9C017A1F90700D1CBD9 /* Templates */,
 				429607C8177CB39800F7DF13 /* Supporting Files */,
@@ -424,7 +421,6 @@
 			files = (
 				429607CC177CB39800F7DF13 /* InfoPlist.strings in Resources */,
 				429607DB177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard in Resources */,
-				429607DE177CB39800F7DF13 /* MainStoryboard_iPad.storyboard in Resources */,
 				4A9BDFF317B00A2200571FCF /* PlaintextSetlist.mustache in Resources */,
 				4A9BDFF517B00A4B00571FCF /* PlaintextSummarySetlist.mustache in Resources */,
 				42A76D5E2202B3FD00E003CA /* Images.xcassets in Resources */,
@@ -564,14 +560,6 @@
 				429607DA177CB39800F7DF13 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		429607DC177CB39800F7DF13 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				429607DD177CB39800F7DF13 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		429607F8177CB39900F7DF13 /* InfoPlist.strings */ = {
