@@ -45,11 +45,13 @@ PODS:
 
 DEPENDENCIES:
   - GRMustache
-  - MediaBrowser
+  - MediaBrowser (from `https://github.com/philchristensen/MediaBrowser-1.git`)
   - QuickDialog (from `https://raw.github.com/escoz/QuickDialog/master/QuickDialog.podspec`)
   - RestKit
   - RKXMLReaderSerialization (from `https://github.com/RestKit/RKXMLReaderSerialization.git`)
+  - SDWebImage (= 4.4.4)
   - TDSemiModal (from `https://raw.github.com/philchristensen/Specs/master/TDSemiModal/0.0.1/TDSemiModal.podspec`)
+  - UICircularProgressRing (= 4.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -57,7 +59,6 @@ SPEC REPOS:
     - GRMustache
     - ISO8601DateFormatterValueTransformer
     - JRSwizzle
-    - MediaBrowser
     - RestKit
     - RKValueTransformers
     - SDWebImage
@@ -67,6 +68,8 @@ SPEC REPOS:
     - XMLReader
 
 EXTERNAL SOURCES:
+  MediaBrowser:
+    :git: https://github.com/philchristensen/MediaBrowser-1.git
   QuickDialog:
     :podspec: https://raw.github.com/escoz/QuickDialog/master/QuickDialog.podspec
   RKXMLReaderSerialization:
@@ -75,6 +78,9 @@ EXTERNAL SOURCES:
     :podspec: https://raw.github.com/philchristensen/Specs/master/TDSemiModal/0.0.1/TDSemiModal.podspec
 
 CHECKOUT OPTIONS:
+  MediaBrowser:
+    :commit: cea3ae5d9b1617313778b9e95e7f84df5068671b
+    :git: https://github.com/philchristensen/MediaBrowser-1.git
   RKXMLReaderSerialization:
     :commit: c4fc40fa5a8c7e2b13e36120814caff9944389fa
     :git: https://github.com/RestKit/RKXMLReaderSerialization.git
@@ -96,6 +102,6 @@ SPEC CHECKSUMS:
   UICircularProgressRing: 5a32c01f54474571b1e66e8fa050c0f83d6d981b
   XMLReader: c7e54b707c368e2fa545d8313276b4de13a36ff5
 
-PODFILE CHECKSUM: a58cc480b452bb59085bc131cd958b67dc302de7
+PODFILE CHECKSUM: df722bd3213ac463c9c063f20f1ff4baa3fe2511
 
 COCOAPODS: 1.5.3

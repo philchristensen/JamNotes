@@ -146,10 +146,63 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.browser = [[MediaBrowser alloc] initWithNibName:@"MediaBrowserViewController" bundle:[NSBundle mainBundle]];
-    
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.browser = [[MediaBrowser alloc] initWithDelegate:self];
     [self.navigationController pushViewController:self.browser animated:YES];
+}
+
+#pragma mark - MediaBrowser
+
+- (NSInteger) numberOfMediaIn:(MediaBrowser *)mediaBrowser {
+    PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
+    return [allPhotos count];
+}
+
+- (Media*) mediaFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
+    PHImageManager* manager = [PHImageManager defaultManager];
+    PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
+    PHAsset* asset = [allPhotos objectAtIndex:index];
+    return [[Media alloc] initWithAsset:asset targetSize:CGSizeMake(1280, 1280)];
+}
+
+- (CGSize) gridCellSize {
+    return CGSizeMake(128, 128);
+}
+
+- (NSString*) titleFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
+    return nil;
+}
+
+- (void) mediaBrowserDidFinishModalPresentationWithMediaBrowser:(MediaBrowser *)mediaBrowser {
+    [mediaBrowser dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (Media*) thumbnailFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
+    return [[Media alloc] init];
+}
+
+- (MediaCaptionView*) captionViewFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
+    return nil;
+}
+
+- (void) didDisplayMediaAt:(NSInteger)index in:(MediaBrowser *)mediaBrowser {
+    
+}
+
+- (void) actionButtonPressedAt:(NSInteger)photoIndex in:(MediaBrowser *)mediaBrowser sender:(id)sender {
+    NSLog(@"Need to do something here: mediaBrowser.defaultActionForMedia(atIndex: photoIndex)");
+}
+
+- (BOOL) isMediaSelectedAt:(NSInteger)index in:(MediaBrowser *)mediaBrowser {
+    return NO;
+}
+
+- (void) mediaDidWithSelected:(BOOL)selected at:(NSInteger)index in:(MediaBrowser *)mediaBrowser {
+    
+}
+
+- (NSString*) accessTokenFor:(NSURL *)url {
+    return nil;
 }
 
 #pragma mark - Table view
