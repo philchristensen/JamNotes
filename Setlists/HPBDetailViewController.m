@@ -6,6 +6,9 @@
 //  Copyright (c) 2013-2019 Phil Christensen. All rights reserved.
 //
 
+#import "TDDatePickerController.h"
+@import MediaBrowser;
+
 #import "HPBDetailViewController.h"
 #import "HPBBandSearchViewController.h"
 #import "HPBSongSearchViewController.h"
@@ -14,7 +17,6 @@
 #import "HPBAppDelegate.h"
 #import "HPBImportSetlistViewController.h"
 #import "HPBCollectionViewCell.h"
-#import "HPBEventPhotosViewController.h"
 
 #import "Event.h"
 #import "Entry.h"
@@ -22,8 +24,6 @@
 #import "Venue.h"
 #import "Band.h"
 #import "SFSetlist.h"
-
-#import "TDDatePickerController.h"
 
 @interface HPBDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -147,7 +147,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.browser = [[MediaBrowser alloc] initWithNibName:@"MediaBrowserViewController" bundle:[NSBundle mainBundle]];
     
+    [self.navigationController pushViewController:self.browser animated:YES];
 }
 
 #pragma mark - Table view
@@ -467,11 +469,6 @@
         HPBImportSetlistViewController* vc = [segue destinationViewController];
         vc.delegate = self;
         vc.detailItem = self.detailItem;
-    }
-    else if ([[segue identifier] isEqualToString:@"displayMedia"]) {
-        HPBEventPhotosViewController* vc = [segue destinationViewController];
-        vc.event = self.detailItem;
-        vc.fetchResult = [self fetchAssetsFrom:self.detailItem.creationDate];
     }
 }
 

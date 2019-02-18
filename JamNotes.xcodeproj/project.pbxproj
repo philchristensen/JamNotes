@@ -11,8 +11,6 @@
 		4236DFA92211124C00C1179A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4236DFA82211124B00C1179A /* Photos.framework */; };
 		4236DFAC2213723900C1179A /* HPBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */; };
 		4236DFAE2213798F00C1179A /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4236DFAD2213798F00C1179A /* PhotosUI.framework */; };
-		4236DFF32214A62900C1179A /* HPBEventPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4236DFF22214A62900C1179A /* HPBEventPhotosViewController.m */; };
-		4236DFF62214A99400C1179A /* HPBEventPhotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4236DFF52214A99300C1179A /* HPBEventPhotosCollectionViewCell.m */; };
 		429607C0177CB39800F7DF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607BF177CB39800F7DF13 /* UIKit.framework */; };
 		429607C2177CB39800F7DF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C1177CB39800F7DF13 /* Foundation.framework */; };
 		429607C4177CB39800F7DF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429607C3177CB39800F7DF13 /* CoreGraphics.framework */; };
@@ -69,10 +67,6 @@
 		4236DFAA2213723900C1179A /* HPBCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBCollectionViewCell.h; sourceTree = "<group>"; };
 		4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBCollectionViewCell.m; sourceTree = "<group>"; };
 		4236DFAD2213798F00C1179A /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
-		4236DFF12214A62900C1179A /* HPBEventPhotosViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBEventPhotosViewController.h; sourceTree = "<group>"; };
-		4236DFF22214A62900C1179A /* HPBEventPhotosViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBEventPhotosViewController.m; sourceTree = "<group>"; };
-		4236DFF42214A99300C1179A /* HPBEventPhotosCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPBEventPhotosCollectionViewCell.h; sourceTree = "<group>"; };
-		4236DFF52214A99300C1179A /* HPBEventPhotosCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPBEventPhotosCollectionViewCell.m; sourceTree = "<group>"; };
 		423A47912210D1CD007AE3AB /* Setlists 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 4.xcdatamodel"; sourceTree = "<group>"; };
 		426939E6D9FDEDF1473B052E /* Pods-JamNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamNotes/Pods-JamNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		4288CDB117836DE9008F7D5E /* Setlists 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Setlists 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -172,10 +166,6 @@
 		4236DFF02214A5DE00C1179A /* Event Media */ = {
 			isa = PBXGroup;
 			children = (
-				4236DFF42214A99300C1179A /* HPBEventPhotosCollectionViewCell.h */,
-				4236DFF52214A99300C1179A /* HPBEventPhotosCollectionViewCell.m */,
-				4236DFF12214A62900C1179A /* HPBEventPhotosViewController.h */,
-				4236DFF22214A62900C1179A /* HPBEventPhotosViewController.m */,
 			);
 			name = "Event Media";
 			sourceTree = "<group>";
@@ -528,8 +518,6 @@
 				429607CE177CB39800F7DF13 /* main.m in Sources */,
 				429607D2177CB39800F7DF13 /* HPBAppDelegate.m in Sources */,
 				429607E1177CB39800F7DF13 /* Setlists.xcdatamodeld in Sources */,
-				4236DFF62214A99400C1179A /* HPBEventPhotosCollectionViewCell.m in Sources */,
-				4236DFF32214A62900C1179A /* HPBEventPhotosViewController.m in Sources */,
 				429607E4177CB39800F7DF13 /* HPBMasterViewController.m in Sources */,
 				429607E7177CB39800F7DF13 /* HPBDetailViewController.m in Sources */,
 				4AA60490177D0A9F00A1AC47 /* HPBBandSearchViewController.m in Sources */,

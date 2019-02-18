@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
+
+@import MediaBrowser;
+
 #import "HPBBandSearchViewController.h"
 #import "HPBVenueSearchViewController.h"
 #import "HPBSongSearchViewController.h"
@@ -25,6 +28,8 @@
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) NSIndexPath* movingFromIndexPath;
 @property (strong, nonatomic) UILabel* attendeeTogle;
+
+@property (strong, nonatomic) MediaBrowser* browser;
 
 @property BOOL deletingSet;
 
