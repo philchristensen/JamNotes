@@ -137,7 +137,7 @@
     }
     
     cell.representedAssetIdentifier = asset.localIdentifier;
-    [manager requestImageForAsset:asset targetSize:CGSizeMake(128, 128) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [manager requestImageForAsset:asset targetSize:CGSizeMake(256, 256) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if([cell.representedAssetIdentifier isEqualToString:asset.localIdentifier]){
             cell.thumbnailImage = result;
         }
@@ -148,6 +148,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.browser = [[MediaBrowser alloc] initWithDelegate:self];
+    [self.browser setCurrentIndexAt:[indexPath item]];
     [self.navigationController pushViewController:self.browser animated:YES];
 }
 
@@ -166,7 +167,7 @@
 }
 
 - (CGSize) gridCellSize {
-    return CGSizeMake(128, 128);
+    return CGSizeMake(256, 256);
 }
 
 - (NSString*) titleFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
@@ -178,7 +179,10 @@
 }
 
 - (Media*) thumbnailFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
-    return [[Media alloc] init];
+    PHImageManager* manager = [PHImageManager defaultManager];
+    PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
+    PHAsset* asset = [allPhotos objectAtIndex:index];
+    return [[Media alloc] initWithAsset:asset targetSize:CGSizeMake(256, 256)];
 }
 
 - (MediaCaptionView*) captionViewFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
