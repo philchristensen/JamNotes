@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <PhotosUI/PhotosUI.h>
+
+@import MediaBrowser;
+
 #import "Event.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) Event* event;
 @property (strong, nonatomic) PHFetchResult* fetchResult;
+
+@property (strong, nonatomic) MediaBrowser* browser;
 
 @end
 

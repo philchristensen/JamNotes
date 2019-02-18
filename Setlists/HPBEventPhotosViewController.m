@@ -11,6 +11,8 @@
 #import "HPBEventPhotosViewController.h"
 #import "HPBEventPhotosCollectionViewCell.h"
 
+@import MediaBrowser;
+
 @interface HPBEventPhotosViewController ()
 
 @end
@@ -29,6 +31,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    
 }
 
 /*
