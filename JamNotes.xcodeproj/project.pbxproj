@@ -500,12 +500,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JamNotes/Pods-JamNotes-resources.sh",
+				"${PODS_ROOT}/MediaBrowser/MediaBrowser/MediaBrowser.xcassets",
 				"${PODS_ROOT}/TDSemiModal/Source/TDDatePickerController.xib",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TDDatePickerController.nib",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

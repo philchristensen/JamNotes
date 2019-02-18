@@ -5,6 +5,9 @@ PODS:
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
   - JRSwizzle (1.0)
+  - MediaBrowser (2.2.0):
+    - SDWebImage
+    - UICircularProgressRing
   - QuickDialog (1.0.2):
     - QuickDialog/Core (= 1.0.2)
   - QuickDialog/Core (1.0.2)
@@ -31,13 +34,18 @@ PODS:
   - RKXMLReaderSerialization (0.1.0):
     - RestKit (>= 0.20.0dev)
     - XMLReader (>= 0.0.2)
+  - SDWebImage (4.4.4):
+    - SDWebImage/Core (= 4.4.4)
+  - SDWebImage/Core (4.4.4)
   - SOCKit (1.1)
   - TDSemiModal (0.0.1)
   - TransitionKit (2.2.1)
+  - UICircularProgressRing (4.1.0)
   - XMLReader (0.0.2)
 
 DEPENDENCIES:
   - GRMustache
+  - MediaBrowser
   - QuickDialog (from `https://raw.github.com/escoz/QuickDialog/master/QuickDialog.podspec`)
   - RestKit
   - RKXMLReaderSerialization (from `https://github.com/RestKit/RKXMLReaderSerialization.git`)
@@ -49,10 +57,13 @@ SPEC REPOS:
     - GRMustache
     - ISO8601DateFormatterValueTransformer
     - JRSwizzle
+    - MediaBrowser
     - RestKit
     - RKValueTransformers
+    - SDWebImage
     - SOCKit
     - TransitionKit
+    - UICircularProgressRing
     - XMLReader
 
 EXTERNAL SOURCES:
@@ -73,15 +84,18 @@ SPEC CHECKSUMS:
   GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  MediaBrowser: 0ddc0800b0bcb48562e7c49a3f806479f640c353
   QuickDialog: f0c3e254c91182fa3f91fdb479ccac4a11b459e1
   RestKit: 112fba5bd1f97598aac0db7981863d5fdc0263a2
   RKValueTransformers: e5ed67e3811229b616fe01bddeeafe3bb337b1b9
   RKXMLReaderSerialization: 5a2c537b79403ddc2c427b5be0da975b92181c79
+  SDWebImage: c00ec18ab25d10e5ffac109b0f78d1b4341c9691
   SOCKit: c7376ac262bea9115b8f749358f762522a47d392
   TDSemiModal: 35be8eb90eaf9eb5b527ac288537810f798e764a
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
+  UICircularProgressRing: 5a32c01f54474571b1e66e8fa050c0f83d6d981b
   XMLReader: c7e54b707c368e2fa545d8313276b4de13a36ff5
 
-PODFILE CHECKSUM: 5b0bc280e12c6c3b6ff45d0a978c2af075de35bd
+PODFILE CHECKSUM: a58cc480b452bb59085bc131cd958b67dc302de7
 
 COCOAPODS: 1.5.3
