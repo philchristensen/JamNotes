@@ -135,7 +135,10 @@
     if (asset.mediaType == PHAssetMediaTypeImage && (asset.mediaSubtypes & PHAssetMediaSubtypePhotoLive)) {
         cell.livePhotoBadgeImage = [PHLivePhotoView livePhotoBadgeImageWithOptions:PHLivePhotoBadgeOptionsOverContent];
     }
-    
+    else if (asset.mediaType == PHAssetMediaTypeVideo) {
+        cell.livePhotoBadgeImage = [UIImage imageNamed:@"VideoBadge"];
+    }
+
     cell.representedAssetIdentifier = asset.localIdentifier;
     [manager requestImageForAsset:asset targetSize:CGSizeMake(256, 256) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if([cell.representedAssetIdentifier isEqualToString:asset.localIdentifier]){
@@ -148,6 +151,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.browser = [[MediaBrowser alloc] initWithDelegate:self];
+    self.browser.enableGrid = YES;
+    self.browser.enableSwipeToDismiss = YES;
     [self.browser setCurrentIndexAt:[indexPath item]];
     [self.navigationController pushViewController:self.browser animated:YES];
 }
@@ -160,10 +165,9 @@
 }
 
 - (Media*) mediaFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
-    PHImageManager* manager = [PHImageManager defaultManager];
     PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
     PHAsset* asset = [allPhotos objectAtIndex:index];
-    return [[Media alloc] initWithAsset:asset targetSize:CGSizeMake(1280, 1280)];
+    return [[Media alloc] initWithAsset:asset targetSize:CGSizeMake(asset.pixelWidth, asset.pixelHeight)];
 }
 
 - (CGSize) gridCellSize {
@@ -179,7 +183,6 @@
 }
 
 - (Media*) thumbnailFor:(MediaBrowser *)mediaBrowser at:(NSInteger)index {
-    PHImageManager* manager = [PHImageManager defaultManager];
     PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
     PHAsset* asset = [allPhotos objectAtIndex:index];
     return [[Media alloc] initWithAsset:asset targetSize:CGSizeMake(256, 256)];
