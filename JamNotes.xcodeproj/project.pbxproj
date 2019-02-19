@@ -163,13 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4236DFF02214A5DE00C1179A /* Event Media */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Event Media";
-			sourceTree = "<group>";
-		};
 		429607B3177CB39800F7DF13 = {
 			isa = PBXGroup;
 			children = (
@@ -210,27 +203,26 @@
 		429607C7177CB39800F7DF13 /* JamNotes */ = {
 			isa = PBXGroup;
 			children = (
-				429607D0177CB39800F7DF13 /* HPBAppDelegate.h */,
-				429607D1177CB39800F7DF13 /* HPBAppDelegate.m */,
-				429607D9177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard */,
-				429607E2177CB39800F7DF13 /* HPBMasterViewController.h */,
-				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
-				4A9BDFEF17B0072800571FCF /* HPBShowTableCell.h */,
-				4A9BDFF017B0072800571FCF /* HPBShowTableCell.m */,
-				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
-				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
-				4236DFAA2213723900C1179A /* HPBCollectionViewCell.h */,
-				4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */,
-				420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */,
-				420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */,
 				4AD6529417B80AFD002E95CC /* HPBAboutViewController.h */,
+				429607D0177CB39800F7DF13 /* HPBAppDelegate.h */,
+				4236DFAA2213723900C1179A /* HPBCollectionViewCell.h */,
+				429607E5177CB39800F7DF13 /* HPBDetailViewController.h */,
+				420A1B00178349B8004FB944 /* HPBEntryDetailViewController.h */,
+				429607E2177CB39800F7DF13 /* HPBMasterViewController.h */,
+				4A9BDFEF17B0072800571FCF /* HPBShowTableCell.h */,
 				4AD6529517B80AFD002E95CC /* HPBAboutViewController.m */,
-				4236DFF02214A5DE00C1179A /* Event Media */,
-				4ADA8E1317D45F2E009D8F2B /* Edit Forms */,
-				4ADA58C117809D2D0021CF59 /* Search */,
-				4A6F3F4817BFAF9C00E68022 /* Import */,
+				429607D1177CB39800F7DF13 /* HPBAppDelegate.m */,
+				4236DFAB2213723900C1179A /* HPBCollectionViewCell.m */,
+				429607E6177CB39800F7DF13 /* HPBDetailViewController.m */,
+				420A1B01178349B8004FB944 /* HPBEntryDetailViewController.m */,
+				429607E3177CB39800F7DF13 /* HPBMasterViewController.m */,
+				4A9BDFF017B0072800571FCF /* HPBShowTableCell.m */,
 				42960812177CB62700F7DF13 /* Data Model */,
 				4AC2B9C017A1F90700D1CBD9 /* Templates */,
+				4ADA8E1317D45F2E009D8F2B /* Edit Forms */,
+				4A6F3F4817BFAF9C00E68022 /* Import */,
+				429607D9177CB39800F7DF13 /* MainStoryboard_iPhone.storyboard */,
+				4ADA58C117809D2D0021CF59 /* Search */,
 				429607C8177CB39800F7DF13 /* Supporting Files */,
 			);
 			name = JamNotes;
@@ -240,12 +232,12 @@
 		429607C8177CB39800F7DF13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				429607C9177CB39800F7DF13 /* JamNotes-Info.plist */,
-				429607CA177CB39800F7DF13 /* InfoPlist.strings */,
-				429607CD177CB39800F7DF13 /* main.m */,
-				429607CF177CB39800F7DF13 /* JamNotes-Prefix.pch */,
 				42A76D5D2202B3FD00E003CA /* Images.xcassets */,
+				429607CA177CB39800F7DF13 /* InfoPlist.strings */,
 				42B45027221B3B060094BA02 /* JamNotes-Bridging-Header.h */,
+				429607C9177CB39800F7DF13 /* JamNotes-Info.plist */,
+				429607CF177CB39800F7DF13 /* JamNotes-Prefix.pch */,
+				429607CD177CB39800F7DF13 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
