@@ -225,6 +225,12 @@
     }
     // the add/import lines are in a different section
     else if(section > [self.detailItem totalSets]){
+        if([self.detailItem totalSongs] == 0){
+            return 2;
+        }
+        else if (self.detailItem.importedFrom == nil){
+            return 2;
+        }
         return 3;
     }
     else {
