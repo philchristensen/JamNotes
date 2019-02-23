@@ -66,7 +66,7 @@
     mapping.preferredDateFormatter = format;
     [mapping addAttributeMappingsFromDictionary:@{
      @"eventDate" : @"eventDate",
-     @"url" : @"url"
+     @"url.text" : @"url"
      }];
     
     RKObjectMapping* artistMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class] ];
