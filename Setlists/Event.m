@@ -19,6 +19,7 @@
 
 @dynamic creationDate;
 @dynamic attended;
+@dynamic imported;
 @dynamic name;
 @dynamic band;
 @dynamic entries;

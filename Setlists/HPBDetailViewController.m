@@ -225,7 +225,7 @@
     }
     // the add/import lines are in a different section
     else if(section > [self.detailItem totalSets]){
-        return 2;
+        return 3;
     }
     else {
         int total = [self.detailItem totalSongsInSet:section];
@@ -299,8 +299,14 @@
                 cell.detailTextLabel.text = @"Search setlist.fm for any setlists from this date.";
             }
         }
-        else{
+        else if(indexPath.item == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"addSetCell" forIndexPath:indexPath];
+        }
+        else if(indexPath.item == 2){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"updateImportedSetlistCell" forIndexPath:indexPath];
+        }
+        else {
+            NSLog(@"Shouldn't have gotten here.");
         }
     }
     else {
@@ -448,6 +454,12 @@
     return indexPath.section > 0 && indexPath.section <= [self.detailItem totalSets];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section > [self.detailItem totalSets] && indexPath.item == 2){
+        [self updateSetlist];
+    }
+}
+
 #pragma mark - Draggable table view
 - (void)dragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController didBeginDraggingAtRow:(NSIndexPath *)dragRow {
     // we don't know yet if we're removing the last row in a section
@@ -583,6 +595,7 @@
 
 #pragma mark - HPBImportSetlistViewControllerDelegate
 - (void)setlistDownloaded:(SFSetlist*)selectedSetlist {
+    self.detailItem.imported = @(1);
     self.detailItem.venue = [Venue venueNamed:selectedSetlist.venue[@"name"] inContext:self.context];
     self.detailItem.band = [Band bandNamed:selectedSetlist.artist[@"name"] inContext:self.context];
     
@@ -629,5 +642,9 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - Setlist update procedure
+- (void)updateSetlist {
+    
+}
 
 @end
