@@ -595,7 +595,7 @@
 
 #pragma mark - HPBImportSetlistViewControllerDelegate
 - (void)setlistDownloaded:(SFSetlist*)selectedSetlist {
-    self.detailItem.imported = @(1);
+    self.detailItem.importedFrom = selectedSetlist.url;
     self.detailItem.venue = [Venue venueNamed:selectedSetlist.venue[@"name"] inContext:self.context];
     self.detailItem.band = [Band bandNamed:selectedSetlist.artist[@"name"] inContext:self.context];
     

@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSNumber* attended;
-@property (nonatomic, retain) NSNumber* imported;
+@property (nonatomic, retain) NSString* importedFrom;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Band *band;
 @property (nonatomic, retain) NSSet *entries;
