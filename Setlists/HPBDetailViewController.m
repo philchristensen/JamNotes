@@ -650,7 +650,7 @@
 
 #pragma mark - Setlist update procedure
 - (void)updateSetlist {
-    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 @end
