@@ -403,7 +403,7 @@
             return 34;
         }
         else if(indexPath.row == 3){
-            return 100;
+            return [self.detailItem.attended isEqualToNumber:@(1)] ? 100 : 0;
         }
         // make the extra lines of an empty setlist normal sized
         else {
