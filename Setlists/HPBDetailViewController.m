@@ -75,7 +75,7 @@
 
 #pragma mark - Camera Support
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    
+    NSLog(@"Test");
 }
 
 #pragma mark - Attendance Toggle
@@ -163,9 +163,27 @@
     if(indexPath.item == 0){
         UIImagePickerController* vc = [[UIImagePickerController alloc] init];
         vc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        vc.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
         vc.allowsEditing = YES;
-        vc.delegate = self;
-        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        
+        switch([AVCaptureDevice authorizationStatusForMediaType: AVMediaTypeVideo]) {
+            case AVAuthorizationStatusAuthorized: {
+                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                    if (granted) {
+                        [self.navigationController presentViewController:vc animated:YES completion:nil];
+                    }
+                }];
+            }
+            case AVAuthorizationStatusNotDetermined: {
+                [self.navigationController presentViewController:vc animated:YES completion:nil];
+            }
+            case AVAuthorizationStatusDenied: {
+                return;
+            }
+            case AVAuthorizationStatusRestricted: {
+                return;
+            }
+        }
         return;
     }
     

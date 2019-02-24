@@ -10,6 +10,7 @@
 
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
+    #import <AVKit/AVKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import <SystemConfiguration/SystemConfiguration.h>
