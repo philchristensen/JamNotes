@@ -147,12 +147,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" alpha="0.29999999999999999" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-e2-dtN">
-                                            <rect key="frame" x="349" y="21.5" width="45" height="22.5"/>
+                                        <label opaque="NO" alpha="0.29999999999999999" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-e2-dtN">
+                                            <rect key="frame" x="319" y="21.5" width="75" height="22.5"/>
                                             <gestureRecognizers/>
                                             <string key="text">🎫
 </string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <connections>
@@ -368,19 +368,19 @@
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="hHl-8O-Mux" customClass="HPBCollectionViewCell">
-                                                    <rect key="frame" x="0.0" y="13" width="77" height="77"/>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="Uj2-Kw-Yhc" customClass="HPBCollectionViewCell">
+                                                    <rect key="frame" x="87" y="13" width="77" height="77"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9H-7A-OoD">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-YS-5qr">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <gestureRecognizers/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeH-pe-6CS">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtA-pB-Nqn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <accessibility key="accessibilityConfiguration">
@@ -390,8 +390,26 @@
                                                         </subviews>
                                                     </view>
                                                     <connections>
+                                                        <outlet property="imageView" destination="Zhg-YS-5qr" id="28I-bY-usx"/>
+                                                        <outlet property="livePhotoBadgeImageView" destination="GtA-pB-Nqn" id="3Y5-BA-RpQ"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="camera" id="hHl-8O-Mux" customClass="HPBCollectionViewCell">
+                                                    <rect key="frame" x="0.0" y="13" width="77" height="77"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="p9H-7A-OoD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <gestureRecognizers/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </view>
+                                                    <connections>
                                                         <outlet property="imageView" destination="p9H-7A-OoD" id="VIG-6a-VG2"/>
-                                                        <outlet property="livePhotoBadgeImageView" destination="QeH-pe-6CS" id="5QY-ho-bPw"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -424,7 +442,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="448" y="638"/>
+            <point key="canvasLocation" x="447.82608695652175" y="637.5"/>
         </scene>
         <!--Select Band-->
         <scene sceneID="USj-Am-LiO">
@@ -948,6 +966,7 @@ https://github.com/groue/GRMustache
     </scenes>
     <resources>
         <image name="AboutImage" width="153.60000610351562" height="272.6400146484375"/>
+        <image name="CameraIcon" width="77" height="77"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nvG-JW-dP9"/>

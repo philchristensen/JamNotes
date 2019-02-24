@@ -73,6 +73,11 @@
     [self.tableView setEditing:editing animated:animated];
 }
 
+#pragma mark - Camera Support
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    
+}
+
 #pragma mark - Attendance Toggle
 - (IBAction) toggleAttendance:(id)sender {
     self.detailItem.attended = [self.detailItem.attended isEqualToNumber:@(1)] ? @(0) : @(1);
@@ -123,15 +128,20 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
-    return [allPhotos count];
+    return [allPhotos count] + 1;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.item == 0){
+        UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"camera" forIndexPath:indexPath];
+        return cell;
+    }
+    
     PHFetchResult* allPhotos = [self fetchAssetsFrom:self.detailItem.creationDate];
     HPBCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
     PHImageManager* manager = [PHImageManager defaultManager];
-    PHAsset* asset = [allPhotos objectAtIndex:[indexPath item]];
+    PHAsset* asset = [allPhotos objectAtIndex:[indexPath item] - 1];
     if (asset.mediaType == PHAssetMediaTypeImage && (asset.mediaSubtypes & PHAssetMediaSubtypePhotoLive)) {
         cell.livePhotoBadgeImage = [PHLivePhotoView livePhotoBadgeImageWithOptions:PHLivePhotoBadgeOptionsOverContent];
     }
@@ -150,10 +160,19 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.item == 0){
+        UIImagePickerController* vc = [[UIImagePickerController alloc] init];
+        vc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        vc.allowsEditing = YES;
+        vc.delegate = self;
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        return;
+    }
+    
     self.browser = [[MediaBrowser alloc] initWithDelegate:self];
     self.browser.enableGrid = YES;
     self.browser.enableSwipeToDismiss = YES;
-    [self.browser setCurrentIndexAt:[indexPath item]];
+    [self.browser setCurrentIndexAt:[indexPath item] - 1];
     [self.navigationController pushViewController:self.browser animated:YES];
 }
 
@@ -397,7 +416,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0){
         if(indexPath.row == 0) {
-            return 48;
+            return 65;
         }
         else if(indexPath.row <= 2){
             return 34;

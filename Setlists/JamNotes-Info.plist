@@ -32,6 +32,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to lookup photos taken at a show you attended.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>As a shortcut to access the camera from this app.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
